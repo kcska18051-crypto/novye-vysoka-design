@@ -32,3 +32,6 @@
 .water-scenes button{min-height:44px;padding:8px 14px;background:transparent;border:1px solid #829384;border-radius:6px;color:#fff;font-size:13px}
 .water-scenes button[aria-pressed=true]{background:#deebbd;border-color:#deebbd;color:#24392f}
 .water-scenes button:focus-visible{outline:3px solid #deebbd;outline-offset:3px}
+#life .lifestyle-family-wide{width:100%;margin:44px 0 0;aspect-ratio:2/1;border-radius:12px;overflow:hidden}
+#life .lifestyle-family-wide img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 75%}
+@media(max-width:760px){#life .lifestyle-family-wide{margin-top:32px;aspect-ratio:3/2;border-radius:10px}#life .lifestyle-family-wide img{object-fit:contain}}
