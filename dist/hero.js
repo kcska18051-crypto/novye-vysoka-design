@@ -34,4 +34,3 @@
   const observer=new IntersectionObserver(entries=>{if(entries[0].isIntersecting){benefits.classList.add('is-visible');observer.disconnect();}},{threshold:.1});
   observer.observe(benefits);
 })();
-
