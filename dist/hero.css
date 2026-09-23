@@ -27,3 +27,8 @@
 #life .lifestyle-visual{display:block;aspect-ratio:3/2;min-height:0;padding:0;border:0;border-radius:10px;overflow:hidden;background:transparent;margin-bottom:24px}
 #life .lifestyle-visual img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:contain}
 #life .lifestyle-visuals-caption{font-size:13px;line-height:1.5;color:#d6ddcf;margin-top:24px}
+#life .lifestyle-visual img{height:100%;object-fit:contain}
+.water-scenes{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.water-scenes button{min-height:44px;padding:8px 14px;background:transparent;border:1px solid #829384;border-radius:6px;color:#fff;font-size:13px}
+.water-scenes button[aria-pressed=true]{background:#deebbd;border-color:#deebbd;color:#24392f}
+.water-scenes button:focus-visible{outline:3px solid #deebbd;outline-offset:3px}
