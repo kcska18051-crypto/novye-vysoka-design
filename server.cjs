@@ -4,7 +4,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const root = path.join(__dirname, 'dist');
 const port = Number(process.env.PORT || 4174);
-const files = new Set(['index.html', 'styles.css', 'app.js', 'plan-data.js', 'plan.js', 'route-map.png', 'hero.css', 'hero.js', 'hero-desktop.jpg', 'hero-mobile.jpg', 'hero-desktop.mp4', 'hero-mobile.mp4']);
+const files = new Set(['index.html', 'styles.css', 'app.js', 'plan-data.js', 'plan.js', 'route-map.png', 'hero.css', 'hero.js', 'hero-desktop.jpg', 'hero-mobile.jpg', 'hero-desktop.mp4', 'hero-mobile.mp4', 'territory-panorama.jpg']);
 http.createServer((req, res) => {
   if (req.method !== 'GET' && req.method !== 'HEAD') { res.writeHead(405); res.end(); return; }
   const pathname = new URL(req.url, 'http://localhost').pathname;
