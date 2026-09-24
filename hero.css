@@ -24,3 +24,5 @@
 @media(max-width:1000px) and (min-width:761px){.about-panorama-layout{gap:28px;grid-template-columns:minmax(0,1fr) minmax(0,1.65fr)}.hero-benefits>.wrap>div{padding:20px 16px;gap:12px}.hero-benefits svg{width:46px;height:46px;flex-basis:46px}.hero-benefits span{font-size:15px}}
 @media(max-width:760px){.hero-benefits.intro-line{padding:24px 0 8px}.hero-benefits>.wrap{gap:12px}.hero-benefits>.wrap>div{padding:20px;gap:18px}.hero-benefits svg{width:46px;height:46px;flex-basis:46px}.about-compact{padding-block:40px 48px}.about-panorama-layout{grid-template-columns:minmax(0,1fr);gap:28px}.about-panorama-copy h2{font-size:34px}.about-panorama-copy .large-copy{font-size:18px;margin-top:22px}.about-panorama{border-radius:10px}}
 .about-panorama-copy h2{text-wrap:balance}
+/* Use the existing heading family for every semantic heading. */
+h1,h2,h3,h4,h5,h6{font-family:var(--serif);overflow-wrap:break-word}
