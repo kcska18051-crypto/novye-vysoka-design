@@ -1,6 +1,6 @@
 # Living Route Redesign Implementation Plan
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [x]`) syntax for tracking.
 
 **Goal:** Replace the static post-hero content with an atmospheric introduction and a reliable four-scene photo journey that is obvious and pleasant to use on mobile.
 
@@ -28,15 +28,15 @@
 - Consumes: existing `forest-path.webp` and `quiet-beach.webp` assets.
 - Produces: `.project-intro`, `.project-intro-media`, and `.place-marker` elements for CSS reveal behavior.
 
-- [ ] **Step 1: Replace the current two-photo about collage**
+- [x] **Step 1: Replace the current two-photo about collage**
 
 Create one wide image composition with the existing project heading, product explanation, a CTA to `#life`, and two compact markers: `Высоковский бор` and `Большая вода рядом`.
 
-- [ ] **Step 2: Add responsive styling**
+- [x] **Step 2: Add responsive styling**
 
 Use an asymmetric desktop layout and a single stable mobile composition. Set an image aspect ratio of `16 / 10` on desktop and `4 / 5` on mobile, with readable text and no hover-only content.
 
-- [ ] **Step 3: Verify the HTML response**
+- [x] **Step 3: Verify the HTML response**
 
 Run:
 
@@ -58,19 +58,19 @@ Expected: status `200`, marker count `2`.
 - Consumes: `forest-path.webp`, `pier-boats.webp`, `terrace-family.webp`, and `family-walk.webp`.
 - Produces: `.journey-tab[data-scene]`, `.journey-panel[data-scene]`, `.journey-track`, and `.journey-progress-fill`.
 
-- [ ] **Step 1: Add explicit scene navigation**
+- [x] **Step 1: Add explicit scene navigation**
 
 Render four real buttons named `Лес`, `Вода`, `Дом`, and `Семья`. Connect each button to its photo panel through matching `data-scene` values and `aria-controls`.
 
-- [ ] **Step 2: Build the desktop accordion**
+- [x] **Step 2: Build the desktop accordion**
 
 Show all four panels at once. Give the active panel most of the width while keeping all inactive labels visible. Use click and keyboard focus as the only activation triggers.
 
-- [ ] **Step 3: Build the mobile swipe layout**
+- [x] **Step 3: Build the mobile swipe layout**
 
 Make each panel `84vw`, expose the next card, enable horizontal scroll snap, and keep `touch-action: pan-y pinch-zoom`. Show `1 / 4` plus a four-step progress line below the track.
 
-- [ ] **Step 4: Preserve truthful content**
+- [x] **Step 4: Preserve truthful content**
 
 Keep the visualization disclosure below the block. Do not describe the pictured boats, terrace, or other objects as existing project infrastructure.
 
@@ -83,19 +83,19 @@ Keep the visualization disclosure below the block. Do not describe the pictured 
 - Consumes: the scene buttons and panels from Task 2.
 - Produces: `activateScene(index, options)`, synchronized `aria-selected`, `aria-expanded`, mobile scroll position, counter, and progress state.
 
-- [ ] **Step 1: Replace the current story state controller**
+- [x] **Step 1: Replace the current story state controller**
 
 Implement one `activateScene(index, { scrollMobile, focusTab })` function. Clamp the index to `0..3`, update classes and ARIA state, and move the progress fill by `index * 100%`.
 
-- [ ] **Step 2: Add input methods**
+- [x] **Step 2: Add input methods**
 
 Tabs activate on click and support `ArrowLeft`, `ArrowRight`, `Home`, and `End`. Panel clicks activate the matching scene. Mobile scrolling updates the active index after an animation frame.
 
-- [ ] **Step 3: Make reveal animation failure-safe**
+- [x] **Step 3: Make reveal animation failure-safe**
 
 Apply visible state immediately when reduced motion is enabled or IntersectionObserver is unavailable. Otherwise reveal the intro once on intersection. Do not use sticky positioning or scroll interception.
 
-- [ ] **Step 4: Run syntax and source checks**
+- [x] **Step 4: Run syntax and source checks**
 
 Run:
 
@@ -117,22 +117,22 @@ Expected: both commands exit with code `0` and produce no error output.
 - Consumes: the complete local preview.
 - Produces: verified desktop and mobile behavior with no console errors.
 
-- [ ] **Step 1: Verify desktop at 1366 × 768**
+- [x] **Step 1: Verify desktop at 1366 × 768**
 
 Confirm the project introduction is balanced, all four panels are visible, and clicking each panel expands it without shifting the page vertically.
 
-- [ ] **Step 2: Verify mobile at 390 × 844**
+- [x] **Step 2: Verify mobile at 390 × 844**
 
 Confirm the next photo edge is visible, all four scene buttons fit or scroll horizontally, the counter begins at `1 / 4`, and tapping `Вода` updates the photo, count, and progress.
 
-- [ ] **Step 3: Verify scrolling and errors**
+- [x] **Step 3: Verify scrolling and errors**
 
 Swipe the photo track horizontally and then scroll the page vertically. Confirm neither direction is blocked and read browser error/warning logs; expected result is an empty log list.
 
-- [ ] **Step 4: Verify reduced motion**
+- [x] **Step 4: Verify reduced motion**
 
 Emulate `prefers-reduced-motion: reduce`. Confirm all content is visible and scene switching still works without animated transitions.
 
-- [ ] **Step 5: Leave the local preview open**
+- [x] **Step 5: Leave the local preview open**
 
 Reset temporary viewport overrides, return the tab to `http://127.0.0.1:4175/`, and mark it as the user-facing deliverable.
