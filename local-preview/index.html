@@ -31,6 +31,7 @@
   <div class="mobile-menu" id="mobile-menu" hidden>
     <a href="#about">О проекте</a>
     <a href="#life">Загородная жизнь</a>
+    <a href="#media">Видео</a>
     <a href="#location">Расположение</a>
     <a href="#plots">Кварталы</a>
     <a href="#purchase">Покупка</a>
@@ -181,6 +182,65 @@
       <p class="visual-note">Фотографии показывают предполагаемый образ жизни и не являются изображением существующей инфраструктуры проекта</p>
     </section>
 
+    <section class="media-story section" id="media" aria-labelledby="media-title">
+      <div class="media-heading reveal">
+        <p class="section-label">Новые Высока вживую</p>
+        <h2 id="media-title">Увидеть место, прежде чем приехать</h2>
+        <p>Фильм о проекте, короткие видео с территории и конкретные идеи для отдыха рядом с будущим домом</p>
+      </div>
+
+      <button class="project-film reveal" type="button" data-video-provider="rutube" data-video-id="479c0e8d954df2c26bb9ef3a9c9324f0" data-video-title="Фильм о проекте Новые Высока">
+        <img src="assets/video-project.webp" alt="Панорама проекта Новые Высока в фильме с квадрокоптера" loading="lazy">
+        <span class="project-film-shade" aria-hidden="true"></span>
+        <span class="video-play" aria-hidden="true">▶</span>
+        <span class="project-film-copy"><small>Горизонтальное видео · фильм с квадрокоптера</small><strong>Проект «Новые Высока»</strong><em>Посмотреть территорию целиком</em></span>
+      </button>
+
+      <div class="reels-heading reveal">
+        <div><p class="section-label">Короткие истории</p><h3>Прогулка по территории вместе с основателем</h3></div>
+        <p>Листайте ролики в сторону и открывайте тот, который хочется посмотреть</p>
+      </div>
+      <div class="reels-track reveal" aria-label="Вертикальные видео о проекте">
+        <button class="reel-card" type="button" data-video-provider="kinescope" data-video-id="7c3wwKGJfzTnkFvgZEdFKM" data-video-title="Дмитрий Родионов о проекте у берега Волги">
+          <img src="assets/video-vertical-01.webp" alt="Дмитрий Родионов рассказывает о проекте на берегу Волги" loading="lazy"><span class="reel-shade"></span><span class="reel-number">01</span><span class="video-play" aria-hidden="true">▶</span><strong>О проекте у Волги</strong>
+        </button>
+        <button class="reel-card" type="button" data-video-provider="kinescope" data-video-id="hYFnWPwiEZDBfERDFrGhbP" data-video-title="Дмитрий Родионов о Высоковском боре">
+          <img src="assets/video-vertical-02.webp" alt="Дмитрий Родионов рассказывает о Высоковском боре" loading="lazy"><span class="reel-shade"></span><span class="reel-number">02</span><span class="video-play" aria-hidden="true">▶</span><strong>Высоковский бор</strong>
+        </button>
+        <button class="reel-card" type="button" data-video-provider="kinescope" data-video-id="49XHTBNAjzHaVuuGChi9pu" data-video-title="Дмитрий Родионов о территории Новых Высока">
+          <img src="assets/video-vertical-03.webp" alt="Дмитрий Родионов на территории проекта" loading="lazy"><span class="reel-shade"></span><span class="reel-number">03</span><span class="video-play" aria-hidden="true">▶</span><strong>О территории</strong>
+        </button>
+        <button class="reel-card" type="button" data-video-provider="kinescope" data-video-id="xwq2KvpNrgm3ua2rp9NPqV" data-video-title="Лесные маршруты рядом с проектом">
+          <img src="assets/video-vertical-04.webp" alt="Высокие деревья на лесном маршруте" loading="lazy"><span class="reel-shade"></span><span class="reel-number">04</span><span class="video-play" aria-hidden="true">▶</span><strong>Лесные маршруты</strong>
+        </button>
+        <button class="reel-card" type="button" data-video-provider="kinescope" data-video-id="veQDmoFzfTdshw6w3oKdGd" data-video-title="Поездка по лесной дороге рядом с проектом">
+          <img src="assets/video-vertical-05.webp" alt="Поездка по лесной дороге" loading="lazy"><span class="reel-shade"></span><span class="reel-number">05</span><span class="video-play" aria-hidden="true">▶</span><strong>Дороги и прогулки</strong>
+        </button>
+      </div>
+
+      <div class="place-story reveal">
+        <div class="place-story-intro">
+          <p class="section-label">Что рядом</p>
+          <h2>Лес для прогулок, Волга для длинных летних дней</h2>
+          <p>Выберите природный сценарий и посмотрите, чем может наполниться день за городом</p>
+        </div>
+        <div class="place-story-content">
+          <div class="place-tabs" role="tablist" aria-label="Природное окружение">
+            <button class="place-tab is-active" id="place-tab-forest" type="button" role="tab" aria-selected="true" aria-controls="place-panel-forest" data-place-story="forest">Высоковский бор</button>
+            <button class="place-tab" id="place-tab-water" type="button" role="tab" aria-selected="false" aria-controls="place-panel-water" data-place-story="water" tabindex="-1">Берег Волги</button>
+          </div>
+          <div class="place-panel is-active" id="place-panel-forest" role="tabpanel" aria-labelledby="place-tab-forest" data-place-story-panel="forest">
+            <img src="assets/forest-path.webp" alt="Солнечная тропа в Высоковском бору" loading="lazy">
+            <div><span>Высоковский бор</span><h3>Сосны, тишина и маршруты без расписания</h3><p>Гуляйте по лесным тропам, отправляйтесь за грибами и ягодами, выбирайте пеший или велосипедный маршрут</p><ul><li>Прогулки среди сосен</li><li>Грибы и ягоды</li><li>Пешие и велосипедные маршруты</li></ul></div>
+          </div>
+          <div class="place-panel" id="place-panel-water" role="tabpanel" aria-labelledby="place-tab-water" data-place-story-panel="water" hidden>
+            <img src="assets/pier-boats.webp" alt="Причал и лодки на берегу Волги" loading="lazy">
+            <div><span>Берег Волги, пляж и причал</span><h3>От спокойного утра у воды до активного дня</h3><p>Проводите время на пляже, купайтесь, отдыхайте с детьми или выходите на воду с причала</p><ul><li>Пляж и купание</li><li>Рыбалка и лодочные прогулки</li><li>Отдых с детьми у воды</li></ul></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="location section" id="location" aria-labelledby="location-title">
       <div class="section-heading reveal">
         <p class="section-label">Расположение</p>
@@ -263,26 +323,34 @@
     </section>
 
     <section class="company section" id="company" aria-labelledby="company-title">
-      <div class="company-visual reveal">
-        <span class="company-monogram" aria-hidden="true">МЗ</span>
-        <img src="assets/team-tatiana.webp" alt="Татьяна Кулагина, специалист отдела продаж компании «Магазин Земли»" loading="lazy">
-        <div class="company-person"><strong>Татьяна Кулагина</strong><span>специалист отдела продаж</span></div>
-      </div>
-      <div class="company-copy reveal">
-        <p class="section-label">О компании</p>
-        <h2 id="company-title">«Магазин Земли» — команда, которая знает Рыбинский район</h2>
-        <p class="company-lead">Компания подбирает земельные участки в Рыбинске и Рыбинском районе, проводит показы и помогает покупателям разобраться в выборе и условиях приобретения</p>
-        <div class="company-facts" aria-label="Факты о компании">
-          <div><strong>10 лет</strong><span>опыта на рынке</span></div>
-          <div><strong>500+</strong><span>участков в ассортименте</span></div>
-          <div><strong>400</strong><span>довольных клиентов</span></div>
+      <div class="company-top">
+        <div class="company-visual reveal">
+          <span class="company-monogram" aria-hidden="true">МЗ</span>
+          <img src="assets/dmitry-rodionov.webp" alt="Дмитрий Родионов, основатель компании «Магазин Земли»" loading="lazy">
+          <div class="company-person"><strong>Дмитрий Родионов</strong><span>основатель «Магазина Земли»</span></div>
         </div>
-        <ul class="company-services">
-          <li><span aria-hidden="true">01</span><p><strong>Помогаем с выбором</strong>Сравниваем расположение, окружение и условия подходящих участков</p></li>
-          <li><span aria-hidden="true">02</span><p><strong>Показываем территорию</strong>Организуем поездку или предоставляем видео конкретного участка</p></li>
-          <li><span aria-hidden="true">03</span><p><strong>Объясняем условия</strong>Рассказываем о документах, порядке покупки и доступной рассрочке</p></li>
-        </ul>
-        <div class="company-actions"><a class="button button-primary" href="#tour">Познакомиться с командой</a><a class="text-link" href="https://landmarket.biz/" target="_blank" rel="noopener noreferrer">Сайт компании <span>↗</span></a></div>
+        <div class="company-copy reveal">
+          <p class="section-label">О компании</p>
+          <h2 id="company-title">Создаём земельные проекты для жизни за городом</h2>
+          <p class="company-lead">«Новые Высока» — собственный проект «Магазина Земли» по объединению территорий и развитию инфраструктуры. Команда знает Рыбинский район, помогает увидеть возможности каждого места и сопровождает покупателя от первого знакомства до оформления участка</p>
+          <blockquote>«Собственный участок земли становится надёжной опорой, с которой связаны уверенность в будущем, исполнение желаний и наследие семьи»</blockquote>
+          <div class="company-facts" aria-label="Факты о компании">
+            <div><strong>10 лет</strong><span>опыта на рынке</span></div>
+            <div><strong>1000+</strong><span>участков под разные задачи</span></div>
+            <div><strong>400</strong><span>довольных клиентов</span></div>
+          </div>
+          <div class="company-actions"><a class="button button-primary" href="#tour">Познакомиться с проектом</a><a class="text-link" href="https://landmarket.biz/company" target="_blank" rel="noopener noreferrer">О компании <span>↗</span></a></div>
+        </div>
+      </div>
+      <div class="company-reasons reveal" aria-labelledby="company-reasons-title">
+        <div class="company-reasons-heading"><p class="section-label">Почему мы</p><h2 id="company-reasons-title">Пять причин обратиться в «Магазин Земли»</h2><p>Нажмите на причину, чтобы узнать, что она даёт покупателю</p></div>
+        <div class="company-reason-list">
+          <button class="company-reason is-active" type="button" aria-expanded="true"><span>01</span><strong>Ответы на неочевидные вопросы</strong><em>Помогаем разобраться в назначении земли, документах, окружении и условиях покупки ещё до принятия решения</em></button>
+          <button class="company-reason" type="button" aria-expanded="false"><span>02</span><strong>Команда специалистов</strong><em>Проводим по всему пути спокойно и понятно — от первого звонка и показа до оформления участка</em></button>
+          <button class="company-reason" type="button" aria-expanded="false"><span>03</span><strong>Более 1000 участков</strong><em>Сравниваем варианты под постоянный дом, дачу, отдых у воды и другие жизненные сценарии</em></button>
+          <button class="company-reason" type="button" aria-expanded="false"><span>04</span><strong>Гибкие условия оплаты</strong><em>Объясняем доступные варианты расчёта и помогаем выбрать понятный порядок покупки</em></button>
+          <button class="company-reason" type="button" aria-expanded="false"><span>05</span><strong>Особенные территории</strong><em>Работаем с видовыми и инвестиционно привлекательными местами для требовательных покупателей</em></button>
+        </div>
       </div>
     </section>
 
@@ -323,5 +391,12 @@
       <div class="footer-bottom"><span>Локальный дизайн-пилот · 2026</span><a href="#top">Наверх ↑</a></div>
     </footer>
   </main>
+
+  <dialog class="video-dialog" id="video-dialog" aria-labelledby="video-dialog-title">
+    <div class="video-dialog-shell">
+      <div class="video-dialog-head"><h2 id="video-dialog-title">Видео о проекте</h2><button class="video-dialog-close" type="button" aria-label="Закрыть видео">×</button></div>
+      <div class="video-dialog-frame" data-video-frame></div>
+    </div>
+  </dialog>
 </body>
 </html>

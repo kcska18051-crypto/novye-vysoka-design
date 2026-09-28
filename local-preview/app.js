@@ -116,6 +116,98 @@
   mobile.addEventListener?.('change', () => activateScene(journeyIndex));
   activateScene(0);
 
+  const storyTabs = [...document.querySelectorAll('.place-tab[data-place-story]')];
+  const storyPanels = [...document.querySelectorAll('.place-panel[data-place-story-panel]')];
+  let storyIndex = 0;
+  const activateStory = (index, focus = false) => {
+    storyIndex = Math.max(0, Math.min(index, storyTabs.length - 1));
+    storyTabs.forEach((tab, tabIndex) => {
+      const active = tabIndex === storyIndex;
+      tab.classList.toggle('is-active', active);
+      tab.setAttribute('aria-selected', String(active));
+      tab.tabIndex = active ? 0 : -1;
+    });
+    storyPanels.forEach((panel, panelIndex) => {
+      const active = panelIndex === storyIndex;
+      panel.classList.toggle('is-active', active);
+      panel.hidden = !active;
+    });
+    if (focus) storyTabs[storyIndex]?.focus({ preventScroll: true });
+  };
+  storyTabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => activateStory(index));
+    tab.addEventListener('keydown', (event) => {
+      const keys = {
+        ArrowLeft: Math.max(0, storyIndex - 1),
+        ArrowRight: Math.min(storyTabs.length - 1, storyIndex + 1),
+        Home: 0,
+        End: storyTabs.length - 1
+      };
+      if (!(event.key in keys)) return;
+      event.preventDefault();
+      activateStory(keys[event.key], true);
+    });
+  });
+  if (storyTabs.length) activateStory(0);
+
+  const companyReasons = [...document.querySelectorAll('.company-reason')];
+  const activateReason = (selected) => {
+    companyReasons.forEach((reason) => {
+      const active = reason === selected;
+      reason.classList.toggle('is-active', active);
+      reason.setAttribute('aria-expanded', String(active));
+    });
+  };
+  companyReasons.forEach((reason) => {
+    reason.addEventListener('click', () => activateReason(reason));
+    reason.addEventListener('mouseenter', () => activateReason(reason));
+    reason.addEventListener('focus', () => activateReason(reason));
+  });
+
+  const videoDialog = document.querySelector('#video-dialog');
+  const videoFrame = videoDialog?.querySelector('[data-video-frame]');
+  const videoTitle = videoDialog?.querySelector('#video-dialog-title');
+  const videoClose = videoDialog?.querySelector('.video-dialog-close');
+  let videoReturnFocus = null;
+  const closeVideo = () => {
+    if (!videoDialog) return;
+    if (videoDialog.open) videoDialog.close();
+    if (videoFrame) videoFrame.replaceChildren();
+    videoReturnFocus?.focus({ preventScroll: true });
+  };
+  const openVideo = (button) => {
+    if (!videoDialog || !videoFrame) return;
+    const { videoProvider, videoId, videoTitle: title } = button.dataset;
+    if (!videoProvider || !videoId) return;
+    const sources = {
+      rutube: `https://rutube.ru/play/embed/${videoId}?autoplay=1`,
+      kinescope: `https://kinescope.io/embed/${videoId}?autoplay=1`
+    };
+    if (!sources[videoProvider]) return;
+    videoReturnFocus = button;
+    if (forestAudio && !forestAudio.paused) forestAudio.pause();
+    if (videoTitle) videoTitle.textContent = title || 'Видео о проекте';
+    videoDialog.dataset.format = button.classList.contains('reel-card') ? 'vertical' : 'horizontal';
+    const iframe = document.createElement('iframe');
+    iframe.src = sources[videoProvider];
+    iframe.title = title || 'Видео о проекте';
+    iframe.allow = 'autoplay; fullscreen; picture-in-picture; encrypted-media';
+    iframe.allowFullscreen = true;
+    iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+    videoFrame.replaceChildren(iframe);
+    videoDialog.showModal();
+  };
+  document.querySelectorAll('[data-video-provider][data-video-id]').forEach((button) => {
+    button.addEventListener('click', () => openVideo(button));
+  });
+  videoClose?.addEventListener('click', closeVideo);
+  videoDialog?.addEventListener('click', (event) => {
+    if (event.target === videoDialog) closeVideo();
+  });
+  videoDialog?.addEventListener('close', () => {
+    if (videoFrame?.children.length) videoFrame.replaceChildren();
+  });
+
   const soundButton = document.querySelector('.sound-control');
   const floatingBirdButton = document.querySelector('.floating-bird-control');
   const soundStatus = document.querySelector('.sound-status');
