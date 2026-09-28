@@ -21,8 +21,11 @@
     </a>
     <nav aria-label="Разделы страницы">
       <a href="#about">О проекте</a>
+      <a href="#life">Живой маршрут</a>
+      <a href="#media">Видео</a>
       <a href="#location">Расположение</a>
       <a href="#plots">Кварталы</a>
+      <a href="#purchase">Покупка</a>
       <a href="#company">О компании</a>
     </nav>
     <a class="header-phone" href="tel:+79092801024">+7 (909) 280-10-24</a>
@@ -30,7 +33,7 @@
   </header>
   <div class="mobile-menu" id="mobile-menu" hidden>
     <a href="#about">О проекте</a>
-    <a href="#life">Загородная жизнь</a>
+    <a href="#life">Живой маршрут</a>
     <a href="#media">Видео</a>
     <a href="#location">Расположение</a>
     <a href="#plots">Кварталы</a>
@@ -109,35 +112,20 @@
         <a class="text-link" href="#life">Пройти маршрут одного дня <span>↓</span></a>
       </div>
 
-      <div class="project-intro-media reveal" data-place-gallery aria-label="Природное окружение проекта">
-        <figure class="project-intro-shot is-active" data-place-panel="forest" aria-hidden="false">
-          <img src="assets/forest-path.webp" alt="Солнечная тропа среди сосен">
-        </figure>
-        <figure class="project-intro-shot" data-place-panel="water" aria-hidden="true">
-          <img src="assets/quiet-beach.webp" alt="Песчаный берег рядом с сосновым лесом">
-        </figure>
+      <figure class="project-intro-media reveal" aria-label="Проект Новые Высока с высоты птичьего полёта">
+        <img class="project-intro-aerial" src="assets/territory-panorama.jpg" alt="Территория проекта Новые Высока с высоты птичьего полёта">
         <div class="project-intro-shade" aria-hidden="true"></div>
-        <div class="place-markers" role="group" aria-label="Посмотреть природное окружение">
-          <button class="place-marker is-active" type="button" data-place="forest" aria-pressed="true">
-            <span class="place-marker-icon" aria-hidden="true">♧</span>
-            <span><small>Рядом с проектом</small><strong>Высоковский бор</strong></span>
-          </button>
-          <button class="place-marker" type="button" data-place="water" aria-pressed="false">
-            <span class="place-marker-icon" aria-hidden="true">≈</span>
-            <span><small>Для прогулок</small><strong>Большая вода рядом</strong></span>
-          </button>
-        </div>
-        <p class="project-intro-caption">Нажмите на маркер, чтобы сменить пейзаж</p>
-      </div>
+        <figcaption class="project-intro-caption"><span>Вид с высоты</span><strong>Четыре квартала между лесом и Волгой</strong></figcaption>
+      </figure>
     </section>
 
     <section class="life section" id="life" aria-labelledby="life-title">
       <div class="life-heading reveal">
         <div>
           <p class="section-label">Живой маршрут</p>
-          <h2 id="life-title">У каждого времени дня — свой пейзаж</h2>
+          <h2 id="life-title">Один день — много способов быть ближе к природе</h2>
         </div>
-        <p>Листайте фотографии или выберите, каким может быть ваш день за городом</p>
+        <p>Все природные и жизненные сценарии проекта собраны в одном маршруте</p>
       </div>
 
       <div class="journey-tabs" role="tablist" aria-label="Сцены загородной жизни">
@@ -145,6 +133,7 @@
         <button class="journey-tab" id="journey-tab-water" type="button" role="tab" data-scene="water" aria-selected="false" aria-controls="journey-panel-water" tabindex="-1">Вода</button>
         <button class="journey-tab" id="journey-tab-home" type="button" role="tab" data-scene="home" aria-selected="false" aria-controls="journey-panel-home" tabindex="-1">Дом</button>
         <button class="journey-tab" id="journey-tab-family" type="button" role="tab" data-scene="family" aria-selected="false" aria-controls="journey-panel-family" tabindex="-1">Семья</button>
+        <button class="journey-tab" id="journey-tab-cycle" type="button" role="tab" data-scene="cycle" aria-selected="false" aria-controls="journey-panel-cycle" tabindex="-1">Велопрогулки</button>
       </div>
 
       <div class="journey-track" data-journey-track aria-label="Фотопрогулка по загородной жизни">
@@ -172,13 +161,25 @@
           <span class="journey-rail-label">Семья</span>
           <span class="journey-copy"><small>Выходные</small><strong>Оставить городскую спешку позади</strong><em>Прогулки по берегу всей семьёй</em></span>
         </button>
+        <button class="journey-panel" id="journey-panel-cycle" type="button" data-scene="cycle" aria-labelledby="journey-tab-cycle" aria-expanded="false">
+          <img src="assets/cycle-family.webp" alt="Семейная велопрогулка по сосновому лесу" loading="lazy">
+          <span class="journey-shade" aria-hidden="true"></span>
+          <span class="journey-rail-label">Велопрогулки</span>
+          <span class="journey-copy"><small>Активный день</small><strong>Уехать всей семьёй по лесной дороге</strong><em>Велосипедные маршруты среди сосен — без городского шума и расписания</em></span>
+        </button>
       </div>
 
       <div class="journey-status" aria-live="polite">
-        <span class="journey-count"><b data-journey-current>1</b> / 4</span>
+        <span class="journey-count"><b data-journey-current>1</b> / 5</span>
         <span class="journey-progress" aria-hidden="true"><i data-journey-progress></i></span>
         <span class="journey-hint">Листайте в сторону</span>
       </div>
+      <ul class="journey-activities reveal" aria-label="Чем заняться рядом с проектом">
+        <li><span>♧</span><strong>Лесные прогулки</strong><small>Сосны, грибы и ягоды</small></li>
+        <li><span>⌁</span><strong>Веломаршруты</strong><small>По лесным дорогам всей семьёй</small></li>
+        <li><span>≈</span><strong>Берег Волги</strong><small>Пляж, купание и спокойный отдых</small></li>
+        <li><span>⚓</span><strong>Причал и вода</strong><small>Рыбалка и лодочные прогулки</small></li>
+      </ul>
       <p class="visual-note">Фотографии показывают предполагаемый образ жизни и не являются изображением существующей инфраструктуры проекта</p>
     </section>
 
@@ -218,27 +219,6 @@
         </button>
       </div>
 
-      <div class="place-story reveal">
-        <div class="place-story-intro">
-          <p class="section-label">Что рядом</p>
-          <h2>Лес для прогулок, Волга для длинных летних дней</h2>
-          <p>Выберите природный сценарий и посмотрите, чем может наполниться день за городом</p>
-        </div>
-        <div class="place-story-content">
-          <div class="place-tabs" role="tablist" aria-label="Природное окружение">
-            <button class="place-tab is-active" id="place-tab-forest" type="button" role="tab" aria-selected="true" aria-controls="place-panel-forest" data-place-story="forest">Высоковский бор</button>
-            <button class="place-tab" id="place-tab-water" type="button" role="tab" aria-selected="false" aria-controls="place-panel-water" data-place-story="water" tabindex="-1">Берег Волги</button>
-          </div>
-          <div class="place-panel is-active" id="place-panel-forest" role="tabpanel" aria-labelledby="place-tab-forest" data-place-story-panel="forest">
-            <img src="assets/forest-path.webp" alt="Солнечная тропа в Высоковском бору" loading="lazy">
-            <div><span>Высоковский бор</span><h3>Сосны, тишина и маршруты без расписания</h3><p>Гуляйте по лесным тропам, отправляйтесь за грибами и ягодами, выбирайте пеший или велосипедный маршрут</p><ul><li>Прогулки среди сосен</li><li>Грибы и ягоды</li><li>Пешие и велосипедные маршруты</li></ul></div>
-          </div>
-          <div class="place-panel" id="place-panel-water" role="tabpanel" aria-labelledby="place-tab-water" data-place-story-panel="water" hidden>
-            <img src="assets/pier-boats.webp" alt="Причал и лодки на берегу Волги" loading="lazy">
-            <div><span>Берег Волги, пляж и причал</span><h3>От спокойного утра у воды до активного дня</h3><p>Проводите время на пляже, купайтесь, отдыхайте с детьми или выходите на воду с причала</p><ul><li>Пляж и купание</li><li>Рыбалка и лодочные прогулки</li><li>Отдых с детьми у воды</li></ul></div>
-          </div>
-        </div>
-      </div>
     </section>
 
     <section class="location section" id="location" aria-labelledby="location-title">
@@ -248,9 +228,19 @@
         <p>Ярославская область, Рыбинский район. Ориентиры для поездки из Москвы, Ярославля и Рыбинска</p>
       </div>
       <div class="location-layout">
-        <figure class="route-card reveal">
-          <img src="assets/route-map.png" alt="Схема расположения Новых Высока относительно Москвы, Ярославля, Рыбинска, Углича и Коприно" loading="lazy">
-          <figcaption>Расположение и дороги показаны схематично. Точный маршрут зависит от точки отправления и выбранного квартала</figcaption>
+        <figure class="route-card route-card-styled reveal">
+          <img class="route-card-bg" src="assets/aerial-water.webp" alt="Лес и вода в окружении проекта" loading="lazy">
+          <span class="route-card-shade" aria-hidden="true"></span>
+          <svg class="route-diagram" viewBox="0 0 720 500" role="img" aria-label="Схематичный маршрут из Москвы через Ярославль и Рыбинск к проекту Новые Высока">
+            <path class="route-line" d="M104 440 C150 382 185 350 232 312 S313 250 373 224 S483 167 554 119 S616 84 650 62"/>
+            <path class="route-line route-line-local" d="M554 119 C515 98 479 77 438 51"/>
+            <g class="route-node route-node-moscow" transform="translate(104 440)"><circle r="10"/><text x="20" y="6">Москва</text><text class="route-distance" x="20" y="26">≈ 300 км</text></g>
+            <g class="route-node" transform="translate(373 224)"><circle r="10"/><text x="20" y="6">Ярославль</text><text class="route-distance" x="20" y="26">≈ 110 км</text></g>
+            <g class="route-node" transform="translate(554 119)"><circle r="10"/><text x="20" y="6">Рыбинск</text><text class="route-distance" x="20" y="26">≈ 25 км</text></g>
+            <g class="route-node route-node-small" transform="translate(438 51)"><circle r="8"/><text x="18" y="5">Коприно</text></g>
+            <g class="route-node route-node-project" transform="translate(650 62)"><circle r="15"/><text x="-16" y="-28" text-anchor="end">Новые Высока</text></g>
+          </svg>
+          <figcaption>Стилизованная схема направления. Точный маршрут зависит от точки отправления и выбранного квартала</figcaption>
         </figure>
         <div class="location-copy reveal">
           <div class="distance-list" aria-label="Расстояния от городов">
@@ -304,21 +294,21 @@
         <div class="purchase-heading reveal">
           <p class="section-label">Условия покупки</p>
           <h2 id="purchase-title">Напрямую у собственника</h2>
-          <p>Продавец владеет участками проекта. Перед покупкой можно запросить документы, проверить сведения в ЕГРН и согласовать полный порядок расчётов</p>
+          <p>Участки продаёт собственник. До сделки покупатель может ознакомиться с выпиской ЕГРН, категорией земли, видом разрешённого использования, границами участка и условиями договора. Команда объяснит документы простым языком и организует просмотр территории</p>
           <a class="button button-primary" href="#tour">Подобрать участок</a>
         </div>
         <div class="installment-card reveal">
           <span class="installment-badge">Без участия банков</span>
           <h3>Рассрочка до 12 месяцев</h3>
-          <p>Собственник предоставляет беспроцентную рассрочку по договору</p>
+          <p>Собственник предоставляет беспроцентную рассрочку по договору — без участия банка, банковской заявки и процентов</p>
           <dl><div><dt>30%</dt><dd>первоначальный взнос</dd></div><div><dt>12</dt><dd>равных платежей на остаток</dd></div></dl>
           <small>Переход права собственности регистрируется после подписания договора и внесения первоначального взноса. До полного расчёта действует ипотека в силу закона</small>
         </div>
       </div>
       <div class="purchase-steps reveal" aria-label="Этапы покупки">
-        <article><span>1</span><h3>Познакомиться</h3><p>Приехать на просмотр или запросить видео участка</p></article>
-        <article><span>2</span><h3>Проверить</h3><p>Изучить документы, стоимость и условия оплаты</p></article>
-        <article><span>3</span><h3>Оформить</h3><p>Подписать договор и зарегистрировать право собственности</p></article>
+        <article><span aria-hidden="true">⌖</span><div><h3>Познакомиться с местом</h3><p>Приехать на просмотр кварталов или запросить видео конкретного участка</p></div></article>
+        <article><span aria-hidden="true">▤</span><div><h3>Изучить условия</h3><p>Посмотреть документы, стоимость, форму оплаты и график платежей по рассрочке</p></div></article>
+        <article><span aria-hidden="true">✓</span><div><h3>Оформить участок</h3><p>Подписать договор, внести первоначальный взнос и зарегистрировать право собственности</p></div></article>
       </div>
     </section>
 
@@ -332,7 +322,8 @@
         <div class="company-copy reveal">
           <p class="section-label">О компании</p>
           <h2 id="company-title">Создаём земельные проекты для жизни за городом</h2>
-          <p class="company-lead">«Новые Высока» — собственный проект «Магазина Земли» по объединению территорий и развитию инфраструктуры. Команда знает Рыбинский район, помогает увидеть возможности каждого места и сопровождает покупателя от первого знакомства до оформления участка</p>
+          <p class="company-lead">«Новые Высока» — собственный проект «Магазина Земли» по объединению территорий и последовательному развитию инфраструктуры. Команда больше десяти лет работает с землёй в Рыбинском районе и сопровождает покупателя от первого знакомства до оформления участка</p>
+          <p class="company-detail">В опыте команды — не только продажа земли, но и участие в строительстве и развитии загородных территорий Коприно и «Ярославского взморья». Поэтому проект рассматривают целиком: от юридической подготовки участков и подъездов до будущего сценария жизни рядом с лесом и Волгой</p>
           <blockquote>«Собственный участок земли становится надёжной опорой, с которой связаны уверенность в будущем, исполнение желаний и наследие семьи»</blockquote>
           <div class="company-facts" aria-label="Факты о компании">
             <div><strong>10 лет</strong><span>опыта на рынке</span></div>
@@ -367,17 +358,23 @@
     </section>
 
     <section class="tour" id="tour" aria-labelledby="tour-title">
-      <img class="tour-image" src="assets/family-walk.webp" alt="Семья гуляет по берегу" loading="lazy">
-      <span class="tour-shade" aria-hidden="true"></span>
       <div class="tour-inner">
-        <div class="tour-copy reveal"><p class="section-label">Познакомиться с местом</p><h2 id="tour-title">Приезжайте выбрать своё место</h2><p>Посмотрите кварталы, оцените подъезд и окружение. Если приехать пока не получается, запросите видео подходящего участка</p></div>
-        <form class="lead-form reveal" novalidate>
+        <div class="tour-visual reveal">
+          <img class="tour-image" src="assets/family-walk.webp" alt="Семья в полном составе гуляет по берегу Волги" loading="lazy">
+          <span class="tour-shade" aria-hidden="true"></span>
+          <div class="tour-copy"><p class="section-label">Познакомиться с местом</p><h2 id="tour-title">Приезжайте выбрать своё место</h2><p>Посмотрите кварталы, оцените подъезд и окружение. Если приехать пока не получается, запросите видео подходящего участка</p></div>
+        </div>
+        <form class="lead-form reveal" data-demo-form>
           <h3>Как вам удобнее познакомиться?</h3>
           <div class="form-options"><label><input type="radio" name="intent" checked> Приехать</label><label><input type="radio" name="intent"> Получить видео</label></div>
           <label>Как к вам обращаться<input type="text" name="name" placeholder="Имя"></label>
           <label>Телефон<input type="tel" name="phone" placeholder="+7 ___ ___-__-__"></label>
-          <button class="button button-primary" type="button">Оставить заявку</button>
-          <small>Демонстрационная форма — данные никуда не отправляются</small>
+          <div class="form-consents">
+            <label><input type="checkbox" name="personal-data" required> <span>Согласен на обработку персональных данных в соответствии с <a href="https://landmarket.biz/privacy" target="_blank" rel="noopener noreferrer">политикой конфиденциальности</a></span></label>
+            <label><input type="checkbox" name="terms" required> <span>Принимаю условия <a href="#" aria-label="Пользовательское соглашение — ссылка будет добавлена перед публикацией">пользовательского соглашения</a></span></label>
+          </div>
+          <button class="button button-primary" type="submit">Оставить заявку</button>
+          <small class="form-status" role="status">Демонстрационная форма — данные никуда не отправляются</small>
         </form>
       </div>
     </section>

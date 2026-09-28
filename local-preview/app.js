@@ -22,25 +22,6 @@
     if (event.matches) showAllReveals();
   });
 
-  const placeGallery = document.querySelector('[data-place-gallery]');
-  if (placeGallery) {
-    const placeButtons = [...placeGallery.querySelectorAll('[data-place]')];
-    const placePanels = [...placeGallery.querySelectorAll('[data-place-panel]')];
-    const selectPlace = (name) => {
-      placeButtons.forEach((button) => {
-        const active = button.dataset.place === name;
-        button.classList.toggle('is-active', active);
-        button.setAttribute('aria-pressed', String(active));
-      });
-      placePanels.forEach((panel) => {
-        const active = panel.dataset.placePanel === name;
-        panel.classList.toggle('is-active', active);
-        panel.setAttribute('aria-hidden', String(!active));
-      });
-    };
-    placeButtons.forEach((button) => button.addEventListener('click', () => selectPlace(button.dataset.place)));
-  }
-
   const journeyTrack = document.querySelector('[data-journey-track]');
   const journeyTabs = [...document.querySelectorAll('.journey-tab[data-scene]')];
   const journeyPanels = [...document.querySelectorAll('.journey-panel[data-scene]')];
@@ -115,40 +96,6 @@
   journeyTrack?.addEventListener('scroll', syncJourneyFromScroll, { passive: true });
   mobile.addEventListener?.('change', () => activateScene(journeyIndex));
   activateScene(0);
-
-  const storyTabs = [...document.querySelectorAll('.place-tab[data-place-story]')];
-  const storyPanels = [...document.querySelectorAll('.place-panel[data-place-story-panel]')];
-  let storyIndex = 0;
-  const activateStory = (index, focus = false) => {
-    storyIndex = Math.max(0, Math.min(index, storyTabs.length - 1));
-    storyTabs.forEach((tab, tabIndex) => {
-      const active = tabIndex === storyIndex;
-      tab.classList.toggle('is-active', active);
-      tab.setAttribute('aria-selected', String(active));
-      tab.tabIndex = active ? 0 : -1;
-    });
-    storyPanels.forEach((panel, panelIndex) => {
-      const active = panelIndex === storyIndex;
-      panel.classList.toggle('is-active', active);
-      panel.hidden = !active;
-    });
-    if (focus) storyTabs[storyIndex]?.focus({ preventScroll: true });
-  };
-  storyTabs.forEach((tab, index) => {
-    tab.addEventListener('click', () => activateStory(index));
-    tab.addEventListener('keydown', (event) => {
-      const keys = {
-        ArrowLeft: Math.max(0, storyIndex - 1),
-        ArrowRight: Math.min(storyTabs.length - 1, storyIndex + 1),
-        Home: 0,
-        End: storyTabs.length - 1
-      };
-      if (!(event.key in keys)) return;
-      event.preventDefault();
-      activateStory(keys[event.key], true);
-    });
-  });
-  if (storyTabs.length) activateStory(0);
 
   const companyReasons = [...document.querySelectorAll('.company-reason')];
   const activateReason = (selected) => {
@@ -257,6 +204,13 @@
   });
   document.addEventListener('visibilitychange', () => {
     if (document.hidden && forestAudio && !forestAudio.paused) forestAudio.pause();
+  });
+
+  const demoForm = document.querySelector('[data-demo-form]');
+  demoForm?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const status = demoForm.querySelector('.form-status');
+    if (status) status.textContent = 'Форма заполнена. В локальном прототипе данные не отправляются';
   });
 
   const menuButton = document.querySelector('.menu-button');
