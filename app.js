@@ -1,180 +1,229 @@
-'use strict';
-const menuButton = document.querySelector('.menu-toggle');
-const navigation = document.querySelector('#navigation');
-function closeMenu() { navigation.classList.remove('open'); menuButton.setAttribute('aria-expanded', 'false'); }
-menuButton.addEventListener('click', () => {
-  const open = navigation.classList.toggle('open');
-  menuButton.setAttribute('aria-expanded', String(open));
-});
-navigation.addEventListener('click', event => { if (event.target.closest('a')) closeMenu(); });
-document.addEventListener('keydown', event => { if (event.key === 'Escape' && navigation.classList.contains('open')) { closeMenu(); menuButton.focus(); } });
-window.matchMedia('(min-width: 761px)').addEventListener('change', event => { if (event.matches) closeMenu(); });
+(() => {
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
+  const mobile = matchMedia('(max-width: 760px)');
+  document.documentElement.classList.add('motion-ready');
 
-const catalog = document.querySelector('#catalog-form');
-const catalogDialog = document.querySelector('#catalog-dialog');
-let catalogOpener = null;
-let restoreCatalogFocus = true;
-function openCatalog(opener, intent) {
-  catalogOpener = opener || document.activeElement;
-  restoreCatalogFocus = true;
-  closeMenu();
-  setCatalogIntent(intent);
-  if (!catalogDialog.open) catalogDialog.showModal();
-  document.body.classList.add('catalog-open');
-  catalogDialog.scrollTop = 0;
-  document.querySelector('#catalog-form-title').focus({ preventScroll: true });
-}
-function closeCatalog(restoreFocus = true) {
-  restoreCatalogFocus = restoreFocus;
-  document.body.classList.remove('catalog-open');
-  catalogDialog.close();
-}
-catalogDialog.querySelector('[data-close-catalog]').addEventListener('click', () => closeCatalog());
-catalogDialog.addEventListener('close', () => {
-  document.body.classList.remove('catalog-open');
-  if (restoreCatalogFocus && catalogOpener?.isConnected) catalogOpener.focus({ preventScroll: true });
-});
-catalogDialog.addEventListener('cancel', event => { event.preventDefault(); closeCatalog(); });
-const outsideCatalog = event => {
-  const rect = catalogDialog.getBoundingClientRect();
-  return event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom;
-};
-let backdropPress = false;
-catalogDialog.addEventListener('pointerdown', event => { backdropPress = event.target === catalogDialog && outsideCatalog(event); });
-catalogDialog.addEventListener('click', event => {
-  if (backdropPress && event.target === catalogDialog && outsideCatalog(event)) closeCatalog();
-  backdropPress = false;
-  if (event.target.closest('a[href="#plots"]')) {
-    closeCatalog(false);
-    requestAnimationFrame(() => document.querySelector('#plots h2').focus({ preventScroll: true }));
+  const reveals = [...document.querySelectorAll('.reveal')];
+  const showAllReveals = () => reveals.forEach((item) => item.classList.add('is-visible'));
+  if (reduceMotion.matches || !('IntersectionObserver' in window)) {
+    showAllReveals();
+  } else {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: .12, rootMargin: '0px 0px -5% 0px' });
+    reveals.forEach((item) => revealObserver.observe(item));
   }
-});
-function openCatalogFromHash() {
-  if (['#catalog', '#catalog-form'].includes(location.hash)) openCatalog(null);
-}
-window.addEventListener('hashchange', openCatalogFromHash);
-openCatalogFromHash();
-const contact = document.querySelector('#catalog-contact');
-const contactLabel = document.querySelector('#contact-label');
-function setCatalogIntent(intent) {
-  const installment = intent === 'installment';
-  catalog.querySelector('[name="request"][value="' + (installment ? 'installment' : 'catalog') + '"]').checked = true;
-  document.querySelector('#catalog-form-title').textContent = installment ? 'Каталог и условия рассрочки' : 'Получить каталог';
-  catalog.querySelector('[type="submit"]').textContent = installment ? 'Запросить каталог и условия ↗' : 'Получить каталог ↗';
-  catalog.querySelector('.form-feedback').hidden = true;
-}
-catalog.addEventListener('change', event => {
-  if (event.target.name === 'request') setCatalogIntent(event.target.value);
-});
-const channels = {
-  email: { label: 'Email', type: 'email', placeholder: 'name@example.ru' },
-  max: { label: 'Телефон в MAX или ссылка на профиль', type: 'text', placeholder: '+7 … или https://max.ru/u/…' },
-  vk: { label: 'Ссылка на профиль ВКонтакте', type: 'url', placeholder: 'https://vk.com/…' }
-};
-catalog.addEventListener('change', event => {
-  if (event.target.name !== 'channel') return;
-  const channel = channels[event.target.value];
-  contactLabel.textContent = channel.label + " (обязательно)";
-  contact.type = channel.type;
-  contact.placeholder = channel.placeholder;
-  contact.value = '';
-  contact.setCustomValidity('');
-  catalog.querySelector('.form-feedback').hidden = true;
-});
-document.querySelectorAll('[data-territory]').forEach(link => link.addEventListener('click', () => {
-  document.querySelector('#territory').value = link.dataset.territory;
-  catalog.querySelector('.form-feedback').hidden = true;
-}));
 
-function validPhone(value) { return /^[+\d\s().-]+$/.test(value) && value.replace(/\D/g, '').length >= 10 && value.replace(/\D/g, '').length <= 15; }
-function validProfile(value, host) {
-  try { const url = new URL(value); return url.protocol === 'https:' && [host, 'www.' + host].includes(url.hostname) && url.pathname.length > 1; } catch { return false; }
-}
-document.querySelectorAll('form').forEach(form => {
-  form.addEventListener('input', event => {
-    if (event.target.setCustomValidity) event.target.setCustomValidity('');
-    form.querySelector('.form-feedback').hidden = true;
+  reduceMotion.addEventListener?.('change', (event) => {
+    if (event.matches) showAllReveals();
   });
-  form.addEventListener('submit', event => {
-    event.preventDefault();
 
-    if (form.id === 'tour-form') {
-      const phone = form.elements.phone;
-      phone.setCustomValidity(validPhone(phone.value.trim()) ? '' : 'Введите телефон: от 10 до 15 цифр.');
-    } else {
-      const value = contact.value.trim();
-      const channel = form.elements.channel.value;
-      contact.setCustomValidity('');
-      if (channel === 'max' && !validPhone(value) && !validProfile(value, 'max.ru')) contact.setCustomValidity('Введите телефон или полную ссылку на профиль в MAX.');
-      if (channel === 'vk' && !validProfile(value, 'vk.com') && !validProfile(value, 'vk.ru')) contact.setCustomValidity('Введите полную ссылку на ваш профиль ВКонтакте.');
+  const journeyTrack = document.querySelector('[data-journey-track]');
+  const journeyTabs = [...document.querySelectorAll('.journey-tab[data-scene]')];
+  const journeyPanels = [...document.querySelectorAll('.journey-panel[data-scene]')];
+  const journeyCurrent = document.querySelector('[data-journey-current]');
+  const journeyProgress = document.querySelector('[data-journey-progress]');
+  let journeyIndex = 0;
+  let journeyFrame = 0;
+
+  const activateScene = (index, { scrollMobile = false, focusTab = false } = {}) => {
+    if (!journeyPanels.length) return;
+    journeyIndex = Math.max(0, Math.min(index, journeyPanels.length - 1));
+    journeyTabs.forEach((tab, tabIndex) => {
+      const active = tabIndex === journeyIndex;
+      tab.classList.toggle('is-active', active);
+      tab.setAttribute('aria-selected', String(active));
+      tab.tabIndex = active ? 0 : -1;
+    });
+    journeyPanels.forEach((panel, panelIndex) => {
+      const active = panelIndex === journeyIndex;
+      panel.classList.toggle('is-active', active);
+      panel.setAttribute('aria-expanded', String(active));
+    });
+    if (journeyCurrent) journeyCurrent.textContent = String(journeyIndex + 1);
+    if (journeyProgress) journeyProgress.style.transform = `translateX(${journeyIndex * 100}%)`;
+    if (focusTab) journeyTabs[journeyIndex]?.focus({ preventScroll: true });
+    if (scrollMobile && mobile.matches && journeyTrack) {
+      const firstPanelLeft = journeyPanels[0]?.offsetLeft || 0;
+      const targetLeft = (journeyPanels[journeyIndex]?.offsetLeft || 0) - firstPanelLeft;
+      journeyTrack.scrollTo({
+        left: targetLeft,
+        behavior: reduceMotion.matches ? 'auto' : 'smooth'
+      });
     }
-    if (!form.reportValidity()) return;
-    const feedback = form.querySelector('.form-feedback');
-    feedback.textContent = form.id === 'tour-form'
-      ? (form.elements.intent.value === 'video' ? 'Демонстрация запроса видео участка. Заявка не отправлена, видео не высылается. В рабочей версии команда уточнит участок и способ передачи записи.' : 'Демонстрация записи на экскурсию. Заявка не отправлена, поездка не назначена. В рабочей версии команда свяжется с вами для согласования визита.')
-      : (form.elements.request.value === 'installment' ? 'Демонстрация запроса каталога и условий рассрочки. ' : 'Демонстрация запроса каталога — подборки участков. ') + 'Заявка не отправлена, материалы не высылаются. Выбранный канал будет использован в рабочей версии; формат и срок выдачи ещё согласуются.';
-    feedback.hidden = false;
-    feedback.focus({ preventScroll: true });
-    feedback.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block: 'nearest' });
-  });
-});
+  };
 
-const tourForm = document.querySelector('#tour-form');
-function setTourIntent(intent) {
-  tourForm.querySelector('[name="intent"][value="' + intent + '"]').checked = true;
-  const video = intent === 'video';
-  document.querySelector('#tour-form-title').textContent = video ? 'Получить видео участка' : 'Записаться на экскурсию';
-  tourForm.querySelector('[type="submit"]').textContent = video ? 'Запросить видео участка ↗' : 'Записаться на экскурсию ↗';
-  document.querySelector('#visit-time').hidden = video;
-  document.querySelector('#tour-time').disabled = video;
-  tourForm.querySelector('.form-feedback').hidden = true;
-}
-window.setTourIntent = setTourIntent;
-tourForm.addEventListener('change', event => { if(event.target.name === 'intent') setTourIntent(event.target.value); });
-document.addEventListener('click', event => {
-  const intentLink = event.target.closest('[data-tour-intent]');
-  if (intentLink) setTourIntent(intentLink.dataset.tourIntent);
-  const catalogLink = event.target.closest('[data-open-catalog], a[href="#catalog-form"]');
-  if (catalogLink) {
-    event.preventDefault();
-    openCatalog(catalogLink, catalogLink.dataset.catalogIntent);
-  }
-  const clear = event.target.closest('[data-clear-selection]');
-  if (!clear) return;
-  const prefix = clear.dataset.clearSelection;
-  document.querySelector('#' + prefix + '-selection').value = 'Участок пока не выбран';
-  if(prefix === 'catalog') document.querySelector('#territory').value = 'Пока выбираю';
-  document.querySelector('#' + prefix + '-form .form-feedback').hidden = true;
-  document.dispatchEvent(new CustomEvent('clear-plan-selection'));
-});
-document.querySelector('#territory').addEventListener('change', event => {
-  document.querySelector('#catalog-selection').value = event.target.value === 'Пока выбираю' ? 'Участок пока не выбран' : event.target.value + ' · участок не выбран';
-  catalog.querySelector('.form-feedback').hidden = true;
-});
-
-// Accessible, mutually exclusive media panels. No autoplay or external players.
-const mediaTabs = [...document.querySelectorAll('.media-tabs [role="tab"]')];
-function activateMediaTab(nextTab) {
-  for (const tab of mediaTabs) {
-    const panel = document.getElementById(tab.getAttribute('aria-controls'));
-    const selected = tab === nextTab;
-    if (!selected) panel.querySelectorAll('video').forEach(video => video.pause());
-    tab.setAttribute('aria-selected', String(selected));
-    tab.tabIndex = selected ? 0 : -1;
-    panel.hidden = !selected;
-  }
-}
-mediaTabs.forEach((tab, index) => {
-  tab.addEventListener('click', () => activateMediaTab(tab));
-  tab.addEventListener('keydown', event => {
-    let next;
-    if (event.key === 'ArrowRight') next = (index + 1) % mediaTabs.length;
-    else if (event.key === 'ArrowLeft') next = (index - 1 + mediaTabs.length) % mediaTabs.length;
-    else if (event.key === 'Home') next = 0;
-    else if (event.key === 'End') next = mediaTabs.length - 1;
-    else return;
-    event.preventDefault();
-    activateMediaTab(mediaTabs[next]);
-    mediaTabs[next].focus();
+  journeyTabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => activateScene(index, { scrollMobile: true }));
+    tab.addEventListener('keydown', (event) => {
+      const keys = {
+        ArrowLeft: Math.max(0, journeyIndex - 1),
+        ArrowRight: Math.min(journeyPanels.length - 1, journeyIndex + 1),
+        Home: 0,
+        End: journeyPanels.length - 1
+      };
+      if (!(event.key in keys)) return;
+      event.preventDefault();
+      activateScene(keys[event.key], { scrollMobile: true, focusTab: true });
+    });
   });
-});
+
+  journeyPanels.forEach((panel, index) => {
+    panel.addEventListener('click', () => activateScene(index, { scrollMobile: true }));
+  });
+
+  const syncJourneyFromScroll = () => {
+    if (!journeyTrack || !mobile.matches) return;
+    cancelAnimationFrame(journeyFrame);
+    journeyFrame = requestAnimationFrame(() => {
+      const trackLeft = journeyTrack.getBoundingClientRect().left;
+      let closestIndex = 0;
+      let closestDistance = Infinity;
+      journeyPanels.forEach((panel, index) => {
+        const distance = Math.abs(panel.getBoundingClientRect().left - trackLeft);
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestIndex = index;
+        }
+      });
+      if (closestIndex !== journeyIndex) activateScene(closestIndex);
+    });
+  };
+  journeyTrack?.addEventListener('scroll', syncJourneyFromScroll, { passive: true });
+  mobile.addEventListener?.('change', () => activateScene(journeyIndex));
+  activateScene(0);
+
+  const companyReasons = [...document.querySelectorAll('.company-reason')];
+  const activateReason = (selected) => {
+    companyReasons.forEach((reason) => {
+      const active = reason === selected;
+      reason.classList.toggle('is-active', active);
+      reason.setAttribute('aria-expanded', String(active));
+    });
+  };
+  companyReasons.forEach((reason) => {
+    reason.addEventListener('click', () => activateReason(reason));
+    reason.addEventListener('mouseenter', () => activateReason(reason));
+    reason.addEventListener('focus', () => activateReason(reason));
+  });
+
+  const videoDialog = document.querySelector('#video-dialog');
+  const videoFrame = videoDialog?.querySelector('[data-video-frame]');
+  const videoTitle = videoDialog?.querySelector('#video-dialog-title');
+  const videoClose = videoDialog?.querySelector('.video-dialog-close');
+  let videoReturnFocus = null;
+  const closeVideo = () => {
+    if (!videoDialog) return;
+    if (videoDialog.open) videoDialog.close();
+    if (videoFrame) videoFrame.replaceChildren();
+    videoReturnFocus?.focus({ preventScroll: true });
+  };
+  const openVideo = (button) => {
+    if (!videoDialog || !videoFrame) return;
+    const { videoProvider, videoId, videoTitle: title } = button.dataset;
+    if (!videoProvider || !videoId) return;
+    const sources = {
+      rutube: `https://rutube.ru/play/embed/${videoId}?autoplay=1`,
+      kinescope: `https://kinescope.io/embed/${videoId}?autoplay=1`
+    };
+    if (!sources[videoProvider]) return;
+    videoReturnFocus = button;
+    if (forestAudio && !forestAudio.paused) forestAudio.pause();
+    if (videoTitle) videoTitle.textContent = title || 'Видео о проекте';
+    videoDialog.dataset.format = button.classList.contains('reel-card') ? 'vertical' : 'horizontal';
+    const iframe = document.createElement('iframe');
+    iframe.src = sources[videoProvider];
+    iframe.title = title || 'Видео о проекте';
+    iframe.allow = 'autoplay; fullscreen; picture-in-picture; encrypted-media';
+    iframe.allowFullscreen = true;
+    iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+    videoFrame.replaceChildren(iframe);
+    videoDialog.showModal();
+  };
+  document.querySelectorAll('[data-video-provider][data-video-id]').forEach((button) => {
+    button.addEventListener('click', () => openVideo(button));
+  });
+  videoClose?.addEventListener('click', closeVideo);
+  videoDialog?.addEventListener('click', (event) => {
+    if (event.target === videoDialog) closeVideo();
+  });
+  videoDialog?.addEventListener('close', () => {
+    if (videoFrame?.children.length) videoFrame.replaceChildren();
+  });
+
+  const soundButton = document.querySelector('.sound-control');
+  const floatingBirdButton = document.querySelector('.floating-bird-control');
+  const soundStatus = document.querySelector('.sound-status');
+  const forestAudio = document.querySelector('#forest-audio');
+  const setSoundState = (playing) => {
+    [soundButton, floatingBirdButton].forEach((button) => {
+      if (!button) return;
+      button.setAttribute('aria-pressed', String(playing));
+      button.setAttribute('aria-label', playing ? 'Выключить звуки леса' : 'Включить звуки леса');
+    });
+    const strong = soundButton?.querySelector('strong');
+    if (strong) strong.textContent = playing ? 'Лес звучит' : 'Послушать лес';
+    const floatingLabel = floatingBirdButton?.querySelector('span');
+    if (floatingLabel) floatingLabel.textContent = playing ? 'Выключить лес' : 'Звук леса';
+    syncFloatingBird();
+  };
+  const toggleForestSound = async () => {
+    if (!forestAudio) return;
+    soundStatus?.classList.add('is-visible');
+    if (!forestAudio.paused) {
+      forestAudio.pause();
+      setSoundState(false);
+      return;
+    }
+    try {
+      await forestAudio.play();
+      setSoundState(true);
+    } catch {
+      setSoundState(false);
+      if (soundStatus) soundStatus.textContent = 'Не удалось включить звук — проверьте настройки браузера';
+    }
+  };
+  soundButton?.addEventListener('click', toggleForestSound);
+  floatingBirdButton?.addEventListener('click', toggleForestSound);
+  const syncFloatingBird = () => {
+    const hero = document.querySelector('.hero');
+    if (!floatingBirdButton || !hero) return;
+    floatingBirdButton.classList.toggle('is-visible', !forestAudio?.paused && scrollY > hero.offsetHeight * .72);
+  };
+  addEventListener('scroll', syncFloatingBird, { passive: true });
+  addEventListener('resize', syncFloatingBird, { passive: true });
+  syncFloatingBird();
+  forestAudio?.addEventListener('pause', () => setSoundState(false));
+  forestAudio?.addEventListener('error', () => {
+    setSoundState(false);
+    if (soundStatus) soundStatus.textContent = 'Аудиофайл временно недоступен';
+  });
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden && forestAudio && !forestAudio.paused) forestAudio.pause();
+  });
+
+  const demoForm = document.querySelector('[data-demo-form]');
+  demoForm?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const status = demoForm.querySelector('.form-status');
+    if (status) status.textContent = 'Форма заполнена. В локальном прототипе данные не отправляются';
+  });
+
+  const menuButton = document.querySelector('.menu-button');
+  const mobileMenu = document.querySelector('.mobile-menu');
+  const closeMenu = () => {
+    if (!menuButton || !mobileMenu) return;
+    menuButton.setAttribute('aria-expanded', 'false');
+    mobileMenu.hidden = true;
+  };
+  menuButton?.addEventListener('click', () => {
+    const open = menuButton.getAttribute('aria-expanded') === 'true';
+    menuButton.setAttribute('aria-expanded', String(!open));
+    if (mobileMenu) mobileMenu.hidden = open;
+  });
+  mobileMenu?.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
+})();

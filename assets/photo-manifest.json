@@ -1,0 +1,74 @@
+[
+  {
+    "file": "family-swing.webp",
+    "source": "058c05c6-f2b2-411c-84e5-a9cfea9610a4.png",
+    "role": "family-swing",
+    "width": 1536,
+    "height": 1024,
+    "sourceWidth": 1536,
+    "sourceHeight": 1024
+  },
+  {
+    "file": "aerial-water.webp",
+    "source": "19b456f3-eaf9-4a0e-8d3e-a82805ff3d47.png",
+    "role": "aerial-water",
+    "width": 1672,
+    "height": 941,
+    "sourceWidth": 1672,
+    "sourceHeight": 941
+  },
+  {
+    "file": "family-walk.webp",
+    "source": "1ec6aed5-0c65-43d7-b5ee-2d5bc00f1d75.png",
+    "role": "family-walk",
+    "width": 1536,
+    "height": 1024,
+    "sourceWidth": 1536,
+    "sourceHeight": 1024
+  },
+  {
+    "file": "quiet-beach.webp",
+    "source": "38f053b1-f5ed-449a-b88b-2bb9978a2019.png",
+    "role": "quiet-beach",
+    "width": 1536,
+    "height": 1024,
+    "sourceWidth": 1536,
+    "sourceHeight": 1024
+  },
+  {
+    "file": "forest-water.webp",
+    "source": "71ced241-ff3f-496d-8f7e-02579ed9f81e.png",
+    "role": "forest-water",
+    "width": 1536,
+    "height": 1024,
+    "sourceWidth": 1536,
+    "sourceHeight": 1024
+  },
+  {
+    "file": "forest-path.webp",
+    "source": "d567659d-b1b1-42de-a6ab-bb8a3c9c9e4d.png",
+    "role": "forest-path",
+    "width": 1536,
+    "height": 1024,
+    "sourceWidth": 1536,
+    "sourceHeight": 1024
+  },
+  {
+    "file": "terrace-family.webp",
+    "source": "d737236f-9fbc-4e4b-a8a6-bae6c044954a.png",
+    "role": "terrace-family",
+    "width": 1536,
+    "height": 1024,
+    "sourceWidth": 1536,
+    "sourceHeight": 1024
+  },
+  {
+    "file": "pier-boats.webp",
+    "source": "e75bc140-d16c-4535-9ac4-7bb4ac8c05e9.png",
+    "role": "pier-boats",
+    "width": 1536,
+    "height": 1024,
+    "sourceWidth": 1536,
+    "sourceHeight": 1024
+  }
+]
