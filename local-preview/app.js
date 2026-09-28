@@ -117,16 +117,22 @@
   activateScene(0);
 
   const soundButton = document.querySelector('.sound-control');
+  const floatingBirdButton = document.querySelector('.floating-bird-control');
   const soundStatus = document.querySelector('.sound-status');
   const forestAudio = document.querySelector('#forest-audio');
   const setSoundState = (playing) => {
-    if (!soundButton) return;
-    soundButton.setAttribute('aria-pressed', String(playing));
-    soundButton.setAttribute('aria-label', playing ? 'Выключить звуки леса' : 'Включить звуки леса');
-    const strong = soundButton.querySelector('strong');
+    [soundButton, floatingBirdButton].forEach((button) => {
+      if (!button) return;
+      button.setAttribute('aria-pressed', String(playing));
+      button.setAttribute('aria-label', playing ? 'Выключить звуки леса' : 'Включить звуки леса');
+    });
+    const strong = soundButton?.querySelector('strong');
     if (strong) strong.textContent = playing ? 'Лес звучит' : 'Послушать лес';
+    const floatingLabel = floatingBirdButton?.querySelector('span');
+    if (floatingLabel) floatingLabel.textContent = playing ? 'Выключить лес' : 'Звук леса';
+    syncFloatingBird();
   };
-  soundButton?.addEventListener('click', async () => {
+  const toggleForestSound = async () => {
     if (!forestAudio) return;
     soundStatus?.classList.add('is-visible');
     if (!forestAudio.paused) {
@@ -141,7 +147,17 @@
       setSoundState(false);
       if (soundStatus) soundStatus.textContent = 'Не удалось включить звук — проверьте настройки браузера';
     }
-  });
+  };
+  soundButton?.addEventListener('click', toggleForestSound);
+  floatingBirdButton?.addEventListener('click', toggleForestSound);
+  const syncFloatingBird = () => {
+    const hero = document.querySelector('.hero');
+    if (!floatingBirdButton || !hero) return;
+    floatingBirdButton.classList.toggle('is-visible', !forestAudio?.paused && scrollY > hero.offsetHeight * .72);
+  };
+  addEventListener('scroll', syncFloatingBird, { passive: true });
+  addEventListener('resize', syncFloatingBird, { passive: true });
+  syncFloatingBird();
   forestAudio?.addEventListener('pause', () => setSoundState(false));
   forestAudio?.addEventListener('error', () => {
     setSoundState(false);
