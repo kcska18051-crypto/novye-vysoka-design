@@ -204,7 +204,11 @@ h3 { font-size: 20px; }
 
 .section-heading { max-width: 830px; margin-bottom: 52px; }
 .section-heading > p:last-child { max-width: 650px; margin-top: 22px; color: var(--muted); font-size: 18px; line-height: 1.55; }
-.location-layout { display: grid; grid-template-columns: 1.05fr .95fr; gap: 46px; align-items: stretch; }
+.location-layout { display: grid; gap: 18px; }
+.location-reference { margin: 0; overflow: hidden; border-radius: 30px; background: var(--forest-deep); box-shadow: 0 26px 70px rgba(17, 54, 40, .13); }
+.location-reference-image { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; }
+.location-reference figcaption { display: flex; justify-content: space-between; gap: 24px; padding: 12px 20px 14px; color: rgba(255,255,255,.68); font-size: 11px; line-height: 1.45; }
+.location-reference figcaption a { flex: 0 0 auto; color: white; font-weight: 700; text-decoration: none; }
 .route-card { margin: 0; padding: 22px; display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 28px; background: white; }
 .route-card-styled { position: relative; min-height: 560px; padding: 0; overflow: hidden; border: 0; background: var(--forest-deep); color: white; isolation: isolate; }
 .route-card-bg { position: absolute; inset: 0; z-index: -3; width: 100%; height: 100%; object-fit: cover; }
@@ -219,13 +223,14 @@ h3 { font-size: 20px; }
 .route-node-project text { font-size: 23px; }
 .route-node-small text { font-size: 15px; }
 .route-card-styled figcaption { position: absolute; right: 24px; bottom: 22px; left: 24px; color: rgba(255,255,255,.72); font-size: 10px; line-height: 1.45; }
-.location-copy { padding: 40px; border-radius: 28px; background: var(--mist); }
-.distance-list { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; margin-bottom: 42px; }
+.location-copy { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(260px, .7fr); gap: 14px 36px; align-items: center; padding: 24px; border-radius: 24px; background: var(--mist); }
+.distance-list { grid-row: 1 / span 3; display: grid; grid-template-columns: repeat(5,1fr); gap: 8px; margin-bottom: 0; }
 .distance-list div { padding: 16px 12px; border-radius: 16px; background: white; }
 .distance-list strong, .distance-list span { display: block; }
 .distance-list strong { color: var(--brand-dark); font-size: 18px; }
 .distance-list span { margin-top: 3px; color: var(--muted); font-size: 10px; }
-.location-copy h3 { margin-bottom: 22px; font-size: 28px; }
+.location-copy h3 { margin-bottom: 0; font-size: 24px; }
+.location-copy > p { margin: 0; font-size: 14px; }
 .nearby-list { margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; list-style: none; }
 .nearby-list li { min-height: 90px; padding: 15px; display: flex; align-items: center; gap: 12px; border: 1px solid rgba(78,148,31,.2); border-radius: 18px; background: rgba(255,255,255,.68); }
 .nearby-list li > span { width: 38px; height: 38px; display: grid; place-items: center; flex: 0 0 auto; border-radius: 50%; background: var(--brand); color: white; font-size: 20px; }
@@ -400,6 +405,8 @@ h3 { font-size: 20px; }
   .life-heading > p { margin-top: 22px; }
   .journey-track { height: 520px; }
   .location-layout, .purchase-inner, .company-top, .place-story, .company-reasons, .faq, .tour-inner { grid-template-columns: 1fr; }
+  .location-copy { grid-template-columns: 1fr; }
+  .distance-list { grid-row: auto; grid-template-columns: repeat(3, 1fr); }
   .place-story { gap: 38px; }
   .place-story-intro { position: static; }
   .company-top { gap: 46px; }
@@ -500,6 +507,10 @@ h3 { font-size: 20px; }
   .section-heading { margin-bottom: 34px; }
   .section-heading > p:last-child { margin-top: 17px; font-size: 15px; }
   .location-layout { gap: 18px; }
+  .location-reference { border-radius: 22px; }
+  .location-reference-image { aspect-ratio: auto; object-fit: contain; }
+  .location-reference figcaption { display: block; padding: 10px 14px 12px; font-size: 9px; }
+  .location-reference figcaption a { display: block; margin-top: 5px; }
   .route-card { padding: 12px; border-radius: 22px; }
   .route-card-styled { min-height: 480px; }
   .route-diagram { min-height: 430px; padding: 15px 6px 36px; transform: scale(.92); }
@@ -507,7 +518,7 @@ h3 { font-size: 20px; }
   .route-node-project text { font-size: 18px; }
   .route-node .route-distance { font-size: 11px; }
   .route-card-styled figcaption { right: 15px; bottom: 15px; left: 15px; }
-  .location-copy { padding: 24px 18px; border-radius: 22px; }
+  .location-copy { gap: 18px; padding: 24px 18px; border-radius: 22px; }
   .distance-list { gap: 6px; margin-bottom: 30px; }
   .distance-list div { padding: 12px 8px; }
   .distance-list strong { font-size: 15px; }
