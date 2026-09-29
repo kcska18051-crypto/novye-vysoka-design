@@ -22,6 +22,7 @@ test('restores all agreed geography and buyer questions', () => {
   for (const phrase of ['Мышкина', 'Углича', 'Какие ещё коммуникации доступны?', 'Что входит в цену и какие расходы оплачиваются отдельно?', 'Можно ли познакомиться с участком из другого города?']) {
     assert.match(html, new RegExp(phrase.replace(/[?]/g, '\\?')));
   }
+  assert.doesNotMatch(html, /Уточняется<\/strong><span>из Мышкина/);
 });
 
 test('shows the current price promotion with a lead action and qualification', () => {
@@ -29,8 +30,14 @@ test('shows the current price promotion with a lead action and qualification', (
   assert.match(html, /class="promotion-offer">Успейте купить участок по <span class="promotion-price">70 тысяч рублей<\/span> за сотку/);
   assert.match(html, /Условия и наличие уточняются/);
   assert.match(html, /class="promotion-image" src="assets\/territory-panorama\.jpg"/);
-  assert.match(html, /data-lead-intent="promotion"[^>]*>Узнать об акции/);
+  assert.match(html, /data-lead-intent="promotion"[^>]*>Посмотреть участки по акции/);
+  assert.match(html, /Предложение действует на выбранные участки/);
   assert.doesNotMatch(css, /\.promotion-band:hover \.promotion-image/);
+});
+
+test('presents purchase as a numbered three-step sequence', () => {
+  for (const step of ['01', '02', '03']) assert.match(html, new RegExp(`class="purchase-step-number"[^>]*>${step}<`));
+  assert.match(html, /class="installment-flow"/);
 });
 
 test('uses the supplied aerial visuals for the hero and location story', () => {

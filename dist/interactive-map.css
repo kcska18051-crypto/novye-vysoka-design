@@ -11,7 +11,10 @@
 .map-marker:hover, .map-marker:focus-visible, .map-marker[aria-pressed="true"] { transform: translate(-50%,-50%) scale(1.16); background: #65b32e; outline: none; }
 .map-marker[data-category="quarters"] { width: 52px; height: 52px; border-radius: 17px; background: #65b32e; }
 .map-marker[data-category="quarters"][aria-pressed="true"] { background: #173f32; }
-.map-marker-label { position: absolute; left: 50%; top: calc(100% + 7px); width: max-content; max-width: 150px; padding: 5px 8px; transform: translateX(-50%); border-radius: 12px; background: rgba(14,48,37,.88); color: #fff; font-size: 9px; font-weight: 700; line-height: 1.2; pointer-events: none; }
+.map-marker-label { position: absolute; left: 50%; top: calc(100% + 7px); width: max-content; max-width: 150px; padding: 5px 8px; transform: translateX(-50%) translateY(-3px); border-radius: 12px; background: rgba(14,48,37,.92); color: #fff; font-size: 9px; font-weight: 700; line-height: 1.2; opacity: 0; pointer-events: none; transition: opacity .18s ease, transform .18s ease; }
+.map-marker:hover .map-marker-label, .map-marker:focus-visible .map-marker-label, .map-marker[aria-pressed="true"] .map-marker-label { opacity: 1; transform: translateX(-50%) translateY(0); }
+.interactive-map[data-selection-kind="quarters"] .map-marker[data-category="quarters"]:not([aria-pressed="true"]) { opacity: .62; }
+.interactive-map[data-selection-kind="quarters"] .map-marker[data-category="quarters"][aria-pressed="true"] { box-shadow: 0 0 0 7px rgba(101,179,46,.2), 0 10px 28px rgba(0,0,0,.3); }
 .map-legend { position: absolute; z-index: 3; left: 18px; bottom: 18px; padding: 10px 13px; display: flex; gap: 14px; border-radius: 16px; background: rgba(255,255,255,.9); color: #365247; font-size: 10px; backdrop-filter: blur(8px); }
 .map-legend span { display: flex; align-items: center; gap: 6px; }
 .map-legend i { width: 11px; height: 11px; display: inline-block; background: #173f32; border-radius: 50%; }

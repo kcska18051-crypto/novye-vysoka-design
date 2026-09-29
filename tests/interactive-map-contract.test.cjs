@@ -41,3 +41,13 @@ test('delegates lead clicks so the dynamically rendered quarter CTA opens the po
   const app = fs.readFileSync(path.join(root, 'dist', 'app.js'), 'utf8');
   assert.match(app, /closest\('\[data-lead-intent\]'\)/);
 });
+
+test('map markers expose hover tooltips and selected context', () => {
+  const script = fs.readFileSync(scriptPath, 'utf8');
+  const css = fs.readFileSync(cssPath, 'utf8');
+  assert.match(script, /role="tooltip"/);
+  assert.match(script, /aria-describedby=/);
+  assert.match(script, /dataset\.selectionKind/);
+  assert.match(css, /map-marker:hover \.map-marker-label/);
+  assert.match(css, /data-selection-kind="quarters"/);
+});
