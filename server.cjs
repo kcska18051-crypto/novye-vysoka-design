@@ -12,7 +12,7 @@ http.createServer((req, res) => {
   if (!resolved.startsWith(`${root}${path.sep}`) && resolved !== path.join(root, 'index.html')) { res.writeHead(404); res.end('Not found'); return; }
   fs.readFile(resolved, (error, data) => {
     if (error) { res.writeHead(404); res.end('Not found'); return; }
-    const mime = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.json': 'application/json; charset=utf-8', '.png': 'image/png', '.jpg': 'image/jpeg', '.webp': 'image/webp', '.mp3': 'audio/mpeg', '.mp4': 'video/mp4' }[path.extname(file)] || 'application/octet-stream';
+    const mime = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.json': 'application/json; charset=utf-8', '.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg', '.webp': 'image/webp', '.mp3': 'audio/mpeg', '.mp4': 'video/mp4' }[path.extname(file)] || 'application/octet-stream';
     res.writeHead(200, { 'Content-Type': mime, 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff', 'Content-Security-Policy': "default-src 'self'; img-src 'self' data:; media-src 'self'; frame-src https://rutube.ru https://kinescope.io; style-src 'self'; script-src 'self'; connect-src 'none'; form-action 'none'; frame-ancestors 'none'; base-uri 'none'" });
     res.end(req.method === 'HEAD' ? undefined : data);
   });
