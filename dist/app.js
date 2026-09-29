@@ -163,7 +163,8 @@
   let leadReturnFocus = null;
   const leadContent = {
     selection: { title: 'Подобрать участок', submit: 'Получить подборку' },
-    tour: { title: 'Записаться на экскурсию', submit: 'Записаться на экскурсию' }
+    tour: { title: 'Записаться на экскурсию', submit: 'Записаться на экскурсию' },
+    promotion: { title: 'Узнать об акции', submit: 'Получить условия акции' }
   };
   const setLeadIntent = (intent) => {
     const selectedIntent = leadContent[intent] ? intent : 'selection';

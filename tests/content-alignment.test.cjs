@@ -22,3 +22,10 @@ test('restores all agreed geography and buyer questions', () => {
     assert.match(html, new RegExp(phrase.replace(/[?]/g, '\\?')));
   }
 });
+
+test('shows the current price promotion with a lead action and qualification', () => {
+  assert.match(html, /Специальное предложение/);
+  assert.match(html, /Успейте выбрать участок по 70 000 ₽ за сотку/);
+  assert.match(html, /Условия и наличие уточняются/);
+  assert.match(html, /data-lead-intent="promotion"[^>]*>Узнать об акции/);
+});
