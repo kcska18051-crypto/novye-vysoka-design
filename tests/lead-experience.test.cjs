@@ -21,13 +21,13 @@ test('reusable lead dialog supports selection and tour intents', () => {
   assert.match(html, /<form[^>]+data-lead-form/i);
   assert.match(html, /value="selection"/i);
   assert.match(html, /value="tour"/i);
-  assert.match(script, /querySelectorAll\('\[data-lead-intent\]'\)/);
+  assert.match(script, /closest\('\[data-lead-intent\]'\)/);
   assert.match(script, /leadDialog\.showModal\(\)/);
 });
 
 test('lead dialog is available at several points in the landing page', () => {
   const triggers = html.match(/data-lead-intent=/g) || [];
-  assert.ok(triggers.length >= 8, `expected at least 8 popup triggers, got ${triggers.length}`);
+  assert.ok(triggers.length >= 5, `expected at least 5 static popup triggers, got ${triggers.length}`);
 });
 
 test('redundant section overlines are removed', () => {

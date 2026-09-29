@@ -6,6 +6,10 @@
   <meta name="theme-color" content="#65b32e">
   <title>Новые Высока — локальный дизайн-пилот</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="interactive-map.css">
+  <script src="map-data.js" defer></script>
+  <script src="interactive-map-model.js" defer></script>
+  <script src="interactive-map.js" defer></script>
   <script src="app.js" defer></script>
 </head>
 <body>
@@ -82,7 +86,7 @@
           <span class="hero-fact-icon" aria-hidden="true">
             <svg viewBox="0 0 32 32"><rect x="5" y="5" width="8" height="8" rx="2"/><rect x="19" y="5" width="8" height="8" rx="2"/><rect x="5" y="19" width="8" height="8" rx="2"/><rect x="19" y="19" width="8" height="8" rx="2"/></svg>
           </span>
-          <strong>Четыре квартала</strong>
+          <strong>Пять кварталов</strong>
           <p>Единая территория рядом с лесом и водой</p>
         </article>
         <article class="hero-fact">
@@ -104,14 +108,14 @@
     <section class="project-intro section" id="about" aria-labelledby="about-title">
       <div class="project-intro-copy reveal">
         <h2 id="about-title">«Новые Высока» — территория загородной жизни</h2>
-        <p class="project-intro-lead">Четыре квартала рядом с Высоковским бором объединены одной идеей: дать человеку собственное место у леса и воды, сохранив связь с Рыбинском и привычной инфраструктурой</p>
+        <p class="project-intro-lead">Пять кварталов рядом с Высоковским бором объединены одной идеей: дать человеку собственное место у леса и воды, сохранив связь с Рыбинском и привычной инфраструктурой</p>
         <a class="text-link" href="#life">Пройти маршрут одного дня <span>↓</span></a>
       </div>
 
       <figure class="project-intro-media reveal" aria-label="Проект Новые Высока с высоты птичьего полёта">
         <img class="project-intro-aerial" src="assets/territory-panorama.jpg" alt="Территория проекта Новые Высока с высоты птичьего полёта">
         <div class="project-intro-shade" aria-hidden="true"></div>
-        <figcaption class="project-intro-caption"><span>Вид с высоты</span><strong>Четыре квартала между лесом и Волгой</strong></figcaption>
+        <figcaption class="project-intro-caption"><span>Вид с высоты</span><strong>Пять кварталов между лесом и Волгой</strong></figcaption>
       </figure>
     </section>
 
@@ -241,15 +245,9 @@
             <div><strong>≈ 110 км</strong><span>из Ярославля</span></div>
             <div><strong>≈ 25 км</strong><span>из Рыбинска</span></div>
           </div>
-          <h3>Рядом с будущим домом</h3>
-          <ul class="nearby-list">
-            <li><span aria-hidden="true">♧</span><div><strong>Высоковский бор</strong><small>Прогулки среди сосен</small></div></li>
-            <li><span aria-hidden="true">≈</span><div><strong>Волга и берег</strong><small>Маршруты вдоль большой воды</small></div></li>
-            <li><span aria-hidden="true">⌂</span><div><strong>Николо-Кормская школа</strong><small>Инфраструктура в окружении проекта</small></div></li>
-            <li><span aria-hidden="true">▤</span><div><strong>Магазин</strong><small>Для повседневных покупок</small></div></li>
-          </ul>
-          <p class="content-note">Расстояние до конкретного объекта зависит от выбранного участка. Его удобно оценить во время поездки</p>
-          <a class="text-link" href="#tour" data-lead-intent="tour">Договориться о поездке <span>→</span></a>
+          <h3>Кварталы и всё, что находится рядом</h3>
+          <p>Школа, магазины, остановка, лес и берег собраны ниже на одной интерактивной карте.</p>
+          <a class="text-link" href="#plots">Открыть карту проекта <span>↓</span></a>
         </div>
       </div>
     </section>
@@ -261,23 +259,23 @@
 
     <section class="plots section" id="plots" aria-labelledby="plots-title">
       <div class="section-heading reveal">
-        <h2 id="plots-title">Выберите место для своего дома</h2>
-        <p>Четыре квартала образуют один проект. У каждого — своё положение, окружение и варианты участков</p>
+        <h2 id="plots-title">Исследуйте территорию «Новых Высока»</h2>
+        <p>Выбирайте кварталы и объекты рядом. В карточке квартала показаны участки и краткая сводка, в карточке объекта — фотография и главное о месте.</p>
       </div>
-      <div class="quarter-grid reveal">
-        <article><span>Лес и пляж рядом</span><h3>Николо-Корма</h3><p>Квартал рядом с Высоковским бором и маршрутом к воде</p><a href="#tour" data-lead-intent="selection">Узнать об участках →</a></article>
-        <article><span>Новый этап проекта</span><h3>Чёрная речка</h3><p>Информация о границах и участках будет добавлена после получения генплана</p><a href="#tour" data-lead-intent="selection">Оставить запрос →</a></article>
-        <article><span>Связь территорий</span><h3>Заповедная аллея</h3><p>Соединяет Николо-Корму с Высоковским бором и направлением к пляжу</p><a href="#tour" data-lead-intent="selection">Уточнить расположение →</a></article>
-        <article><span>Загородное окружение</span><h3>Дегтярицы</h3><p>Квартал для выбора участка под постоянный дом или дачу</p><a href="#tour" data-lead-intent="selection">Узнать об участках →</a></article>
-      </div>
-      <div class="plan-draft reveal" aria-label="Черновая схема кварталов">
-        <img src="assets/territory-panorama.jpg" alt="Панорама территории проекта с лесом и водой" loading="lazy">
-        <span class="plan-draft-shade" aria-hidden="true"></span>
-        <div class="plan-draft-copy"><p>Черновой генплан</p><h3>Границы и участки появятся после получения материалов</h3><span>Сейчас показываем только общую логику четырёх кварталов</span></div>
-        <div class="plan-quarter plan-quarter-one">Николо-Корма</div>
-        <div class="plan-quarter plan-quarter-two">Заповедная аллея</div>
-        <div class="plan-quarter plan-quarter-three">Дегтярицы</div>
-        <div class="plan-quarter plan-quarter-four">Чёрная речка</div>
+      <div class="interactive-map reveal" data-interactive-map>
+        <div class="map-filter-row" data-map-filters aria-label="Фильтры карты"></div>
+        <div class="map-layout">
+          <div class="map-canvas" aria-label="Интерактивная карта кварталов и окружения">
+            <img class="map-base" src="assets/quarters/masterplan.webp" alt="Общий генплан территории Новые Высока" loading="lazy">
+            <div class="map-markers" data-map-markers></div>
+            <div class="map-legend" aria-hidden="true"><span><i class="legend-quarter"></i>Кварталы</span><span><i class="legend-object"></i>Объекты рядом</span></div>
+          </div>
+          <aside class="map-detail" data-map-card aria-live="polite">
+            <div class="map-card-empty"><span>Нажмите на точку</span><h3>Выберите квартал или объект на карте</h3><p>Здесь появятся генплан, показатели квартала или краткая информация о месте.</p></div>
+          </aside>
+        </div>
+        <div class="map-live" data-map-live aria-live="polite"></div>
+        <div class="map-object-list" data-map-object-list aria-label="Все объекты карты"></div>
       </div>
     </section>
 
@@ -378,6 +376,13 @@
       <div class="footer-bottom"><span>Локальный дизайн-пилот · 2026</span><a href="#top">Наверх ↑</a></div>
     </footer>
   </main>
+
+  <dialog class="quarter-plan-dialog" id="quarter-plan-dialog" aria-labelledby="quarter-plan-title">
+    <div class="quarter-plan-dialog-shell">
+      <div class="quarter-plan-dialog-head"><h2 id="quarter-plan-title">Генплан квартала</h2><button class="quarter-plan-dialog-close" type="button" aria-label="Закрыть генплан">×</button></div>
+      <div class="quarter-plan-zoom"><img src="" alt="" data-quarter-plan-image></div>
+    </div>
+  </dialog>
 
   <dialog class="lead-dialog" id="lead-dialog" aria-labelledby="lead-dialog-title">
     <div class="lead-dialog-shell">

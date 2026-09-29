@@ -183,11 +183,11 @@
     if (status) status.textContent = 'Демонстрационная форма — данные никуда не отправляются';
     leadDialog.showModal();
   };
-  document.querySelectorAll('[data-lead-intent]').forEach((trigger) => {
-    trigger.addEventListener('click', (event) => {
-      event.preventDefault();
-      openLead(trigger);
-    });
+  document.addEventListener('click', (event) => {
+    const trigger = event.target.closest('[data-lead-intent]');
+    if (!trigger) return;
+    event.preventDefault();
+    openLead(trigger);
   });
   leadForm?.querySelectorAll('input[name="popup-intent"]').forEach((radio) => {
     radio.addEventListener('change', () => setLeadIntent(radio.value));
