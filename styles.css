@@ -238,6 +238,8 @@ h3 { font-size: 20px; }
 .conversion-band h2 { max-width: 690px; font-size: clamp(30px,3.2vw,46px); }
 .conversion-band p:last-child { max-width: 650px; margin-top: 14px; color: rgba(255,255,255,.82); }
 .conversion-band .button { flex: 0 0 auto; background: white; color: var(--forest); }
+.promotion-kicker { display: inline-block; margin-bottom: 10px; color: rgba(255,255,255,.86); font-size: 12px; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; }
+.promotion-band small { display: block; margin-top: 10px; color: rgba(255,255,255,.72); font-size: 10px; line-height: 1.5; }
 
 .quarter-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; }
 .quarter-grid article { min-height: 270px; padding: 27px 24px; display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 24px; background: white; transition: transform .3s ease, box-shadow .3s ease; }
