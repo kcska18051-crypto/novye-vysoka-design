@@ -22,17 +22,50 @@
     if (event.matches) showAllReveals();
   });
 
+  const siteHeader = document.querySelector('.site-header');
+  const headerLinks = [...document.querySelectorAll('.site-header nav a[href^="#"]')];
+  const syncHeaderState = () => siteHeader?.classList.toggle('is-scrolled', scrollY > 36);
+  addEventListener('scroll', syncHeaderState, { passive: true });
+  syncHeaderState();
+  if ('IntersectionObserver' in window && headerLinks.length) {
+    const sectionObserver = new IntersectionObserver((entries) => {
+      const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (!visible) return;
+      headerLinks.forEach((link) => {
+        if (link.getAttribute('href') === `#${visible.target.id}`) link.setAttribute('aria-current', 'location');
+        else link.removeAttribute('aria-current');
+      });
+    }, { rootMargin: '-22% 0px -62% 0px', threshold: [0, .2, .6] });
+    headerLinks.forEach((link) => {
+      const section = document.querySelector(link.getAttribute('href'));
+      if (section) sectionObserver.observe(section);
+    });
+  }
+
   const journeyTrack = document.querySelector('[data-journey-track]');
   const journeyTabs = [...document.querySelectorAll('.journey-tab[data-scene]')];
   const journeyPanels = [...document.querySelectorAll('.journey-panel[data-scene]')];
   const journeyCurrent = document.querySelector('[data-journey-current]');
   const journeyProgress = document.querySelector('[data-journey-progress]');
+  const journeyPrev = document.querySelector('[data-journey-prev]');
+  const journeyNext = document.querySelector('[data-journey-next]');
   let journeyIndex = 0;
   let journeyFrame = 0;
 
+  const preloadJourneyNeighbors = (index) => {
+    [index - 1, index + 1].forEach((neighborIndex) => {
+      const source = journeyPanels[neighborIndex]?.querySelector('img')?.currentSrc || journeyPanels[neighborIndex]?.querySelector('img')?.src;
+      if (!source) return;
+      const preload = new Image();
+      preload.src = source;
+    });
+  };
+
   const activateScene = (index, { scrollMobile = false, focusTab = false } = {}) => {
     if (!journeyPanels.length) return;
+    const previousIndex = journeyIndex;
     journeyIndex = Math.max(0, Math.min(index, journeyPanels.length - 1));
+    if (journeyTrack && journeyIndex !== previousIndex) journeyTrack.dataset.direction = journeyIndex > previousIndex ? 'next' : 'previous';
     journeyTabs.forEach((tab, tabIndex) => {
       const active = tabIndex === journeyIndex;
       tab.classList.toggle('is-active', active);
@@ -46,6 +79,9 @@
     });
     if (journeyCurrent) journeyCurrent.textContent = String(journeyIndex + 1);
     if (journeyProgress) journeyProgress.style.transform = `translateX(${journeyIndex * 100}%)`;
+    if (journeyPrev) journeyPrev.disabled = journeyIndex === 0;
+    if (journeyNext) journeyNext.disabled = journeyIndex === journeyPanels.length - 1;
+    preloadJourneyNeighbors(journeyIndex);
     if (focusTab) journeyTabs[journeyIndex]?.focus({ preventScroll: true });
     if (scrollMobile && mobile.matches && journeyTrack) {
       const firstPanelLeft = journeyPanels[0]?.offsetLeft || 0;
@@ -75,6 +111,8 @@
   journeyPanels.forEach((panel, index) => {
     panel.addEventListener('click', () => activateScene(index, { scrollMobile: true }));
   });
+  journeyPrev?.addEventListener('click', () => activateScene(journeyIndex - 1, { scrollMobile: true }));
+  journeyNext?.addEventListener('click', () => activateScene(journeyIndex + 1, { scrollMobile: true }));
 
   const syncJourneyFromScroll = () => {
     if (!journeyTrack || !mobile.matches) return;
@@ -97,18 +135,56 @@
   mobile.addEventListener?.('change', () => activateScene(journeyIndex));
   activateScene(0);
 
+  const enableDragScroll = (track) => {
+    let pointerId = null;
+    let startX = 0;
+    let startScroll = 0;
+    let suppressClick = false;
+    track?.addEventListener('pointerdown', (event) => {
+      if (event.pointerType !== 'mouse' || event.button !== 0) return;
+      pointerId = event.pointerId;
+      startX = event.clientX;
+      startScroll = track.scrollLeft;
+      suppressClick = false;
+      track.setPointerCapture(pointerId);
+      track.classList.add('is-dragging');
+    });
+    track?.addEventListener('pointermove', (event) => {
+      if (event.pointerId !== pointerId) return;
+      const distance = event.clientX - startX;
+      if (Math.abs(distance) > 6) suppressClick = true;
+      track.scrollLeft = startScroll - distance;
+    });
+    const stopDrag = (event) => {
+      if (event.pointerId !== pointerId) return;
+      track.releasePointerCapture?.(pointerId);
+      pointerId = null;
+      track.classList.remove('is-dragging');
+    };
+    track?.addEventListener('pointerup', stopDrag);
+    track?.addEventListener('pointercancel', stopDrag);
+    track?.addEventListener('click', (event) => {
+      if (!suppressClick) return;
+      event.preventDefault();
+      event.stopPropagation();
+      suppressClick = false;
+    }, true);
+  };
+  enableDragScroll(document.querySelector('.reels-track'));
+
   const companyReasons = [...document.querySelectorAll('.company-reason')];
   const activateReason = (selected) => {
+    const shouldOpen = selected.getAttribute('aria-expanded') !== 'true';
     companyReasons.forEach((reason) => {
-      const active = reason === selected;
+      const active = reason === selected && shouldOpen;
       reason.classList.toggle('is-active', active);
       reason.setAttribute('aria-expanded', String(active));
+      const toggle = reason.querySelector('.company-reason-toggle');
+      if (toggle) toggle.textContent = active ? '−' : '+';
     });
   };
   companyReasons.forEach((reason) => {
     reason.addEventListener('click', () => activateReason(reason));
-    reason.addEventListener('mouseenter', () => activateReason(reason));
-    reason.addEventListener('focus', () => activateReason(reason));
   });
 
   const videoDialog = document.querySelector('#video-dialog');
@@ -164,7 +240,7 @@
   const leadContent = {
     selection: { title: 'Подобрать участок', submit: 'Получить подборку' },
     tour: { title: 'Записаться на экскурсию', submit: 'Записаться на экскурсию' },
-    promotion: { title: 'Узнать об акции', submit: 'Получить условия акции' }
+    promotion: { title: 'Посмотреть участки по акции', submit: 'Получить подборку по акции' }
   };
   const setLeadIntent = (intent) => {
     const selectedIntent = leadContent[intent] ? intent : 'selection';
@@ -181,7 +257,8 @@
     leadReturnFocus = trigger;
     setLeadIntent(trigger.dataset.leadIntent);
     const status = leadDialog.querySelector('.form-status');
-    if (status) status.textContent = 'Демонстрационная форма — данные никуда не отправляются';
+    if (status) status.textContent = '';
+    leadForm?.classList.remove('is-error', 'is-loading', 'is-success');
     leadDialog.showModal();
   };
   document.addEventListener('click', (event) => {
@@ -252,11 +329,65 @@
     if (document.hidden && forestAudio && !forestAudio.paused) forestAudio.pause();
   });
 
+  const formatPhone = (value) => {
+    let digits = value.replace(/\D/g, '');
+    if (digits.startsWith('8')) digits = `7${digits.slice(1)}`;
+    if (!digits.startsWith('7')) digits = `7${digits}`;
+    digits = digits.slice(0, 11);
+    const local = digits.slice(1);
+    let result = '+7';
+    if (local.length) result += ` (${local.slice(0, 3)}`;
+    if (local.length >= 3) result += ')';
+    if (local.length > 3) result += ` ${local.slice(3, 6)}`;
+    if (local.length > 6) result += `-${local.slice(6, 8)}`;
+    if (local.length > 8) result += `-${local.slice(8, 10)}`;
+    return result;
+  };
   document.querySelectorAll('[data-demo-form]').forEach((demoForm) => {
+    const phone = demoForm.querySelector('input[type="tel"]');
+    const submit = demoForm.querySelector('button[type="submit"]');
+    const status = demoForm.querySelector('.form-status');
+    const error = phone?.parentElement.querySelector('.field-error');
+    phone?.addEventListener('input', () => {
+      phone.value = formatPhone(phone.value);
+      phone.setCustomValidity('');
+      phone.removeAttribute('aria-invalid');
+      if (error) error.textContent = '';
+      demoForm.classList.remove('is-error');
+    });
     demoForm.addEventListener('submit', (event) => {
       event.preventDefault();
-      const status = demoForm.querySelector('.form-status');
-      if (status) status.textContent = 'Форма заполнена. В локальном прототипе данные не отправляются';
+      const phoneDigits = phone?.value.replace(/\D/g, '') || '';
+      if (phone && phoneDigits.length !== 11) {
+        phone.setCustomValidity('Введите телефон полностью');
+        phone.setAttribute('aria-invalid', 'true');
+        if (error) error.textContent = 'Введите телефон полностью';
+      }
+      const invalid = demoForm.querySelector(':invalid');
+      if (invalid) {
+        demoForm.classList.add('is-error');
+        demoForm.classList.remove('is-success', 'is-loading');
+        if (status) status.textContent = 'Проверьте отмеченные поля';
+        invalid.focus({ preventScroll: true });
+        invalid.reportValidity?.();
+        return;
+      }
+      demoForm.classList.remove('is-error', 'is-success');
+      demoForm.classList.add('is-loading');
+      if (submit) {
+        submit.disabled = true;
+        submit.setAttribute('aria-busy', 'true');
+      }
+      if (status) status.textContent = 'Проверяем данные…';
+      setTimeout(() => {
+        demoForm.classList.remove('is-loading');
+        demoForm.classList.add('is-success');
+        if (submit) {
+          submit.disabled = false;
+          submit.removeAttribute('aria-busy');
+        }
+        if (status) status.textContent = 'Форма заполнена. Отправка будет подключена перед запуском сайта.';
+      }, reduceMotion.matches ? 0 : 450);
     });
   });
 

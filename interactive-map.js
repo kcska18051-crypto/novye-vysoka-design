@@ -58,8 +58,13 @@
   function render() {
     const visible = model.getVisibleItems(data, category);
     selectedId = model.nextSelection(data, category, selectedId);
+    const selectedItem = selectedId ? model.getItemById(data, selectedId) : null;
+    root.dataset.selectionKind = selectedItem?.category || '';
     renderFilters();
-    markers.innerHTML = visible.map((item) => `<button class="map-marker" type="button" data-map-item="${item.id}" data-category="${item.category}" aria-label="Открыть: ${escapeHtml(item.name)}" aria-pressed="${item.id === selectedId}" style="--x:${item.x}%;--y:${item.y}%"><span aria-hidden="true">${categoryIcon[item.category]}</span><span class="map-marker-label">${escapeHtml(item.name)}</span></button>`).join('');
+    markers.innerHTML = visible.map((item) => {
+      const tooltipId = `map-tooltip-${item.id}`;
+      return `<button class="map-marker" type="button" data-map-item="${item.id}" data-category="${item.category}" aria-label="Открыть: ${escapeHtml(item.name)}" aria-describedby="${tooltipId}" aria-pressed="${item.id === selectedId}" style="--x:${item.x}%;--y:${item.y}%"><span aria-hidden="true">${categoryIcon[item.category]}</span><span class="map-marker-label" id="${tooltipId}" role="tooltip">${escapeHtml(item.name)}</span></button>`;
+    }).join('');
     list.innerHTML = visible.map((item) => `<button class="map-list-button" type="button" data-map-item="${item.id}" aria-pressed="${item.id === selectedId}">${escapeHtml(item.name)}</button>`).join('');
     root.classList.toggle('has-selection', Boolean(selectedId));
     if (!selectedId) {

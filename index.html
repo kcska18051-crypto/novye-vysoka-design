@@ -22,13 +22,12 @@
     </a>
     <nav aria-label="Разделы страницы">
       <a href="#about">О проекте</a>
-      <a href="#life">Живой маршрут</a>
-      <a href="#media">Видео</a>
-      <a href="#location">Расположение</a>
+      <a href="#life">Как здесь жить</a>
       <a href="#plots">Кварталы</a>
       <a href="#purchase">Покупка</a>
       <a href="#company">О компании</a>
     </nav>
+    <a class="header-cta" href="#tour" data-lead-intent="selection">Выбрать участок</a>
     <a class="header-phone" href="tel:+79092801024">+7 (909) 280-10-24</a>
     <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu">Меню</button>
   </header>
@@ -115,6 +114,9 @@
       <figure class="project-intro-media reveal" aria-label="Проект Новые Высока с высоты птичьего полёта">
         <img class="project-intro-aerial" src="assets/territory-panorama.jpg" alt="Территория проекта Новые Высока с высоты птичьего полёта">
         <div class="project-intro-shade" aria-hidden="true"></div>
+        <button class="project-hotspot project-hotspot-forest" type="button" aria-label="Высоковский бор"><span>Лес</span></button>
+        <button class="project-hotspot project-hotspot-river" type="button" aria-label="Волга"><span>Волга</span></button>
+        <button class="project-hotspot project-hotspot-quarters" type="button" aria-label="Пять кварталов проекта"><span>Кварталы</span></button>
         <figcaption class="project-intro-caption"><span>Вид с высоты</span><strong>Пять кварталов между лесом и Волгой</strong></figcaption>
       </figure>
     </section>
@@ -169,9 +171,11 @@
       </div>
 
       <div class="journey-status" aria-live="polite">
+        <button class="journey-control" type="button" data-journey-prev aria-label="Предыдущая история">←</button>
         <span class="journey-count"><b data-journey-current>1</b> / 5</span>
         <span class="journey-progress" aria-hidden="true"><i data-journey-progress></i></span>
         <span class="journey-hint">Листайте в сторону</span>
+        <button class="journey-control" type="button" data-journey-next aria-label="Следующая история">→</button>
       </div>
       <ul class="journey-activities reveal" aria-label="Чем заняться рядом с проектом">
         <li><span>♧</span><strong>Лесные прогулки</strong><small>Сосны, грибы и ягоды</small></li>
@@ -179,7 +183,7 @@
         <li><span>≈</span><strong>Берег Волги</strong><small>Пляж, купание и спокойный отдых</small></li>
         <li><span>⚓</span><strong>Причал и вода</strong><small>Рыбалка и лодочные прогулки</small></li>
       </ul>
-      <p class="visual-note">Фотографии показывают предполагаемый образ жизни и не являются изображением существующей инфраструктуры проекта</p>
+      <p class="visual-note"><span aria-hidden="true">i</span>Фотографии показывают предполагаемый образ жизни и не являются изображением существующей инфраструктуры проекта</p>
     </section>
 
     <section class="media-story section" id="media" aria-labelledby="media-title">
@@ -234,7 +238,6 @@
             <div><strong>≈ 300 км</strong><span>из Москвы</span></div>
             <div><strong>≈ 110 км</strong><span>из Ярославля</span></div>
             <div><strong>≈ 25 км</strong><span>из Рыбинска</span></div>
-            <div><strong>Уточняется</strong><span>из Мышкина</span></div>
             <div><strong>≈ 45 км</strong><span>из Углича</span></div>
           </div>
           <h3>Кварталы и всё, что находится рядом</h3>
@@ -249,12 +252,12 @@
         <h2>Специальное предложение</h2>
         <p class="promotion-offer">Успейте купить участок по <span class="promotion-price">70 тысяч рублей</span> за сотку</p>
         <p class="promotion-description">Получите подборку участков, участвующих в акции, и выберите варианты для просмотра.</p>
-        <small>Условия и наличие уточняются для конкретного участка.</small>
+        <small>Предложение действует на выбранные участки. Условия и наличие уточняются для конкретного участка.</small>
       </div>
       <div class="promotion-visual">
         <img class="promotion-image" src="assets/territory-panorama.jpg" alt="Территория Новых Высока между лесом и Волгой" loading="lazy">
         <span class="promotion-image-shade" aria-hidden="true"></span>
-        <a class="button button-primary" href="#tour" data-lead-intent="promotion">Узнать об акции</a>
+        <a class="button button-primary" href="#tour" data-lead-intent="promotion">Посмотреть участки по акции</a>
       </div>
     </aside>
 
@@ -291,14 +294,15 @@
           <span class="installment-badge">Без участия банков</span>
           <h3>Рассрочка до 12 месяцев без участия банков</h3>
           <p>Беспроцентная рассрочка позволяет распределить оплату участка. Её предоставляет собственник.</p>
+          <div class="installment-flow" aria-label="Схема рассрочки"><span><b>30%</b> взнос</span><i aria-hidden="true">→</i><span><b>12</b> месяцев</span><i aria-hidden="true">→</i><span><b>ЕГРН</b> оформление</span></div>
           <dl><div><dt>30%</dt><dd>первоначальный взнос</dd></div><div><dt>12</dt><dd>равных платежей на остаток</dd></div></dl>
           <small>Переход права собственности регистрируется после подписания договора и внесения первоначального взноса. До погашения рассрочки участок находится в залоге у продавца.</small>
         </div>
       </div>
       <div class="purchase-steps reveal" aria-label="Этапы покупки">
-        <article><span aria-hidden="true">⌖</span><div><h3>Познакомиться с участком</h3><p>Приехать на просмотр или запросить видео подходящего участка.</p></div></article>
-        <article><span aria-hidden="true">▤</span><div><h3>Согласовать условия</h3><p>Проверить документы, полную стоимость, дополнительные расходы и порядок оплаты.</p></div></article>
-        <article><span aria-hidden="true">✓</span><div><h3>Оформить покупку</h3><p>Подписать договор, внести согласованный платёж и зарегистрировать переход права собственности.</p></div></article>
+        <article><span class="purchase-step-number" aria-hidden="true">01</span><div><h3>Познакомиться с участком</h3><p>Приехать на просмотр или запросить видео подходящего участка.</p></div></article>
+        <article><span class="purchase-step-number" aria-hidden="true">02</span><div><h3>Согласовать условия</h3><p>Проверить документы, полную стоимость, дополнительные расходы и порядок оплаты.</p></div></article>
+        <article><span class="purchase-step-number" aria-hidden="true">03</span><div><h3>Оформить покупку</h3><p>Подписать договор, внести согласованный платёж и зарегистрировать переход права собственности.</p></div></article>
       </div>
     </section>
 
@@ -325,19 +329,19 @@
       <div class="company-reasons reveal" aria-labelledby="company-reasons-title">
         <div class="company-reasons-heading"><h2 id="company-reasons-title">Пять причин обратиться в «Магазин Земли»</h2><p>Нажмите на причину, чтобы узнать, что она даёт покупателю</p></div>
         <div class="company-reason-list">
-          <button class="company-reason is-active" type="button" aria-expanded="true"><span>01</span><strong>Ответы на неочевидные вопросы</strong><em>Помогаем разобраться в назначении земли, документах, окружении и условиях покупки ещё до принятия решения</em></button>
-          <button class="company-reason" type="button" aria-expanded="false"><span>02</span><strong>Команда специалистов</strong><em>Проводим по всему пути спокойно и понятно — от первого звонка и показа до оформления участка</em></button>
-          <button class="company-reason" type="button" aria-expanded="false"><span>03</span><strong>Более 1000 участков</strong><em>Сравниваем варианты под постоянный дом, дачу, отдых у воды и другие жизненные сценарии</em></button>
-          <button class="company-reason" type="button" aria-expanded="false"><span>04</span><strong>Гибкие условия оплаты</strong><em>Объясняем доступные варианты расчёта и помогаем выбрать понятный порядок покупки</em></button>
-          <button class="company-reason" type="button" aria-expanded="false"><span>05</span><strong>Особенные территории</strong><em>Работаем с видовыми и инвестиционно привлекательными местами для требовательных покупателей</em></button>
+          <button class="company-reason" type="button" aria-expanded="false" aria-controls="reason-01"><span>01</span><strong>Ответы на неочевидные вопросы</strong><span class="company-reason-toggle" aria-hidden="true">+</span><em id="reason-01">Помогаем разобраться в назначении земли, документах, окружении и условиях покупки ещё до принятия решения</em></button>
+          <button class="company-reason" type="button" aria-expanded="false" aria-controls="reason-02"><span>02</span><strong>Команда специалистов</strong><span class="company-reason-toggle" aria-hidden="true">+</span><em id="reason-02">Проводим по всему пути спокойно и понятно — от первого звонка и показа до оформления участка</em></button>
+          <button class="company-reason" type="button" aria-expanded="false" aria-controls="reason-03"><span>03</span><strong>Более 1000 участков</strong><span class="company-reason-toggle" aria-hidden="true">+</span><em id="reason-03">Сравниваем варианты под постоянный дом, дачу, отдых у воды и другие жизненные сценарии</em></button>
+          <button class="company-reason" type="button" aria-expanded="false" aria-controls="reason-04"><span>04</span><strong>Гибкие условия оплаты</strong><span class="company-reason-toggle" aria-hidden="true">+</span><em id="reason-04">Объясняем доступные варианты расчёта и помогаем выбрать понятный порядок покупки</em></button>
+          <button class="company-reason" type="button" aria-expanded="false" aria-controls="reason-05"><span>05</span><strong>Особенные территории</strong><span class="company-reason-toggle" aria-hidden="true">+</span><em id="reason-05">Работаем с видовыми и инвестиционно привлекательными местами для требовательных покупателей</em></button>
         </div>
       </div>
     </section>
 
     <section class="faq section" id="faq" aria-labelledby="faq-title">
       <div class="faq-heading reveal"><h2 id="faq-title">Вопросы<br>и ответы</h2><p>О земле, подключении электричества и покупке участка в рассрочку.</p></div>
-      <div class="faq-list reveal">
-        <details open><summary>Какой вид разрешённого использования у участков?</summary><p>Вид разрешённого использования — индивидуальное жилищное строительство, сокращённо ИЖС. Он позволяет построить отдельно стоящий жилой дом для проживания. При проектировании нужно учитывать местные правила застройки, отступы от границ и ограничения конкретного участка.</p></details>
+      <div class="faq-list reveal" data-accordion>
+        <details><summary>Какой вид разрешённого использования у участков?</summary><p>Вид разрешённого использования — индивидуальное жилищное строительство, сокращённо ИЖС. Он позволяет построить отдельно стоящий жилой дом для проживания. При проектировании нужно учитывать местные правила застройки, отступы от границ и ограничения конкретного участка.</p></details>
         <details><summary>К какой категории относятся земли?</summary><p>Участки относятся к категории «земли населённых пунктов». Категория определяет общее назначение земли, а допустимое строительство — вид разрешённого использования и действующие ограничения.</p></details>
         <details><summary>Как подключить электричество?</summary><p>Заявка на технологическое присоединение подаётся через портал электросетевых услуг. Стоимость, сроки и перечень работ определяет сетевая организация в условиях подключения и договоре.</p></details>
         <details><summary>Какие ещё коммуникации доступны?</summary><p>Наличие воды, канализации, газа и интернета, а также условия и стоимость подключения уточняются по конкретному участку. Обсудите эти вопросы с командой перед покупкой.</p></details>
@@ -358,15 +362,15 @@
         </div>
         <form class="lead-form reveal" data-demo-form>
           <h3>Как вам удобнее познакомиться?</h3>
-          <div class="form-options"><label><input type="radio" name="intent" checked> Приехать</label><label><input type="radio" name="intent"> Получить видео</label></div>
-          <label>Как к вам обращаться<input type="text" name="name" placeholder="Имя"></label>
-          <label>Телефон<input type="tel" name="phone" placeholder="+7 ___ ___-__-__"></label>
+          <div class="form-options"><label><input type="radio" name="intent" value="tour" checked><span><strong>Приехать посмотреть</strong><small>Увидеть кварталы и окружение</small></span></label><label><input type="radio" name="intent" value="video"><span><strong>Получить видео участка</strong><small>Познакомиться с местом дистанционно</small></span></label></div>
+          <label>Как к вам обращаться<input type="text" name="name" placeholder="Имя" autocomplete="name"></label>
+          <label>Телефон<input type="tel" name="phone" placeholder="+7 ___ ___-__-__" inputmode="tel" autocomplete="tel" required aria-describedby="tour-phone-error"><span class="field-error" id="tour-phone-error"></span></label>
           <div class="form-consents">
             <label><input type="checkbox" name="personal-data" required> <span>Согласен на обработку персональных данных в соответствии с <a href="https://landmarket.biz/privacy" target="_blank" rel="noopener noreferrer">политикой конфиденциальности</a></span></label>
             <label><input type="checkbox" name="terms" required> <span>Принимаю условия <a href="#" aria-label="Пользовательское соглашение — ссылка будет добавлена перед публикацией">пользовательского соглашения</a></span></label>
           </div>
           <button class="button button-primary" type="submit">Оставить заявку</button>
-          <small class="form-status" role="status">Демонстрационная форма — данные никуда не отправляются</small>
+          <small class="form-status" role="status"></small>
         </form>
       </div>
     </section>
@@ -375,9 +379,9 @@
       <div class="footer-main">
         <div><h2>Новые Высока</h2><p>проект «Магазина Земли»</p></div>
         <div><a href="tel:+79092801024">+7 (909) 280-10-24</a><a href="mailto:mail@landmarket.biz">mail@landmarket.biz</a></div>
-        <p>Ярославская область, г. Рыбинск<br>ул. Крестовая, д. 141</p>
+        <p><a class="footer-address" href="https://yandex.ru/maps/?text=Рыбинск%2C%20Крестовая%20141" target="_blank" rel="noopener noreferrer">Ярославская область, г. Рыбинск<br>ул. Крестовая, д. 141</a></p>
       </div>
-      <div class="footer-bottom"><span>Локальный дизайн-пилот · 2026</span><a href="#top">Наверх ↑</a></div>
+      <div class="footer-bottom"><span>Локальный дизайн-пилот · 2026</span><nav class="footer-legal" aria-label="Правовая информация"><a href="https://landmarket.biz/privacy" target="_blank" rel="noopener noreferrer">Политика конфиденциальности</a><a href="#">Пользовательское соглашение</a></nav><a href="#top">Наверх ↑</a></div>
     </footer>
   </main>
 
@@ -401,14 +405,14 @@
           <label><input type="radio" name="popup-intent" value="selection" checked> <span>Подобрать участок</span></label>
           <label><input type="radio" name="popup-intent" value="tour"> <span>Записаться на экскурсию</span></label>
         </fieldset>
-        <label>Как к вам обращаться<input type="text" name="name" placeholder="Имя"></label>
-        <label>Телефон<input type="tel" name="phone" placeholder="+7 ___ ___-__-__"></label>
+        <label>Как к вам обращаться<input type="text" name="name" placeholder="Имя" autocomplete="name"></label>
+        <label>Телефон<input type="tel" name="phone" placeholder="+7 ___ ___-__-__" inputmode="tel" autocomplete="tel" required aria-describedby="dialog-phone-error"><span class="field-error" id="dialog-phone-error"></span></label>
         <div class="form-consents">
           <label><input type="checkbox" name="personal-data" required> <span>Согласен на обработку персональных данных в соответствии с <a href="https://landmarket.biz/privacy" target="_blank" rel="noopener noreferrer">политикой конфиденциальности</a></span></label>
           <label><input type="checkbox" name="terms" required> <span>Принимаю условия <a href="#" aria-label="Пользовательское соглашение — ссылка будет добавлена перед публикацией">пользовательского соглашения</a></span></label>
         </div>
         <button class="button button-primary lead-dialog-submit" type="submit">Получить подборку</button>
-        <small class="form-status" role="status">Демонстрационная форма — данные никуда не отправляются</small>
+        <small class="form-status" role="status"></small>
       </form>
     </div>
   </dialog>
