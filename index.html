@@ -14,6 +14,7 @@
   <header class="site-header" aria-label="Главная навигация">
     <a class="brand" href="#top" aria-label="Магазин Земли — Новые Высока">
       <img class="brand-logo" src="magazin-zemli-logo.svg" alt="Магазин Земли" width="597" height="168">
+      <span class="brand-project">проект «Новые Высока»</span>
     </a>
     <nav aria-label="Разделы страницы">
       <a href="#about">О проекте</a>
@@ -52,8 +53,8 @@
         <h1 id="hero-title">Жизнь рядом с лесом и большой водой</h1>
         <p class="hero-lead">Участки под индивидуальное жилищное строительство в месте, куда хочется возвращаться всей семьёй</p>
         <div class="hero-actions">
-          <a class="button button-primary" href="#life">Почувствовать место</a>
-          <a class="button button-glass" href="#about">Узнать о проекте</a>
+          <a class="button button-primary" href="#tour" data-lead-intent="selection">Подобрать участок</a>
+          <a class="button button-glass" href="#tour" data-lead-intent="tour">Записаться на экскурсию</a>
         </div>
       </div>
 
@@ -102,7 +103,6 @@
 
     <section class="project-intro section" id="about" aria-labelledby="about-title">
       <div class="project-intro-copy reveal">
-        <p class="section-label">О проекте</p>
         <h2 id="about-title">«Новые Высока» — территория загородной жизни</h2>
         <p class="project-intro-lead">Четыре квартала рядом с Высоковским бором объединены одной идеей: дать человеку собственное место у леса и воды, сохранив связь с Рыбинском и привычной инфраструктурой</p>
         <a class="text-link" href="#life">Пройти маршрут одного дня <span>↓</span></a>
@@ -118,7 +118,6 @@
     <section class="life section" id="life" aria-labelledby="life-title">
       <div class="life-heading reveal">
         <div>
-          <p class="section-label">Живой маршрут</p>
           <h2 id="life-title">Один день — много способов быть ближе к природе</h2>
         </div>
         <p>Все природные и жизненные сценарии проекта собраны в одном маршруте</p>
@@ -181,7 +180,6 @@
 
     <section class="media-story section" id="media" aria-labelledby="media-title">
       <div class="media-heading reveal">
-        <p class="section-label">Новые Высока вживую</p>
         <h2 id="media-title">Увидеть место, прежде чем приехать</h2>
         <p>Фильм о проекте, короткие видео с территории и конкретные идеи для отдыха рядом с будущим домом</p>
       </div>
@@ -194,7 +192,7 @@
       </button>
 
       <div class="reels-heading reveal">
-        <div><p class="section-label">Короткие истории</p><h3>Прогулка по территории вместе с основателем</h3></div>
+        <div><h3>Прогулка по территории вместе с основателем</h3></div>
         <p>Листайте ролики в сторону и открывайте тот, который хочется посмотреть</p>
       </div>
       <div class="reels-track reveal" aria-label="Вертикальные видео о проекте">
@@ -219,7 +217,6 @@
 
     <section class="location section" id="location" aria-labelledby="location-title">
       <div class="section-heading reveal">
-        <p class="section-label">Расположение</p>
         <h2 id="location-title">Ближе к природе — из вашего города</h2>
         <p>Ярославская область, Рыбинский район. Ориентиры для поездки из Москвы, Ярославля и Рыбинска</p>
       </div>
@@ -252,27 +249,26 @@
             <li><span aria-hidden="true">▤</span><div><strong>Магазин</strong><small>Для повседневных покупок</small></div></li>
           </ul>
           <p class="content-note">Расстояние до конкретного объекта зависит от выбранного участка. Его удобно оценить во время поездки</p>
-          <a class="text-link" href="#tour">Договориться о поездке <span>→</span></a>
+          <a class="text-link" href="#tour" data-lead-intent="tour">Договориться о поездке <span>→</span></a>
         </div>
       </div>
     </section>
 
     <aside class="conversion-band reveal" aria-label="Получить подборку участков">
-      <div><p class="section-label">Первый шаг</p><h2>Присмотрите место для своих планов</h2><p>Получите подборку участков и выберите варианты, которые хочется увидеть вживую</p></div>
-      <a class="button button-primary" href="#tour">Получить подборку</a>
+      <div><h2>Присмотрите место для своих планов</h2><p>Получите подборку участков и выберите варианты, которые хочется увидеть вживую</p></div>
+      <a class="button button-primary" href="#tour" data-lead-intent="selection">Получить подборку</a>
     </aside>
 
     <section class="plots section" id="plots" aria-labelledby="plots-title">
       <div class="section-heading reveal">
-        <p class="section-label">Кварталы проекта</p>
         <h2 id="plots-title">Выберите место для своего дома</h2>
         <p>Четыре квартала образуют один проект. У каждого — своё положение, окружение и варианты участков</p>
       </div>
       <div class="quarter-grid reveal">
-        <article><span>Лес и пляж рядом</span><h3>Николо-Корма</h3><p>Квартал рядом с Высоковским бором и маршрутом к воде</p><a href="#tour">Узнать об участках →</a></article>
-        <article><span>Новый этап проекта</span><h3>Чёрная речка</h3><p>Информация о границах и участках будет добавлена после получения генплана</p><a href="#tour">Оставить запрос →</a></article>
-        <article><span>Связь территорий</span><h3>Заповедная аллея</h3><p>Соединяет Николо-Корму с Высоковским бором и направлением к пляжу</p><a href="#tour">Уточнить расположение →</a></article>
-        <article><span>Загородное окружение</span><h3>Дегтярицы</h3><p>Квартал для выбора участка под постоянный дом или дачу</p><a href="#tour">Узнать об участках →</a></article>
+        <article><span>Лес и пляж рядом</span><h3>Николо-Корма</h3><p>Квартал рядом с Высоковским бором и маршрутом к воде</p><a href="#tour" data-lead-intent="selection">Узнать об участках →</a></article>
+        <article><span>Новый этап проекта</span><h3>Чёрная речка</h3><p>Информация о границах и участках будет добавлена после получения генплана</p><a href="#tour" data-lead-intent="selection">Оставить запрос →</a></article>
+        <article><span>Связь территорий</span><h3>Заповедная аллея</h3><p>Соединяет Николо-Корму с Высоковским бором и направлением к пляжу</p><a href="#tour" data-lead-intent="selection">Уточнить расположение →</a></article>
+        <article><span>Загородное окружение</span><h3>Дегтярицы</h3><p>Квартал для выбора участка под постоянный дом или дачу</p><a href="#tour" data-lead-intent="selection">Узнать об участках →</a></article>
       </div>
       <div class="plan-draft reveal" aria-label="Черновая схема кварталов">
         <img src="assets/territory-panorama.jpg" alt="Панорама территории проекта с лесом и водой" loading="lazy">
@@ -288,10 +284,9 @@
     <section class="purchase" id="purchase" aria-labelledby="purchase-title">
       <div class="purchase-inner">
         <div class="purchase-heading reveal">
-          <p class="section-label">Условия покупки</p>
           <h2 id="purchase-title">Напрямую у собственника</h2>
           <p>Участки продаёт собственник. До сделки покупатель может ознакомиться с выпиской ЕГРН, категорией земли, видом разрешённого использования, границами участка и условиями договора. Команда объяснит документы простым языком и организует просмотр территории</p>
-          <a class="button button-primary" href="#tour">Подобрать участок</a>
+          <a class="button button-primary" href="#tour" data-lead-intent="selection">Подобрать участок</a>
         </div>
         <div class="installment-card reveal">
           <span class="installment-badge">Без участия банков</span>
@@ -316,7 +311,6 @@
           <div class="company-person"><strong>Дмитрий Родионов</strong><span>основатель «Магазина Земли»</span></div>
         </div>
         <div class="company-copy reveal">
-          <p class="section-label">О компании</p>
           <h2 id="company-title">Создаём земельные проекты для жизни за городом</h2>
           <p class="company-lead">«Новые Высока» — собственный проект «Магазина Земли» по объединению территорий и последовательному развитию инфраструктуры. Команда больше десяти лет работает с землёй в Рыбинском районе и сопровождает покупателя от первого знакомства до оформления участка</p>
           <p class="company-detail">В опыте команды — не только продажа земли, но и участие в строительстве и развитии загородных территорий Коприно и «Ярославского взморья». Поэтому проект рассматривают целиком: от юридической подготовки участков и подъездов до будущего сценария жизни рядом с лесом и Волгой</p>
@@ -326,11 +320,11 @@
             <div><strong>1000+</strong><span>участков под разные задачи</span></div>
             <div><strong>400</strong><span>довольных клиентов</span></div>
           </div>
-          <div class="company-actions"><a class="button button-primary" href="#tour">Познакомиться с проектом</a><a class="text-link" href="https://landmarket.biz/company" target="_blank" rel="noopener noreferrer">О компании <span>↗</span></a></div>
+          <div class="company-actions"><a class="button button-primary" href="#tour" data-lead-intent="tour">Записаться на экскурсию</a><a class="text-link" href="https://landmarket.biz/company" target="_blank" rel="noopener noreferrer">О компании <span>↗</span></a></div>
         </div>
       </div>
       <div class="company-reasons reveal" aria-labelledby="company-reasons-title">
-        <div class="company-reasons-heading"><p class="section-label">Почему мы</p><h2 id="company-reasons-title">Пять причин обратиться в «Магазин Земли»</h2><p>Нажмите на причину, чтобы узнать, что она даёт покупателю</p></div>
+        <div class="company-reasons-heading"><h2 id="company-reasons-title">Пять причин обратиться в «Магазин Земли»</h2><p>Нажмите на причину, чтобы узнать, что она даёт покупателю</p></div>
         <div class="company-reason-list">
           <button class="company-reason is-active" type="button" aria-expanded="true"><span>01</span><strong>Ответы на неочевидные вопросы</strong><em>Помогаем разобраться в назначении земли, документах, окружении и условиях покупки ещё до принятия решения</em></button>
           <button class="company-reason" type="button" aria-expanded="false"><span>02</span><strong>Команда специалистов</strong><em>Проводим по всему пути спокойно и понятно — от первого звонка и показа до оформления участка</em></button>
@@ -342,7 +336,7 @@
     </section>
 
     <section class="faq section" id="faq" aria-labelledby="faq-title">
-      <div class="faq-heading reveal"><p class="section-label">Вопросы и ответы</p><h2 id="faq-title">Важное до выбора участка</h2><p>Коротко о земле, электричестве и покупке в рассрочку</p></div>
+      <div class="faq-heading reveal"><h2 id="faq-title">Важное до выбора участка</h2><p>Коротко о земле, электричестве и покупке в рассрочку</p></div>
       <div class="faq-list reveal">
         <details open><summary>Какой вид разрешённого использования у участков?</summary><p>Индивидуальное жилищное строительство, или ИЖС. На таком участке можно построить отдельно стоящий жилой дом. При проектировании учитываются местные правила застройки и ограничения конкретного участка</p></details>
         <details><summary>К какой категории относятся земли?</summary><p>Участки относятся к землям населённых пунктов. Общее назначение земли определяет категория, а допустимое строительство — вид разрешённого использования и действующие ограничения</p></details>
@@ -358,7 +352,7 @@
         <div class="tour-visual reveal">
           <img class="tour-image" src="assets/family-walk.webp" alt="Семья в полном составе гуляет по берегу Волги" loading="lazy">
           <span class="tour-shade" aria-hidden="true"></span>
-          <div class="tour-copy"><p class="section-label">Познакомиться с местом</p><h2 id="tour-title">Приезжайте выбрать своё место</h2><p>Посмотрите кварталы, оцените подъезд и окружение. Если приехать пока не получается, запросите видео подходящего участка</p></div>
+          <div class="tour-copy"><h2 id="tour-title">Приезжайте выбрать своё место</h2><p>Посмотрите кварталы, оцените подъезд и окружение. Если приехать пока не получается, запросите видео подходящего участка</p></div>
         </div>
         <form class="lead-form reveal" data-demo-form>
           <h3>Как вам удобнее познакомиться?</h3>
@@ -377,13 +371,38 @@
 
     <footer class="site-footer" id="contact">
       <div class="footer-main">
-        <div><p class="section-label">Проект «Магазина Земли»</p><h2>Новые Высока</h2></div>
+        <div><h2>Новые Высока</h2><p>проект «Магазина Земли»</p></div>
         <div><a href="tel:+79092801024">+7 (909) 280-10-24</a><a href="mailto:mail@landmarket.biz">mail@landmarket.biz</a></div>
         <p>Ярославская область, г. Рыбинск<br>ул. Крестовая, д. 141</p>
       </div>
       <div class="footer-bottom"><span>Локальный дизайн-пилот · 2026</span><a href="#top">Наверх ↑</a></div>
     </footer>
   </main>
+
+  <dialog class="lead-dialog" id="lead-dialog" aria-labelledby="lead-dialog-title">
+    <div class="lead-dialog-shell">
+      <button class="lead-dialog-close" type="button" aria-label="Закрыть форму">×</button>
+      <div class="lead-dialog-intro">
+        <h2 id="lead-dialog-title">Подобрать участок</h2>
+        <p>Оставьте контакты — команда уточнит ваши планы и предложит подходящий следующий шаг.</p>
+      </div>
+      <form class="lead-form lead-dialog-form" data-demo-form data-lead-form>
+        <fieldset class="lead-intents">
+          <legend>Что вас интересует?</legend>
+          <label><input type="radio" name="popup-intent" value="selection" checked> <span>Подобрать участок</span></label>
+          <label><input type="radio" name="popup-intent" value="tour"> <span>Записаться на экскурсию</span></label>
+        </fieldset>
+        <label>Как к вам обращаться<input type="text" name="name" placeholder="Имя"></label>
+        <label>Телефон<input type="tel" name="phone" placeholder="+7 ___ ___-__-__"></label>
+        <div class="form-consents">
+          <label><input type="checkbox" name="personal-data" required> <span>Согласен на обработку персональных данных в соответствии с <a href="https://landmarket.biz/privacy" target="_blank" rel="noopener noreferrer">политикой конфиденциальности</a></span></label>
+          <label><input type="checkbox" name="terms" required> <span>Принимаю условия <a href="#" aria-label="Пользовательское соглашение — ссылка будет добавлена перед публикацией">пользовательского соглашения</a></span></label>
+        </div>
+        <button class="button button-primary lead-dialog-submit" type="submit">Получить подборку</button>
+        <small class="form-status" role="status">Демонстрационная форма — данные никуда не отправляются</small>
+      </form>
+    </div>
+  </dialog>
 
   <dialog class="video-dialog" id="video-dialog" aria-labelledby="video-dialog-title">
     <div class="video-dialog-shell">
