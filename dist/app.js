@@ -155,6 +155,51 @@
     if (videoFrame?.children.length) videoFrame.replaceChildren();
   });
 
+  const leadDialog = document.querySelector('#lead-dialog');
+  const leadForm = leadDialog?.querySelector('[data-lead-form]');
+  const leadTitle = leadDialog?.querySelector('#lead-dialog-title');
+  const leadSubmit = leadDialog?.querySelector('.lead-dialog-submit');
+  const leadClose = leadDialog?.querySelector('.lead-dialog-close');
+  let leadReturnFocus = null;
+  const leadContent = {
+    selection: { title: 'Подобрать участок', submit: 'Получить подборку' },
+    tour: { title: 'Записаться на экскурсию', submit: 'Записаться на экскурсию' }
+  };
+  const setLeadIntent = (intent) => {
+    const selectedIntent = leadContent[intent] ? intent : 'selection';
+    const radio = leadForm?.querySelector(`input[name="popup-intent"][value="${selectedIntent}"]`);
+    if (radio) radio.checked = true;
+    if (leadTitle) leadTitle.textContent = leadContent[selectedIntent].title;
+    if (leadSubmit) leadSubmit.textContent = leadContent[selectedIntent].submit;
+  };
+  const closeLead = () => {
+    if (leadDialog?.open) leadDialog.close();
+  };
+  const openLead = (trigger) => {
+    if (!leadDialog) return;
+    leadReturnFocus = trigger;
+    setLeadIntent(trigger.dataset.leadIntent);
+    const status = leadDialog.querySelector('.form-status');
+    if (status) status.textContent = 'Демонстрационная форма — данные никуда не отправляются';
+    leadDialog.showModal();
+  };
+  document.querySelectorAll('[data-lead-intent]').forEach((trigger) => {
+    trigger.addEventListener('click', (event) => {
+      event.preventDefault();
+      openLead(trigger);
+    });
+  });
+  leadForm?.querySelectorAll('input[name="popup-intent"]').forEach((radio) => {
+    radio.addEventListener('change', () => setLeadIntent(radio.value));
+  });
+  leadClose?.addEventListener('click', closeLead);
+  leadDialog?.addEventListener('click', (event) => {
+    if (event.target === leadDialog) closeLead();
+  });
+  leadDialog?.addEventListener('close', () => {
+    leadReturnFocus?.focus({ preventScroll: true });
+  });
+
   const soundButton = document.querySelector('.sound-control');
   const floatingBirdButton = document.querySelector('.floating-bird-control');
   const soundStatus = document.querySelector('.sound-status');
@@ -206,11 +251,12 @@
     if (document.hidden && forestAudio && !forestAudio.paused) forestAudio.pause();
   });
 
-  const demoForm = document.querySelector('[data-demo-form]');
-  demoForm?.addEventListener('submit', (event) => {
-    event.preventDefault();
-    const status = demoForm.querySelector('.form-status');
-    if (status) status.textContent = 'Форма заполнена. В локальном прототипе данные не отправляются';
+  document.querySelectorAll('[data-demo-form]').forEach((demoForm) => {
+    demoForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const status = demoForm.querySelector('.form-status');
+      if (status) status.textContent = 'Форма заполнена. В локальном прототипе данные не отправляются';
+    });
   });
 
   const menuButton = document.querySelector('.menu-button');
