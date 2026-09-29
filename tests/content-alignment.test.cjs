@@ -29,3 +29,9 @@ test('shows the current price promotion with a lead action and qualification', (
   assert.match(html, /Условия и наличие уточняются/);
   assert.match(html, /data-lead-intent="promotion"[^>]*>Узнать об акции/);
 });
+
+test('uses the supplied aerial visuals for the hero and location story', () => {
+  assert.match(html, /class="hero-image" src="assets\/hero-aerial-sunset\.webp"/);
+  assert.match(html, /class="location-reference-image" src="assets\/location-reference-map\.webp"/);
+  assert.doesNotMatch(html, /class="route-diagram"/);
+});
