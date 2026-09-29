@@ -4,6 +4,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 
 const html = fs.readFileSync(path.join(__dirname, '..', 'dist', 'index.html'), 'utf8');
+const css = fs.readFileSync(path.join(__dirname, '..', 'dist', 'styles.css'), 'utf8');
 
 test('uses the approved core message from the prototype', () => {
   assert.match(html, /Больше леса,<br>больше жизни/);
@@ -24,11 +25,12 @@ test('restores all agreed geography and buyer questions', () => {
 });
 
 test('shows the current price promotion with a lead action and qualification', () => {
-  assert.match(html, /Специальное предложение/);
-  assert.match(html, /Успейте выбрать участок по 70 000 ₽ за сотку/);
+  assert.match(html, /<h2>Специальное предложение<\/h2>/);
+  assert.match(html, /class="promotion-offer">Успейте купить участок по <span class="promotion-price">70 тысяч рублей<\/span> за сотку/);
   assert.match(html, /Условия и наличие уточняются/);
   assert.match(html, /class="promotion-image" src="assets\/territory-panorama\.jpg"/);
   assert.match(html, /data-lead-intent="promotion"[^>]*>Узнать об акции/);
+  assert.doesNotMatch(css, /\.promotion-band:hover \.promotion-image/);
 });
 
 test('uses the supplied aerial visuals for the hero and location story', () => {
