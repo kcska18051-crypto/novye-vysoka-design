@@ -21,3 +21,11 @@
 ## Для второй итерации
 
 Оценить общую степень темноты, размер заголовков, насыщенность медных акцентов и новые фотографии. Контентные изменения не смешивать с визуальным согласованием. Формы остаются демонстрационными до подключения приёма заявок.
+
+## 30 September — client-selected photos and warm refinement
+- Replaced fire, home/evening and pier with the four supplied client assets; added mushrooms as the eighth lifestyle scene. Pier also updated in infrastructure map.
+- Original PNGs: source-assets/lifestyle/client-selection; optimized WebP files carry -client names. No generated replacements or color edits.
+- Warm light about/video/map/company sections alternate with forest sections. Reduced heading sizes, restrained hero zoom and hover/reveal motion. Simplified map panel surfaces and mobile transition.
+- Restored two company paragraphs including Koprino and Yaroslavskoe Vzmorie per the supplied brief; kept portrait, role, quote and all three figures.
+- Mobile and tablet presentation retains whole supplied photographs above captions.
+- Validation: 42 node tests, browser interactions (gallery and quarter panel), seven viewport widths. Fixed hero-facts overflow at 768px. No browser errors observed.
