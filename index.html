@@ -7,8 +7,8 @@
   <title>Новые Высока — локальный дизайн-пилот</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="interactive-map.css">
-  <link rel="stylesheet" href="forest-theme.css?v=warm2">
-  <script src="map-data.js?v=warm2" defer></script>
+  <link rel="stylesheet" href="forest-theme.css?v=forest-soft1">
+  <script src="map-data.js?v=forest-soft1" defer></script>
   <script src="interactive-map-model.js" defer></script>
   <script src="interactive-map.js" defer></script>
   <script src="app.js?v=forest1" defer></script>
@@ -129,6 +129,7 @@
 
       <div class="journey-tabs" role="tablist" aria-label="Сцены загородной жизни">
         <button class="journey-tab is-active" id="journey-tab-forest" type="button" role="tab" data-scene="forest" aria-selected="true" aria-controls="journey-panel-forest">Лес</button>
+        <button class="journey-tab" id="journey-tab-mushrooms" type="button" role="tab" data-scene="mushrooms" aria-selected="false" aria-controls="journey-panel-mushrooms" tabindex="-1">За грибами</button>
         <button class="journey-tab" id="journey-tab-water" type="button" role="tab" data-scene="water" aria-selected="false" aria-controls="journey-panel-water" tabindex="-1">Вода</button>
         <button class="journey-tab" id="journey-tab-home" type="button" role="tab" data-scene="home" aria-selected="false" aria-controls="journey-panel-home" tabindex="-1">Дом</button>
         <button class="journey-tab" id="journey-tab-family" type="button" role="tab" data-scene="family" aria-selected="false" aria-controls="journey-panel-family" tabindex="-1">Семья</button>
@@ -144,14 +145,19 @@
           <span class="journey-rail-label">Лес</span>
           <span class="journey-copy"><small>Утро</small><strong>Выйти на тропу раньше всех</strong><em>Высоковский бор рядом — прогулка начинается у дома</em></span>
         </button>
+        <button class="journey-panel" id="journey-panel-mushrooms" type="button" data-scene="mushrooms" aria-labelledby="journey-tab-mushrooms" aria-expanded="false">
+          <img src="assets/forest-v2/mushrooms-client.webp" alt="Грибы среди мха и хвои в солнечном лесу" loading="lazy">
+          <span class="journey-shade" aria-hidden="true"></span><span class="journey-rail-label">За грибами</span>
+          <span class="journey-copy"><small>Лесные находки</small><strong>Замедлиться на лесной тропе</strong><em>Неспешная прогулка с корзинкой — замечать маленькие находки среди мха и хвои</em></span>
+        </button>
         <button class="journey-panel" id="journey-panel-water" type="button" data-scene="water" aria-labelledby="journey-tab-water" aria-expanded="false">
-          <img src="assets/forest-v2/pier-warm.webp" alt="Отдых у большой воды в окружении леса">
+          <img src="assets/forest-v2/pier-client.webp" alt="Отдых у большой воды в окружении леса">
           <span class="journey-shade" aria-hidden="true"></span>
           <span class="journey-rail-label">Вода</span>
           <span class="journey-copy"><small>День</small><strong>Провести день у большой воды</strong><em>Берег Волги — для прогулок, рыбалки и отдыха</em></span>
         </button>
         <button class="journey-panel" id="journey-panel-home" type="button" data-scene="home" aria-labelledby="journey-tab-home" aria-expanded="false">
-          <picture><source media="(max-width: 1000px)" srcset="assets/forest-v2/home-warm-mobile.webp"><img src="assets/forest-v2/home-warm.webp" alt="Семья за столом на террасе загородного дома"></picture>
+          <img src="assets/forest-v2/home-client.webp" alt="Семья за столом на террасе загородного дома">
           <span class="journey-shade" aria-hidden="true"></span>
           <span class="journey-rail-label">Дом</span>
           <span class="journey-copy"><small>Вечер</small><strong>Собраться за одним столом</strong><em>Тихий вечер с близкими на собственной террасе</em></span>
@@ -174,7 +180,7 @@
           <span class="journey-copy"><small>На воде</small><strong>Смотреть на берег с воды</strong><em>Неспешная прогулка на сапе вдоль лесного берега</em></span>
         </button>
         <button class="journey-panel" id="journey-panel-fire" type="button" data-scene="fire" aria-labelledby="journey-tab-fire" aria-expanded="false">
-          <picture><source media="(max-width: 1000px)" srcset="assets/forest-v2/fire-warm-mobile.webp"><img src="assets/forest-v2/fire-warm.webp" alt="Компания друзей у кострища в сосновом лесу" loading="lazy"></picture>
+          <img src="assets/forest-v2/fire-client.webp" alt="Компания друзей у кострища в сосновом лесу" loading="lazy">
           <span class="journey-shade" aria-hidden="true"></span><span class="journey-rail-label">У огня</span>
           <span class="journey-copy"><small>После заката</small><strong>Продлить вечер у огня</strong><em>Тёплые разговоры и время с близкими у кострища</em></span>
         </button>
@@ -182,7 +188,7 @@
 
       <div class="journey-status" aria-live="polite">
         <button class="journey-control" type="button" data-journey-prev aria-label="Предыдущая история">←</button>
-        <span class="journey-count"><b data-journey-current>1</b> / 7</span>
+        <span class="journey-count"><b data-journey-current>1</b> / 8</span>
         <span class="journey-progress" aria-hidden="true"><i data-journey-progress></i></span>
         <span class="journey-hint">Листайте в сторону</span>
         <button class="journey-control" type="button" data-journey-next aria-label="Следующая история">→</button>
@@ -266,7 +272,7 @@
     <section class="plots section" id="plots" aria-labelledby="plots-title">
       <div class="section-heading reveal">
         <h2 id="plots-title">Выберите место<br>для своего дома</h2>
-        <p>Выберите квартал или объект на карте — справа появятся схема, характеристики и следующий шаг.</p>
+        <p>Пять кварталов расположены между лесом и Волгой. Выберите квартал на карте, чтобы посмотреть его особенности и доступные участки.</p>
       </div>
       <div class="interactive-map reveal" data-interactive-map>
         <div class="map-filter-row" data-map-filters aria-label="Фильтры карты"></div>
@@ -316,7 +322,8 @@
         </div>
         <div class="company-copy reveal">
           <h2 id="company-title">За проект отвечает команда «Магазина Земли»</h2>
-          <p class="company-lead">Команда больше десяти лет работает с земельными участками в Ярославской области. Дмитрий Родионов руководит проектом «Новые Высока» и отвечает за его развитие.</p>
+          <p class="company-lead">Команда «Магазина Земли» больше 10 лет работает с земельными проектами в Ярославской области. Основатель компании Дмитрий Родионов руководит «Новыми Высока». За командой — опыт продажи участков и развития загородных территорий, в том числе работа с Коприно и «Ярославским Взморьем».</p>
+          <p class="company-detail">В «Новых Высока» этот опыт помогает связать юридическую подготовку территории, подъезды и инфраструктуру с повседневной загородной жизнью. В основе подхода — внимание к окружению: лесу, берегу и природному характеру места.</p>
           <blockquote>«С землёй связаны уверенность в будущем и наследие следующим поколениям семьи»</blockquote>
           <div class="company-facts" aria-label="Факты о компании">
             <div><strong>10+ лет</strong><span>работы с землёй</span></div>

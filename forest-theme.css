@@ -140,3 +140,52 @@ h2{font-size:clamp(34px,4.1vw,57px)}
 .journey-panel:is([data-scene="home"],[data-scene="fire"],[data-scene="water"]) .journey-shade{background:linear-gradient(0deg,#0c160ee8 0%,#0c160e70 24%,transparent 52%)}
 .journey-panel:is([data-scene="home"],[data-scene="fire"],[data-scene="water"]) img{object-position:50% 45%;transform:none}
 @media(prefers-reduced-motion:reduce){.motion-ready .reveal{opacity:1;transform:none;transition:none}.hero-image{animation:none}}
+/* September refinement: warm section rhythm and restrained motion. */
+.project-intro.section,.media-story.section,.plots.section,.company.section{width:100%;max-width:none;padding-inline:max(40px,calc((100% - 1180px)/2));background:#ece8dc;--ink:#26351f;--muted:#5f6b58;--line:#c6c9b8;color:var(--ink)}
+.media-story.section{background:#e8e4d7}.plots.section{background:#e1e2d5}
+:is(.project-intro,.media-story,.plots,.company) .text-link,:is(.project-intro,.company) .text-link span{color:#805033}
+:is(.media-heading,.section-heading,.company-copy,.company-reasons-heading,.purchase-heading,.faq-heading) h2{font-size:clamp(32px,3.2vw,44px)}
+.hero h1{font-size:clamp(60px,6.5vw,90px);line-height:1.05}.hero-shade{background:linear-gradient(90deg,#0c160eb3 0%,#0c160e66 40%,#0c160e0d 80%),linear-gradient(0deg,#111a1380,transparent 38%)}
+.hero-image{animation:hero-breathe 24s ease-in-out infinite alternate}
+@keyframes hero-breathe{from{transform:scale(1)}to{transform:scale(1.025)}}
+.motion-ready .reveal{transform:translateY(10px);transition:opacity .65s ease,transform .65s ease}.motion-ready .reveal.is-visible{transform:none}
+.motion-ready .hero-content>*{transform:translateY(10px)}.motion-ready .hero-content.is-visible>*{transition-delay:0s;transform:none}
+.hero-fact,.project-intro-aerial,.sound-control[aria-pressed="true"] .sound-bird,.floating-bird-control[aria-pressed="true"] svg{animation:none;transform:none}.sound-control[aria-pressed="true"]::after{display:none}
+.button:hover,.header-cta:hover,.sound-control:hover{transform:translateY(-1px);box-shadow:none}.sound-control:hover .sound-bird,.text-link:hover span{transform:none}
+.button{min-height:50px;padding-inline:24px}.journey-tab,.journey-control,.map-filter,.map-list-button,.map-card-close,.lead-dialog-close,.quarter-plan-dialog-close{min-height:44px;min-width:44px}
+.journey-tabs{flex-wrap:wrap}.journey-panel img,.journey-panel.is-active img,.project-film img,.project-film:hover img,.reel-card:hover img{transform:none}
+.journey-panel:not(.is-active){filter:saturate(.9) brightness(.85)}
+.journey-track[data-direction] .journey-panel.is-active .journey-copy{animation:scene-copy-in .55s ease-out both}
+@keyframes scene-copy-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.project-film:hover>.video-play,.reel-card:hover .video-play{transform:translate(-50%,-50%)}
+.company-lead,.company-detail{max-width:660px;font-size:16px;line-height:1.65}.company-detail{margin-top:16px}
+.company-copy blockquote{background:transparent;color:#405039;border-left-width:2px;border-radius:0;font-size:21px;padding:10px 20px}
+.company-facts div{border:0;border-top:1px solid #b8bfaa;border-radius:0;padding-inline:0}.company-facts strong{color:#805033}
+.company-person span{max-width:300px;line-height:1.5}.company-reasons{--muted:#bcc2b2}
+.purchase{background:#34412c}.installment-card{background:#2b3825}.promotion-band h2{font-size:clamp(32px,3vw,42px)}.promotion-offer{font-size:27px}
+.map-layout{grid-template-columns:minmax(0,1fr) 300px;border:0}.map-detail{padding:20px;background:#ece8dc}
+.map-filter,.map-list-button{background:transparent;color:#34412c;border-color:#b3baa4}.map-filter:hover,.map-filter[aria-pressed="true"]{background:#46553b;border-color:#46553b;color:#fff}.map-list-button[aria-pressed="true"]{color:#754629;border-color:#805033}
+.map-marker,.map-marker:hover,.map-marker:focus-visible,.map-marker[aria-pressed="true"]{transform:translate(-50%,-50%);box-shadow:none;transition:background .22s ease,border-color .22s ease,opacity .22s ease}
+.map-marker[data-category="quarters"]{background:#69775d;border-width:1px;border-radius:8px}.map-marker[data-category="quarters"]:is(:hover,:focus-visible,[aria-pressed="true"]){background:#3d4d32;border-color:#f2e9d5}
+.interactive-map[data-selection-kind="quarters"] .map-marker[data-category="quarters"][aria-pressed="true"]{box-shadow:none}
+.map-marker:focus-visible{outline:2px solid #754629;outline-offset:3px}.map-marker-label{transform:translateX(-50%);transition:opacity .2s ease;border-radius:4px}
+.map-card{animation:map-card-in .3s ease-out both}@keyframes map-card-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.map-card-media,.map-legend,.map-list-button,.quarter-plan-dialog,.quarter-plan-zoom{border-radius:6px}.map-metric{border:0;border-top:1px solid #c6cbb9;border-radius:0;padding:12px 0}.map-card-facts li{background:transparent;padding:7px 0;border-bottom:1px solid #c6cbb9;border-radius:0}.map-card h3{font-size:27px}
+@media(max-width:1000px){.map-layout{grid-template-columns:minmax(0,1fr) 270px}.company-top{gap:32px}}
+@media(max-width:760px){
+.project-intro.section,.media-story.section,.plots.section,.company.section{padding:60px 20px}.hero h1{font-size:clamp(45px,12vw,64px)}.hero-shade{background:linear-gradient(90deg,#0c160ea6,#0c160e26),linear-gradient(0deg,#111a1399,transparent 70%)}
+.journey-tabs{flex-wrap:nowrap}.journey-panel,.journey-panel.is-active{transform:none}.journey-track{height:440px;min-height:440px}
+.journey-panel:is([data-scene="home"],[data-scene="fire"],[data-scene="water"],[data-scene="mushrooms"]){background:#202c1d}
+.journey-panel:is([data-scene="home"],[data-scene="fire"],[data-scene="water"],[data-scene="mushrooms"]) img{height:auto;aspect-ratio:3/2;object-fit:contain;object-position:center;background:#202c1d}
+.journey-panel:is([data-scene="home"],[data-scene="fire"],[data-scene="water"],[data-scene="mushrooms"]) .journey-shade{display:none}
+.journey-copy strong{font-size:29px}.journey-copy{bottom:24px}.journey-panel[data-scene="mushrooms"] .journey-copy em{font-size:13px}
+.map-layout{display:block}.map-detail{visibility:hidden;opacity:0;pointer-events:none;transform:translateY(12px);border-radius:8px;box-shadow:0 8px 30px #0003;transition:opacity .28s ease-out,transform .28s ease-out,visibility .28s}
+.interactive-map.has-selection .map-detail{visibility:visible;opacity:1;pointer-events:auto;transform:translateY(0)}
+.company-lead,.company-detail{font-size:15px}.company-copy blockquote{font-size:20px}.company-visual{border-radius:8px}.company-reasons{border-radius:8px}.promotion-band h2{font-size:32px}.promotion-offer{font-size:25px}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.motion-ready .reveal,.motion-ready .hero-content>*{opacity:1;transform:none}}
+.hero-facts{grid-template-columns:repeat(3,minmax(0,1fr))}.hero-fact{min-width:0}.hero-fact>div{min-width:0}
+@media(min-width:761px) and (max-width:1000px){.hero-fact{padding:20px 12px;grid-template-columns:36px minmax(0,1fr);gap:10px}.hero-fact strong{font-size:22px}}
+@media(max-width:760px){.hero-facts{grid-template-columns:1fr}.journey-panel:is([data-scene="home"],[data-scene="fire"],[data-scene="water"],[data-scene="mushrooms"]) img{aspect-ratio:auto}}
+@media(min-width:761px) and (max-width:1000px){.journey-panel:is([data-scene="home"],[data-scene="fire"],[data-scene="water"],[data-scene="mushrooms"]){background:#202c1d}.journey-panel:is([data-scene="home"],[data-scene="fire"],[data-scene="water"],[data-scene="mushrooms"]) img{height:auto;object-fit:contain}.journey-panel:is([data-scene="home"],[data-scene="fire"],[data-scene="water"],[data-scene="mushrooms"]) .journey-shade{display:none}.journey-track{height:510px}.journey-copy strong{font-size:30px}}
+@media(min-width:761px) and (max-width:1000px){.journey-panel:not(.is-active):is([data-scene="home"],[data-scene="fire"],[data-scene="water"],[data-scene="mushrooms"]) img{height:100%;object-fit:cover}}
