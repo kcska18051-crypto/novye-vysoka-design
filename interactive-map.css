@@ -25,7 +25,10 @@
 .map-card-empty h3 { margin-top: 14px; font-size: 29px; }
 .map-card-empty p { margin-top: 16px; color: #6f8179; line-height: 1.55; }
 .map-card { position: relative; animation: map-card-in .28s ease both; }
-.map-card-close { position: absolute; z-index: 2; top: 10px; right: 10px; width: 40px; height: 40px; border: 1px solid rgba(255,255,255,.75); border-radius: 50%; background: rgba(16,45,36,.78); color: #fff; cursor: pointer; font-size: 23px; }
+.map-card-close { position: absolute; z-index: 2; top: 10px; right: 10px; width: 40px; height: 40px; display: grid; place-items: center; padding: 0; border: 1px solid rgba(255,255,255,.75); border-radius: 50%; background: rgba(16,45,36,.78); color: #fff; cursor: pointer; font-size: 0; line-height: 1; }
+.map-card-close::before, .map-card-close::after { content: ""; grid-area: 1 / 1; width: 14px; height: 2px; border-radius: 2px; background: currentColor; }
+.map-card-close::before { transform: rotate(45deg); }
+.map-card-close::after { transform: rotate(-45deg); }
 .map-card-media { aspect-ratio: 3/2; overflow: hidden; border-radius: 20px; background: #e7ede3; }
 .map-card-media img { width: 100%; height: 100%; object-fit: cover; }
 .map-card-media.is-fallback::after { content: "Фотография будет добавлена"; height: 100%; display: grid; place-items: center; padding: 20px; color: #718079; font-size: 12px; text-align: center; }
@@ -54,7 +57,10 @@
 .quarter-plan-dialog-shell { padding: 18px; }
 .quarter-plan-dialog-head { padding: 3px 3px 14px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
 .quarter-plan-dialog-head h2 { font-size: 25px; }
-.quarter-plan-dialog-close { width: 42px; height: 42px; border: 1px solid #cbd6c7; border-radius: 50%; background: #fff; color: #173f32; cursor: pointer; font-size: 25px; }
+.quarter-plan-dialog-close { width: 42px; height: 42px; display: grid; place-items: center; padding: 0; border: 1px solid #cbd6c7; border-radius: 50%; background: #fff; color: #173f32; cursor: pointer; font-size: 0; line-height: 1; }
+.quarter-plan-dialog-close::before, .quarter-plan-dialog-close::after { content: ""; grid-area: 1 / 1; width: 14px; height: 2px; border-radius: 2px; background: currentColor; }
+.quarter-plan-dialog-close::before { transform: rotate(45deg); }
+.quarter-plan-dialog-close::after { transform: rotate(-45deg); }
 .quarter-plan-zoom { max-height: calc(100svh - 120px); overflow: auto; border-radius: 17px; background: #dfe5da; }
 .quarter-plan-zoom img { display: block; width: 100%; min-width: 760px; height: auto; }
 @keyframes map-card-in { from { opacity: 0; transform: translateX(14px); } }
