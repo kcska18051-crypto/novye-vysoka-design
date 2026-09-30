@@ -48,3 +48,8 @@
 - Company figures: 10+ / лет работы с землёй; 1 000+ / участков; 400+ / клиентов. Nonbreaking thousands separator.
 - No external company link. Internal navigation label renamed Команда, still anchors to the same section.
 - 42 tests pass; mobile figures fit at 375px, no horizontal overflow or browser errors.
+
+## Compact consistent mobile gallery
+- All eight cards now share the same photo-above-caption treatment, padding, background and typography. Removed mixed full-background vs separate-caption mobile styles.
+- Photo height adapts to viewport: clamp(180px,34svh,280px), replacing fixed 410px; card natural content sizing prevents clipped descriptions.
+- Verified all eight captions fit on 320/375/390/430px widths, no horizontal page overflow and no console errors. At 375x667 card height is 408px instead of 610px.
