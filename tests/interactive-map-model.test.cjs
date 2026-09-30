@@ -31,7 +31,7 @@ test('card model distinguishes quarters and supplies safe media fallbacks', () =
   const quarter = model.getCardModel(data.quarters[0]);
   const school = model.getCardModel(data.objects.find((item) => item.id === 'school'));
   assert.equal(quarter.kind, 'quarter');
-  assert.equal(quarter.metrics.free, 'Уточняется');
+  assert.equal(quarter.metrics.free, 'По запросу');
   assert.equal(school.kind, 'object');
   assert.equal(school.image, 'assets/territory-panorama.jpg');
 });

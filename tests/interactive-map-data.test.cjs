@@ -34,7 +34,7 @@ test('unknown quarter values are explicit', () => {
   const data = loadData();
   for (const quarter of data.quarters) {
     for (const key of ['pricePerSotka', 'free', 'reserved', 'sold']) {
-      assert.equal(quarter[key], 'Уточняется');
+      assert.equal(quarter[key], 'По запросу');
     }
   }
 });

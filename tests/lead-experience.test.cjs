@@ -57,6 +57,28 @@ test('lead choices are visible selectable cards and footer includes legal naviga
   assert.match(html, /landmarket\.biz\/privacy/);
 });
 
+test('final form names the result of the selected action', () => {
+  assert.match(html, /data-tour-submit[^>]*>Записаться на экскурсию/);
+  assert.match(script, /syncTourSubmit/);
+  assert.match(script, /Получить видео участка/);
+});
+
+test('company reasons address five distinct buyer concerns', () => {
+  for (const reason of ['Юридическая прозрачность', 'Покупка напрямую', 'Знание территории', 'Сопровождение сделки', 'Рассрочка от собственника']) {
+    assert.match(html, new RegExp(reason));
+  }
+});
+
+test('faq covers ownership, access, viewing, and purchase terms in concise answers', () => {
+  for (const question of ['Кто продаёт участки?', 'Как устроен подъезд к участкам?', 'Можно ли приехать и посмотреть участок?', 'Как предоставляется рассрочка?']) {
+    assert.match(html, new RegExp(question.replace(/[?]/g, '\\?')));
+  }
+  const faq = html.match(/<div class="faq-list reveal"[\s\S]*?<\/div>\s*<\/section>/)?.[0] || '';
+  const answers = [...faq.matchAll(/<details><summary>[^<]+<\/summary><p>([^<]+)<\/p><\/details>/g)].map((match) => match[1]);
+  assert.ok(answers.length >= 8);
+  assert.ok(answers.every((answer) => answer.length <= 260), `long FAQ answer: ${Math.max(...answers.map((answer) => answer.length))}`);
+});
+
 test('journey supports explicit controls, directional transitions, and adjacent image preload', () => {
   assert.match(html, /data-journey-prev/);
   assert.match(html, /data-journey-next/);

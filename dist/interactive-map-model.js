@@ -35,10 +35,10 @@
       mapUrl: item.mapUrl || '',
       distances: item.distances || [],
       metrics: isQuarter ? {
-        pricePerSotka: item.pricePerSotka || 'Уточняется',
-        free: item.free || 'Уточняется',
-        reserved: item.reserved || 'Уточняется',
-        sold: item.sold || 'Уточняется'
+        pricePerSotka: item.pricePerSotka || 'По запросу',
+        free: item.free || 'По запросу',
+        reserved: item.reserved || 'По запросу',
+        sold: item.sold || 'По запросу'
       } : null
     };
   }
