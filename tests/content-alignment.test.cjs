@@ -62,8 +62,8 @@ test('presents purchase as a numbered three-step sequence', () => {
   assert.match(html, /class="installment-flow"/);
 });
 
-test('uses the supplied aerial visuals for the hero and location story', () => {
-  assert.match(html, /class="hero-image" src="assets\/hero-aerial-sunset\.webp"/);
+test('uses the new forest hero and preserves the supplied location story', () => {
+  assert.match(html, /class="hero-image" src="assets\/forest-v2\/hero\.webp"/);
   assert.match(html, /class="location-reference-image" src="assets\/location-reference-map\.webp"/);
   assert.doesNotMatch(html, /class="route-diagram"/);
 });

@@ -14,7 +14,7 @@
         entry.target.classList.add('is-visible');
         observer.unobserve(entry.target);
       });
-    }, { threshold: .12, rootMargin: '0px 0px -5% 0px' });
+    }, { threshold: .08, rootMargin: '0px 0px -24px 0px' });
     reveals.forEach((item) => revealObserver.observe(item));
   }
 
@@ -78,7 +78,10 @@
       panel.setAttribute('aria-expanded', String(active));
     });
     if (journeyCurrent) journeyCurrent.textContent = String(journeyIndex + 1);
-    if (journeyProgress) journeyProgress.style.transform = `translateX(${journeyIndex * 100}%)`;
+    if (journeyProgress) {
+      journeyProgress.style.width = `${100 / journeyPanels.length}%`;
+      journeyProgress.style.transform = `translateX(${journeyIndex * 100}%)`;
+    }
     if (journeyPrev) journeyPrev.disabled = journeyIndex === 0;
     if (journeyNext) journeyNext.disabled = journeyIndex === journeyPanels.length - 1;
     preloadJourneyNeighbors(journeyIndex);

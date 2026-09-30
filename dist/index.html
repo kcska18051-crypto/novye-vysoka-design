@@ -3,14 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#65b32e">
+  <meta name="theme-color" content="#172016">
   <title>Новые Высока — локальный дизайн-пилот</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="interactive-map.css">
+  <link rel="stylesheet" href="forest-theme.css?v=forest1">
   <script src="map-data.js" defer></script>
   <script src="interactive-map-model.js" defer></script>
   <script src="interactive-map.js" defer></script>
-  <script src="app.js" defer></script>
+  <script src="app.js?v=forest1" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Перейти к содержанию</a>
@@ -46,7 +47,7 @@
 
   <main id="main">
     <section class="hero" id="top" aria-labelledby="hero-title">
-      <img class="hero-image" src="assets/hero-aerial-sunset.webp" alt="Вид с высоты на лес и Волгу на закате">
+      <img class="hero-image" src="assets/forest-v2/hero.webp" alt="Образ загородного дома среди сосен у воды" fetchpriority="high">
       <div class="hero-shade"></div>
       <div class="hero-orbit hero-orbit-one" aria-hidden="true"></div>
       <div class="hero-orbit hero-orbit-two" aria-hidden="true"></div>
@@ -123,7 +124,7 @@
         <div>
           <h2 id="life-title">Дни, которые хочется<br>проводить за городом</h2>
         </div>
-        <p>Лес, Волга и дом за городом — пять коротких историй о том, как здесь может проходить ваш день.</p>
+        <p>Лес, Волга и дом за городом — несколько коротких историй о том, как здесь может проходить ваш день.</p>
       </div>
 
       <div class="journey-tabs" role="tablist" aria-label="Сцены загородной жизни">
@@ -132,44 +133,56 @@
         <button class="journey-tab" id="journey-tab-home" type="button" role="tab" data-scene="home" aria-selected="false" aria-controls="journey-panel-home" tabindex="-1">Дом</button>
         <button class="journey-tab" id="journey-tab-family" type="button" role="tab" data-scene="family" aria-selected="false" aria-controls="journey-panel-family" tabindex="-1">Семья</button>
         <button class="journey-tab" id="journey-tab-cycle" type="button" role="tab" data-scene="cycle" aria-selected="false" aria-controls="journey-panel-cycle" tabindex="-1">Велопрогулки</button>
+        <button class="journey-tab" id="journey-tab-sup" type="button" role="tab" data-scene="sup" aria-selected="false" aria-controls="journey-panel-sup" tabindex="-1">На сапе</button>
+        <button class="journey-tab" id="journey-tab-fire" type="button" role="tab" data-scene="fire" aria-selected="false" aria-controls="journey-panel-fire" tabindex="-1">У огня</button>
       </div>
 
       <div class="journey-track" data-journey-track aria-label="Фотопрогулка по загородной жизни">
         <button class="journey-panel is-active" id="journey-panel-forest" type="button" data-scene="forest" aria-labelledby="journey-tab-forest" aria-expanded="true">
-          <img src="assets/forest-path.webp" alt="Прогулка по солнечной тропе в сосновом лесу">
+          <img src="assets/forest-v2/trail.webp" alt="Прогулка по солнечной тропе в сосновом лесу">
           <span class="journey-shade" aria-hidden="true"></span>
           <span class="journey-rail-label">Лес</span>
           <span class="journey-copy"><small>Утро</small><strong>Выйти на тропу раньше всех</strong><em>Высоковский бор рядом — прогулка начинается у дома</em></span>
         </button>
         <button class="journey-panel" id="journey-panel-water" type="button" data-scene="water" aria-labelledby="journey-tab-water" aria-expanded="false">
-          <img src="assets/pier-boats.webp" alt="Отдых у большой воды в окружении леса">
+          <img src="assets/forest-v2/pier.webp" alt="Отдых у большой воды в окружении леса">
           <span class="journey-shade" aria-hidden="true"></span>
           <span class="journey-rail-label">Вода</span>
           <span class="journey-copy"><small>День</small><strong>Провести день у большой воды</strong><em>Берег Волги — для прогулок, рыбалки и отдыха</em></span>
         </button>
         <button class="journey-panel" id="journey-panel-home" type="button" data-scene="home" aria-labelledby="journey-tab-home" aria-expanded="false">
-          <img src="assets/terrace-family.webp" alt="Семья за столом на террасе загородного дома">
+          <img src="assets/forest-v2/home.webp" alt="Семья за столом на террасе загородного дома">
           <span class="journey-shade" aria-hidden="true"></span>
           <span class="journey-rail-label">Дом</span>
           <span class="journey-copy"><small>Вечер</small><strong>Собраться за одним столом</strong><em>Тихий вечер с близкими на собственной террасе</em></span>
         </button>
         <button class="journey-panel" id="journey-panel-family" type="button" data-scene="family" aria-labelledby="journey-tab-family" aria-expanded="false">
-          <img src="assets/family-walk.webp" alt="Семейная прогулка по берегу">
+          <img src="assets/forest-v2/family.webp" alt="Семейная прогулка по берегу">
           <span class="journey-shade" aria-hidden="true"></span>
           <span class="journey-rail-label">Семья</span>
           <span class="journey-copy"><small>Выходные</small><strong>Оставить городскую спешку позади</strong><em>Большая прогулка без спешки и расписания</em></span>
         </button>
         <button class="journey-panel" id="journey-panel-cycle" type="button" data-scene="cycle" aria-labelledby="journey-tab-cycle" aria-expanded="false">
-          <img src="assets/cycle-family.webp" alt="Семейная велопрогулка по сосновому лесу" loading="lazy">
+          <img src="assets/forest-v2/cycle.webp" alt="Семейная велопрогулка по сосновому лесу" loading="lazy">
           <span class="journey-shade" aria-hidden="true"></span>
           <span class="journey-rail-label">Велопрогулки</span>
           <span class="journey-copy"><small>Активный день</small><strong>Уехать всей семьёй по лесной дороге</strong><em>Семейный маршрут на велосипеде среди сосен</em></span>
+        </button>
+        <button class="journey-panel" id="journey-panel-sup" type="button" data-scene="sup" aria-labelledby="journey-tab-sup" aria-expanded="false">
+          <img src="assets/forest-v2/sup.webp" alt="Прогулка на сапах вдоль пологого лесного берега" loading="lazy">
+          <span class="journey-shade" aria-hidden="true"></span><span class="journey-rail-label">На сапе</span>
+          <span class="journey-copy"><small>На воде</small><strong>Смотреть на берег с воды</strong><em>Неспешная прогулка на сапе вдоль лесного берега</em></span>
+        </button>
+        <button class="journey-panel" id="journey-panel-fire" type="button" data-scene="fire" aria-labelledby="journey-tab-fire" aria-expanded="false">
+          <img src="assets/forest-v2/fire.webp" alt="Семья проводит уютный вечер у кострища" loading="lazy">
+          <span class="journey-shade" aria-hidden="true"></span><span class="journey-rail-label">У огня</span>
+          <span class="journey-copy"><small>После заката</small><strong>Продлить вечер у огня</strong><em>Тёплые разговоры и время с близкими у кострища</em></span>
         </button>
       </div>
 
       <div class="journey-status" aria-live="polite">
         <button class="journey-control" type="button" data-journey-prev aria-label="Предыдущая история">←</button>
-        <span class="journey-count"><b data-journey-current>1</b> / 5</span>
+        <span class="journey-count"><b data-journey-current>1</b> / 7</span>
         <span class="journey-progress" aria-hidden="true"><i data-journey-progress></i></span>
         <span class="journey-hint">Листайте в сторону</span>
         <button class="journey-control" type="button" data-journey-next aria-label="Следующая история">→</button>
@@ -345,7 +358,7 @@
     <section class="tour" id="tour" aria-labelledby="tour-title">
       <div class="tour-inner">
         <div class="tour-visual reveal">
-          <img class="tour-image" src="assets/family-walk.webp" alt="Семья в полном составе гуляет по берегу Волги" loading="lazy">
+          <img class="tour-image" src="assets/forest-v2/family.webp" alt="Семья в полном составе гуляет по берегу Волги" loading="lazy">
           <span class="tour-shade" aria-hidden="true"></span>
           <div class="tour-copy"><h2 id="tour-title">Приезжайте выбрать своё место</h2><p>Посмотрите участок и дорогу к нему. Если приехать пока не получается, получите видео.</p></div>
         </div>
