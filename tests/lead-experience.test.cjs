@@ -88,10 +88,20 @@ test('journey supports explicit controls, directional transitions, and adjacent 
 });
 
 test('project image stays clean without technical notes or connector artifacts', () => {
-  assert.equal((html.match(/class="project-hotspot/g) || []).length, 3);
+  assert.equal((html.match(/class="project-hotspot/g) || []).length, 0);
   assert.doesNotMatch(html, /class="visual-note"/);
   assert.doesNotMatch(html, /Ориентировочная схема направления/);
+  assert.doesNotMatch(html, /Временный звук из референса/);
   assert.doesNotMatch(css, /\.purchase-steps::before/);
+});
+
+test('play and close controls are geometrically centered', () => {
+  const mapCss = fs.readFileSync(path.join(__dirname, '..', 'dist', 'interactive-map.css'), 'utf8');
+  assert.match(css, /\.project-film > \.video-play[^\{]*\{[^\}]*top:\s*50%[^\}]*left:\s*50%[^\}]*translate\(-50%,-50%\)/s);
+  assert.match(css, /\.lead-dialog-close::before[\s\S]*transform:\s*rotate\(45deg\)/);
+  assert.match(css, /\.video-dialog-close::after[\s\S]*transform:\s*rotate\(-45deg\)/);
+  assert.match(mapCss, /\.map-card-close::before[\s\S]*transform:\s*rotate\(45deg\)/);
+  assert.match(mapCss, /\.quarter-plan-dialog-close::after[\s\S]*transform:\s*rotate\(-45deg\)/);
 });
 
 test('sticky header exposes compact and active-section states', () => {
