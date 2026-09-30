@@ -7,11 +7,11 @@
   <title>Новые Высока — локальный дизайн-пилот</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="interactive-map.css">
-  <link rel="stylesheet" href="forest-theme.css?v=swipe1">
+  <link rel="stylesheet" href="forest-theme.css?v=labels1">
   <script src="map-data.js?v=forest-soft1" defer></script>
   <script src="interactive-map-model.js" defer></script>
   <script src="interactive-map.js" defer></script>
-  <script src="app.js?v=sound2" defer></script>
+  <script src="app.js?v=labels1" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Перейти к содержанию</a>
@@ -26,7 +26,7 @@
       <a href="#life">Как здесь жить</a>
       <a href="#plots">Кварталы</a>
       <a href="#purchase">Покупка</a>
-      <a href="#company">О компании</a>
+      <a href="#company">Команда</a>
     </nav>
     <a class="header-cta" href="#tour" data-lead-intent="selection">Выбрать участок</a>
     <a class="header-phone" href="tel:+79092801024">+7 (909) 280-10-24</a>
@@ -39,7 +39,7 @@
     <a href="#location">Расположение</a>
     <a href="#plots">Кварталы</a>
     <a href="#purchase">Покупка</a>
-    <a href="#company">О компании</a>
+    <a href="#company">Команда</a>
     <a href="#faq">Вопросы</a>
     <a href="#contact">Контакты</a>
     <a href="tel:+79092801024">+7 (909) 280-10-24</a>
@@ -53,7 +53,7 @@
       <div class="hero-orbit hero-orbit-two" aria-hidden="true"></div>
 
       <div class="hero-content reveal">
-        <p class="hero-kicker">Рыбинский район · Ярославская область</p>
+        <p class="hero-kicker">Ярославская область · Рыбинский район</p>
         <h1 id="hero-title">Больше леса,<br>больше жизни</h1>
         <p class="hero-lead">«Новые Высока» — место притяжения у леса и воды: участки ИЖС в Рыбинском районе Ярославской области.</p>
         <div class="hero-actions">
@@ -63,8 +63,8 @@
       </div>
 
       <button class="sound-control" type="button" aria-pressed="false" aria-describedby="sound-status" aria-label="Включить звуки леса">
-        <span class="sound-bird" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M20 3C9 2 3 7 4 13c1 7 10 8 13 1 2-4 2-8 3-11Z"/><path d="M3 21 15 9"/></svg></span><span class="sound-wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
-        <span><strong>Послушать лес</strong><small>птицы · ветер · лес</small></span>
+        <span class="sound-bird" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="m2 16 4-1c1-4 4-7 8-6V7a3 3 0 0 1 6 0l2 2-3 1c0 6-5 10-11 8l-5 2 2-4Z"/><path d="M8 14c2 1 4 0 5-2M11 19v2m4-3v3"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor" stroke="none"/></svg></span><span class="sound-wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+        <span><strong>Послушать лес</strong></span>
       </button>
       <p class="sound-status" id="sound-status" role="status"></p>
       <audio id="forest-audio" preload="none" loop>
@@ -321,9 +321,9 @@
           <p class="company-detail">В опыте команды — не только продажа участков, но и участие в развитии загородных территорий, в том числе проектов <strong>Коприно</strong> и <strong>«Ярославское Взморье»</strong>. Этот опыт помогает смотреть на «Новые Высока» комплексно: от юридической подготовки земли и организации подъездов до будущей инфраструктуры, благоустройства и сценариев загородной жизни рядом с лесом и Волгой.</p>
           <blockquote>«С землёй связаны уверенность в будущем, возможность создавать своё пространство и передавать его следующим поколениям семьи».</blockquote>
           <div class="company-facts" aria-label="Факты о компании">
-            <div><strong>10+ лет</strong><span>работы с землёй</span></div>
-            <div><strong>1000+</strong><span>участков</span></div>
-            <div><strong>400</strong><span>клиентов</span></div>
+            <div><strong>10+</strong><span>лет работы с землёй</span></div>
+            <div><strong>1&nbsp;000+</strong><span>участков</span></div>
+            <div><strong>400+</strong><span>клиентов</span></div>
           </div>
           <div class="company-actions"><a class="button button-primary" href="#tour" data-lead-intent="tour">Записаться на экскурсию</a></div>
         </div>
@@ -388,7 +388,7 @@
       <div class="footer-bottom"><span>Локальный дизайн-пилот · 2026</span><nav class="footer-legal" aria-label="Правовая информация"><a href="https://landmarket.biz/privacy" target="_blank" rel="noopener noreferrer">Политика конфиденциальности</a><a href="#">Пользовательское соглашение</a></nav><a href="#top">Наверх ↑</a></div>
     </footer>
   </main>
-  <button class="floating-bird-control" type="button" aria-pressed="false" aria-label="Включить звуки леса" aria-describedby="sound-status" tabindex="-1" inert><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M20 3C9 2 3 7 4 13c1 7 10 8 13 1 2-4 2-8 3-11Z"/><path d="M3 21 15 9"/></svg><span class="sound-wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span class="sound-floating-label">Звук</span></button>
+  <button class="floating-bird-control" type="button" aria-pressed="false" aria-label="Включить звуки леса" aria-describedby="sound-status" tabindex="-1" inert><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="m2 16 4-1c1-4 4-7 8-6V7a3 3 0 0 1 6 0l2 2-3 1c0 6-5 10-11 8l-5 2 2-4Z"/><path d="M8 14c2 1 4 0 5-2M11 19v2m4-3v3"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor" stroke="none"/></svg><span class="sound-wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span class="sound-floating-label">Звук</span></button>
 
   <dialog class="quarter-plan-dialog" id="quarter-plan-dialog" aria-labelledby="quarter-plan-title">
     <div class="quarter-plan-dialog-shell">
