@@ -587,9 +587,9 @@ h3 { font-size: 20px; }
   .conversion-band h2 { font-size: 30px; }
   .conversion-band .button { width: 100%; margin-top: 24px; }
   .promotion-band { min-height: 0; padding: 0; display: grid; grid-template-columns: 1fr; overflow: hidden; }
-  .promotion-visual { order: -1; min-height: 190px; }
+  .promotion-visual { order: -1; min-height: 190px; margin: 0 0 -2px; }
   .promotion-image { object-position: 70% center; }
-  .promotion-image-shade { background: linear-gradient(0deg, var(--brand) 0%, rgba(101,179,46,.08) 34%, rgba(6,36,27,.08) 100%); }
+  .promotion-image-shade { inset: 0 0 -2px; background: linear-gradient(0deg, var(--brand) 0 18%, rgba(101,179,46,.48) 46%, rgba(6,36,27,.08) 100%); }
   .promotion-copy { padding: 26px 22px 30px; }
   .promotion-band h2 { margin-bottom: 12px; }
   .promotion-offer { font-size: 22px; }
