@@ -47,7 +47,7 @@ test('keeps every major section concise and fact-led', () => {
 
 test('identifies Dmitry as founder and project lead without calling him director', () => {
   assert.match(html, /Дмитрий Родионов/);
-  assert.match(html, /основатель «Магазина Земли» и руководитель проекта «Новые Высока»/);
+  assert.match(html, /<strong>Дмитрий Родионов<\/strong><span>основатель «Магазина Земли», руководитель проекта «Новые Высока»<\/span>/);
   assert.doesNotMatch(html, /Дмитрий Родионов[\s\S]{0,120}директор «Магазина Земли»/);
 });
 
