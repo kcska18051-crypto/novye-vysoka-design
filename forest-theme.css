@@ -204,3 +204,11 @@ h2{font-size:clamp(34px,4.1vw,57px)}
 .sound-control:focus-visible,.floating-bird-control:focus-visible{outline:2px solid #dfc8a4;outline-offset:4px}
 @media(max-width:760px){.floating-bird-control{right:16px;bottom:calc(18px + env(safe-area-inset-bottom));padding:10px 12px}.floating-bird-control .sound-floating-label{display:none}.sound-control{gap:9px;padding:12px}.sound-control small{font-size:10px}}
 @media(prefers-reduced-motion:reduce){.is-playing .sound-wave i{animation:none}}
+/* Client portrait crops on phones; native horizontal swipe and scroll snap. */
+@media(max-width:760px){
+ .journey-track{height:610px;min-height:610px;touch-action:pan-x pan-y pinch-zoom;overscroll-behavior-x:contain}
+ .journey-panel:is([data-scene="home"],[data-scene="fire"],[data-scene="water"],[data-scene="mushrooms"]) picture{position:absolute;inset:0 0 auto;height:410px;display:block}
+ .journey-panel:is([data-scene="home"],[data-scene="fire"],[data-scene="water"],[data-scene="mushrooms"]) picture img{height:100%;width:100%;object-fit:cover;object-position:center;transform:none}
+ .journey-panel:is([data-scene="home"],[data-scene="fire"],[data-scene="water"],[data-scene="mushrooms"]) .journey-copy{top:430px;bottom:auto}
+ .journey-panel img{user-select:none;-webkit-user-drag:none}
+}
