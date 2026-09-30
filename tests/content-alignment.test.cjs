@@ -67,4 +67,3 @@ test('uses the new forest hero and preserves the supplied location story', () =>
   assert.match(html, /class="location-reference-image" src="assets\/location-reference-map\.webp"/);
   assert.doesNotMatch(html, /class="route-diagram"/);
 });
-

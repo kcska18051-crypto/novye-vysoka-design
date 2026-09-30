@@ -35,3 +35,9 @@
 - One forest audio element drives both controls through play/pause events. No autoplay. IntersectionObserver shows compact control after hero exits, regardless of playback state; hidden control excluded from keyboard focus.
 - Restrained five-bar wave, static when off or reduced motion; forest/cream styling and mobile safe area.
 - Verified actual audio playback across in-page navigation, floating pause, synchronized states, return-to-top hiding, 375px screenshot, no overflow/errors; 42 tests pass.
+
+## Mobile gallery order and portrait assets
+- Client order: forest, mushrooms, cycle, water, SUP, home, family, fire (tabs and panels).
+- Four supplied portrait photos selected through picture sources at <=760px; desktop originals retained. Mobile portrait area and separate caption avoid covering faces.
+- Fixed native touch scrolling: pan-y had blocked horizontal gestures; allow both axes and pinch zoom with existing snap and scroll synchronization.
+- Browser horizontal scroll verified home -> family -> home with counter 6 -> 7 -> 6; mobile source selection verified, no console errors. 42 tests pass.

@@ -518,7 +518,7 @@ h3 { font-size: 20px; }
   .journey-tabs { width: calc(100vw - 20px); margin: 0 0 20px; padding-right: 20px; overflow-x: auto; scrollbar-width: none; }
   .journey-tabs::-webkit-scrollbar { display: none; }
   .journey-tab { flex: 0 0 auto; min-width: 75px; padding: 9px 15px; }
-  .journey-track { width: calc(100vw - 20px); height: min(520px, 66svh); min-height: 430px; gap: 12px; padding-right: 46px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-left: 0; scrollbar-width: none; touch-action: pan-y pinch-zoom; }
+  .journey-track { width: calc(100vw - 20px); height: min(520px, 66svh); min-height: 430px; gap: 12px; padding-right: 46px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-left: 0; scrollbar-width: none; touch-action: pan-x pan-y pinch-zoom; }
   .journey-track::-webkit-scrollbar { display: none; }
   .journey-panel, .journey-panel.is-active { flex: 0 0 82vw; min-width: 0; scroll-snap-align: start; filter: none; opacity: .62; transform: scale(.975); transform-origin: center; transition: opacity .3s ease, transform .35s ease; }
   .journey-panel.is-active { opacity: 1; transform: scale(1); }
