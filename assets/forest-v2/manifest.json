@@ -46,5 +46,45 @@
     "source": "exec-728fa57a-195b-4d5d-9f1d-ba19df58b9e4.png",
     "type": "AI lifestyle visualization",
     "date": "2026-09-30"
+  },
+  {
+    "file": "home-warm.webp",
+    "source": "source-assets/lifestyle/warm-series/home.png",
+    "type": "AI lifestyle visualization",
+    "date": "2026-09-30",
+    "tool": "built-in imagegen",
+    "prompts": "docs/warm-lifestyle-prompts.json"
+  },
+  {
+    "file": "fire-warm.webp",
+    "source": "source-assets/lifestyle/warm-series/fire.png",
+    "type": "AI lifestyle visualization",
+    "date": "2026-09-30",
+    "tool": "built-in imagegen",
+    "prompts": "docs/warm-lifestyle-prompts.json"
+  },
+  {
+    "file": "pier-warm.webp",
+    "source": "source-assets/lifestyle/warm-series/pier.png",
+    "type": "AI lifestyle visualization",
+    "date": "2026-09-30",
+    "tool": "built-in imagegen",
+    "prompts": "docs/warm-lifestyle-prompts.json"
+  },
+  {
+    "file": "home-warm-mobile.webp",
+    "source": "source-assets/lifestyle/warm-series/home-mobile.png",
+    "type": "AI lifestyle visualization",
+    "date": "2026-09-30",
+    "tool": "built-in imagegen",
+    "prompts": "docs/warm-lifestyle-prompts.json"
+  },
+  {
+    "file": "fire-warm-mobile.webp",
+    "source": "source-assets/lifestyle/warm-series/fire-mobile.png",
+    "type": "AI lifestyle visualization",
+    "date": "2026-09-30",
+    "tool": "built-in imagegen",
+    "prompts": "docs/warm-lifestyle-prompts.json"
   }
 ]

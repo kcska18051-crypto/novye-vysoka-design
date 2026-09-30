@@ -7,8 +7,8 @@
   <title>Новые Высока — локальный дизайн-пилот</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="interactive-map.css">
-  <link rel="stylesheet" href="forest-theme.css?v=forest1">
-  <script src="map-data.js" defer></script>
+  <link rel="stylesheet" href="forest-theme.css?v=warm2">
+  <script src="map-data.js?v=warm2" defer></script>
   <script src="interactive-map-model.js" defer></script>
   <script src="interactive-map.js" defer></script>
   <script src="app.js?v=forest1" defer></script>
@@ -145,13 +145,13 @@
           <span class="journey-copy"><small>Утро</small><strong>Выйти на тропу раньше всех</strong><em>Высоковский бор рядом — прогулка начинается у дома</em></span>
         </button>
         <button class="journey-panel" id="journey-panel-water" type="button" data-scene="water" aria-labelledby="journey-tab-water" aria-expanded="false">
-          <img src="assets/forest-v2/pier.webp" alt="Отдых у большой воды в окружении леса">
+          <img src="assets/forest-v2/pier-warm.webp" alt="Отдых у большой воды в окружении леса">
           <span class="journey-shade" aria-hidden="true"></span>
           <span class="journey-rail-label">Вода</span>
           <span class="journey-copy"><small>День</small><strong>Провести день у большой воды</strong><em>Берег Волги — для прогулок, рыбалки и отдыха</em></span>
         </button>
         <button class="journey-panel" id="journey-panel-home" type="button" data-scene="home" aria-labelledby="journey-tab-home" aria-expanded="false">
-          <img src="assets/forest-v2/home.webp" alt="Семья за столом на террасе загородного дома">
+          <picture><source media="(max-width: 1000px)" srcset="assets/forest-v2/home-warm-mobile.webp"><img src="assets/forest-v2/home-warm.webp" alt="Семья за столом на террасе загородного дома"></picture>
           <span class="journey-shade" aria-hidden="true"></span>
           <span class="journey-rail-label">Дом</span>
           <span class="journey-copy"><small>Вечер</small><strong>Собраться за одним столом</strong><em>Тихий вечер с близкими на собственной террасе</em></span>
@@ -174,7 +174,7 @@
           <span class="journey-copy"><small>На воде</small><strong>Смотреть на берег с воды</strong><em>Неспешная прогулка на сапе вдоль лесного берега</em></span>
         </button>
         <button class="journey-panel" id="journey-panel-fire" type="button" data-scene="fire" aria-labelledby="journey-tab-fire" aria-expanded="false">
-          <img src="assets/forest-v2/fire.webp" alt="Семья проводит уютный вечер у кострища" loading="lazy">
+          <picture><source media="(max-width: 1000px)" srcset="assets/forest-v2/fire-warm-mobile.webp"><img src="assets/forest-v2/fire-warm.webp" alt="Компания друзей у кострища в сосновом лесу" loading="lazy"></picture>
           <span class="journey-shade" aria-hidden="true"></span><span class="journey-rail-label">У огня</span>
           <span class="journey-copy"><small>После заката</small><strong>Продлить вечер у огня</strong><em>Тёплые разговоры и время с близкими у кострища</em></span>
         </button>
