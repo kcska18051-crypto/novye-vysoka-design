@@ -179,8 +179,6 @@ h3 { font-size: 20px; }
 .journey-activities strong, .journey-activities small { display: block; }
 .journey-activities strong { font-size: 13px; }
 .journey-activities small { margin-top: 4px; color: #9fb2a8; font-size: 10px; line-height: 1.35; }
-.visual-note { margin-top: 20px; display: flex; align-items: flex-start; gap: 8px; color: #b5c4bc; font-size: 13px; line-height: 1.5; }
-.visual-note > span { width: 20px; height: 20px; flex: 0 0 auto; display: grid; place-items: center; border: 1px solid #577266; border-radius: 50%; color: #b7e794; font-size: 11px; font-weight: 800; }
 
 .media-story { overflow: hidden; }
 .media-heading { max-width: 790px; margin-bottom: 42px; }
@@ -231,8 +229,6 @@ h3 { font-size: 20px; }
 .location-layout { display: grid; gap: 18px; }
 .location-reference { margin: 0; overflow: hidden; border-radius: 30px; background: var(--forest-deep); box-shadow: 0 26px 70px rgba(17, 54, 40, .13); }
 .location-reference-image { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; }
-.location-reference figcaption { display: flex; justify-content: space-between; gap: 24px; padding: 12px 20px 14px; color: rgba(255,255,255,.68); font-size: 11px; line-height: 1.45; }
-.location-reference figcaption a { flex: 0 0 auto; color: white; font-weight: 700; text-decoration: none; }
 .route-card { margin: 0; padding: 22px; display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 28px; background: white; }
 .route-card-styled { position: relative; min-height: 560px; padding: 0; overflow: hidden; border: 0; background: var(--forest-deep); color: white; isolation: isolate; }
 .route-card-bg { position: absolute; inset: 0; z-index: -3; width: 100%; height: 100%; object-fit: cover; }
@@ -319,9 +315,6 @@ h3 { font-size: 20px; }
 .installment-card dd { margin: 8px 0 0; color: #d7e2dc; font-size: 11px; }
 .installment-card > small { display: block; color: #aabdb3; line-height: 1.55; }
 .purchase-steps { width: min(1180px,100%); margin: 42px auto 0; display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; }
-.purchase-steps { position: relative; }
-.purchase-steps::before { content: ""; position: absolute; top: 43px; right: 16.7%; left: 16.7%; height: 1px; background: rgba(78,148,31,.28); transform: scaleX(0); transform-origin: left; transition: transform .9s ease .2s; }
-.purchase-steps.is-visible::before { transform: scaleX(1); }
 .purchase-steps article { min-height: 142px; padding: 22px; display: grid; grid-template-columns: 44px 1fr; align-items: start; gap: 15px; border: 1px solid rgba(78,148,31,.22); border-radius: 20px; background: rgba(255,255,255,.72); }
 .purchase-steps article > span { position: relative; z-index: 1; width: 44px; height: 44px; display: grid; place-items: center; border-radius: 14px; background: #e9f5df; color: var(--brand-dark); font-size: 13px; font-weight: 800; }
 .purchase-steps h3 { margin-top: 2px; font-size: 17px; }
@@ -575,8 +568,6 @@ h3 { font-size: 20px; }
   .location-layout { gap: 18px; }
   .location-reference { border-radius: 22px; }
   .location-reference-image { aspect-ratio: auto; object-fit: contain; }
-  .location-reference figcaption { display: block; padding: 10px 14px 12px; font-size: 9px; }
-  .location-reference figcaption a { display: block; margin-top: 5px; }
   .route-card { padding: 12px; border-radius: 22px; }
   .route-card-styled { min-height: 480px; }
   .route-diagram { min-height: 430px; padding: 15px 6px 36px; transform: scale(.92); }
@@ -625,8 +616,6 @@ h3 { font-size: 20px; }
   .installment-card dl div { padding: 16px 13px; }
   .installment-card dt { font-size: 29px; }
   .purchase-steps { grid-template-columns: 1fr; gap: 8px; margin-top: 34px; }
-  .purchase-steps::before { top: 42px; bottom: 42px; left: 40px; right: auto; width: 1px; height: auto; transform: scaleY(0); transform-origin: top; }
-  .purchase-steps.is-visible::before { transform: scaleY(1); }
   .purchase-steps article { min-height: 0; padding: 18px; }
   .company-top { gap: 32px; }
   .company-lead { margin-top: 18px; font-size: 15px; }

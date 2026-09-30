@@ -87,10 +87,11 @@ test('journey supports explicit controls, directional transitions, and adjacent 
   assert.match(css, /journey-control/);
 });
 
-test('project image has restrained contextual hotspots and visualization note is readable', () => {
+test('project image stays clean without technical notes or connector artifacts', () => {
   assert.equal((html.match(/class="project-hotspot/g) || []).length, 3);
-  assert.match(html, /class="visual-note"[^>]*><span[^>]*aria-hidden="true">i<\/span>/);
-  assert.match(css, /\.visual-note[^\{]*\{[^\}]*font-size:\s*13px/s);
+  assert.doesNotMatch(html, /class="visual-note"/);
+  assert.doesNotMatch(html, /Ориентировочная схема направления/);
+  assert.doesNotMatch(css, /\.purchase-steps::before/);
 });
 
 test('sticky header exposes compact and active-section states', () => {
