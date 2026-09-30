@@ -47,7 +47,7 @@ test('keeps every major section concise and fact-led', () => {
 
 test('identifies Dmitry as founder and project lead without calling him director', () => {
   assert.match(html, /Дмитрий Родионов/);
-  assert.match(html, /<strong>Дмитрий Родионов<\/strong><span>основатель «Магазина Земли», руководитель проекта «Новые Высока»<\/span>/);
+  assert.match(html, /<strong>Дмитрий Родионов<\/strong><span>основатель «Магазина Земли»,<br>руководитель проекта «Новые Высока»<\/span>/);
   assert.doesNotMatch(html, /Дмитрий Родионов[\s\S]{0,120}директор «Магазина Земли»/);
 });
 
@@ -67,3 +67,4 @@ test('uses the new forest hero and preserves the supplied location story', () =>
   assert.match(html, /class="location-reference-image" src="assets\/location-reference-map\.webp"/);
   assert.doesNotMatch(html, /class="route-diagram"/);
 });
+

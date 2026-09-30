@@ -29,3 +29,9 @@
 - Restored two company paragraphs including Koprino and Yaroslavskoe Vzmorie per the supplied brief; kept portrait, role, quote and all three figures.
 - Mobile and tablet presentation retains whole supplied photographs above captions.
 - Validation: 42 node tests, browser interactions (gallery and quarter panel), seven viewport widths. Fixed hero-facts overflow at 768px. No browser errors observed.
+
+## Sound control and approved company copy
+- Applied client's exact two paragraphs and expanded quotation; preserved statistics and excursion CTA, removed external company link, split portrait role across lines.
+- One forest audio element drives both controls through play/pause events. No autoplay. IntersectionObserver shows compact control after hero exits, regardless of playback state; hidden control excluded from keyboard focus.
+- Restrained five-bar wave, static when off or reduced motion; forest/cream styling and mobile safe area.
+- Verified actual audio playback across in-page navigation, floating pause, synchronized states, return-to-top hiding, 375px screenshot, no overflow/errors; 42 tests pass.

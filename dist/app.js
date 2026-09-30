@@ -289,13 +289,14 @@
     [soundButton, floatingBirdButton].forEach((button) => {
       if (!button) return;
       button.setAttribute('aria-pressed', String(playing));
+      button.classList.toggle('is-playing', playing);
       button.setAttribute('aria-label', playing ? 'Выключить звуки леса' : 'Включить звуки леса');
     });
     const strong = soundButton?.querySelector('strong');
     if (strong) strong.textContent = playing ? 'Лес звучит' : 'Послушать лес';
-    const floatingLabel = floatingBirdButton?.querySelector('span');
-    if (floatingLabel) floatingLabel.textContent = playing ? 'Выключить лес' : 'Звук леса';
-    syncFloatingBird();
+    const floatingLabel = floatingBirdButton?.querySelector('.sound-floating-label');
+    if (floatingLabel) floatingLabel.textContent = playing ? 'Звук включён' : 'Звук';
+
   };
   const toggleForestSound = async () => {
     if (!forestAudio) return;
@@ -315,14 +316,20 @@
   };
   soundButton?.addEventListener('click', toggleForestSound);
   floatingBirdButton?.addEventListener('click', toggleForestSound);
-  const syncFloatingBird = () => {
-    const hero = document.querySelector('.hero');
-    if (!floatingBirdButton || !hero) return;
-    floatingBirdButton.classList.toggle('is-visible', !forestAudio?.paused && scrollY > hero.offsetHeight * .72);
-  };
-  addEventListener('scroll', syncFloatingBird, { passive: true });
-  addEventListener('resize', syncFloatingBird, { passive: true });
-  syncFloatingBird();
+  const heroSoundRegion = document.querySelector('.hero');
+  if (heroSoundRegion && floatingBirdButton && 'IntersectionObserver' in window) {
+    const soundObserver = new IntersectionObserver(([entry]) => {
+      const visible = !entry.isIntersecting;
+      floatingBirdButton.classList.toggle('is-visible', visible);
+      floatingBirdButton.inert = !visible;
+      floatingBirdButton.tabIndex = visible ? 0 : -1;
+    }, { threshold: 0 });
+    soundObserver.observe(heroSoundRegion);
+  }
+  forestAudio?.addEventListener('play', () => {
+    setSoundState(true);
+    if (soundStatus) soundStatus.textContent = '';
+  });
   forestAudio?.addEventListener('pause', () => setSoundState(false));
   forestAudio?.addEventListener('error', () => {
     setSoundState(false);
