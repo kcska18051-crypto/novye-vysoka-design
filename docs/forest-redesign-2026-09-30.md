@@ -59,3 +59,9 @@
 - On phones the image comes first, height clamp(340px,54svh,480px), full content width. Caption moved below the image as a compact 13px line; photo no longer obscured by a large label.
 - Desktop caption made more restrained; removed default figure margins.
 - Browser checks at 375/390/768/1440px: image loaded, no horizontal overflow or console errors. Screenshot: docs/intro-mobile-sunset.png.
+
+## Stable image-led gallery
+- Removed internal caption entrance animation, transition delays and panel flex/opacity/filter tween. Explicit selection and native swipe retained.
+- Increased mobile photo from 34svh to 40svh (210–330px), removed caption minimum height and reduced padding to 14px 18px 16px.
+- Tablet selected images fill their cards consistently instead of leaving empty areas.
+- Verified desktop computed animation none/transitions 0s, mobile 375x667: photo 267px, text fits all eight cards, no overflow or console errors.
