@@ -65,3 +65,7 @@
 - Increased mobile photo from 34svh to 40svh (210–330px), removed caption minimum height and reduced padding to 14px 18px 16px.
 - Tablet selected images fill their cards consistently instead of leaving empty areas.
 - Verified desktop computed animation none/transitions 0s, mobile 375x667: photo 267px, text fits all eight cards, no overflow or console errors.
+
+
+### Баннер приглашения: терраса
+Заменена фотография в «Приезжайте выбрать своё место» на присланную клиентом террасу. На мобильных отдельный облегчённый WebP, формат 4:3 и подпись под фото сохраняют террасу и закат без перекрытия текстом.
