@@ -53,3 +53,9 @@
 - All eight cards now share the same photo-above-caption treatment, padding, background and typography. Removed mixed full-background vs separate-caption mobile styles.
 - Photo height adapts to viewport: clamp(180px,34svh,280px), replacing fixed 410px; card natural content sizing prevents clipped descriptions.
 - Verified all eight captions fit on 320/375/390/430px widths, no horizontal page overflow and no console errors. At 375x667 card height is 408px instead of 610px.
+
+## Introduction image refresh
+- Replaced the introduction aerial with client's warm sunset reference (intro-sunset.webp); archived original PNG.
+- On phones the image comes first, height clamp(340px,54svh,480px), full content width. Caption moved below the image as a compact 13px line; photo no longer obscured by a large label.
+- Desktop caption made more restrained; removed default figure margins.
+- Browser checks at 375/390/768/1440px: image loaded, no horizontal overflow or console errors. Screenshot: docs/intro-mobile-sunset.png.
