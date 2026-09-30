@@ -293,7 +293,7 @@
       button.setAttribute('aria-label', playing ? 'Выключить звуки леса' : 'Включить звуки леса');
     });
     const strong = soundButton?.querySelector('strong');
-    if (strong) strong.textContent = playing ? 'Лес звучит' : 'Послушать лес';
+    if (strong) strong.textContent = 'Послушать лес';
     const floatingLabel = floatingBirdButton?.querySelector('.sound-floating-label');
     if (floatingLabel) floatingLabel.textContent = playing ? 'Звук включён' : 'Звук';
 

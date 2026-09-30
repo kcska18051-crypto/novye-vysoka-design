@@ -41,3 +41,10 @@
 - Four supplied portrait photos selected through picture sources at <=760px; desktop originals retained. Mobile portrait area and separate caption avoid covering faces.
 - Fixed native touch scrolling: pan-y had blocked horizontal gestures; allow both axes and pinch zoom with existing snap and scroll synchronization.
 - Browser horizontal scroll verified home -> family -> home with counter 6 -> 7 -> 6; mobile source selection verified, no console errors. 42 tests pass.
+
+## Labels, bird icon and company figures
+- Sound hero label remains 'Послушать лес'; removed descriptive subtitle and replaced leaf with line bird icon on both controls. Playback state remains indicated by wave, color and accessible labels.
+- Hero geography now Ярославская область · Рыбинский район.
+- Company figures: 10+ / лет работы с землёй; 1 000+ / участков; 400+ / клиентов. Nonbreaking thousands separator.
+- No external company link. Internal navigation label renamed Команда, still anchors to the same section.
+- 42 tests pass; mobile figures fit at 375px, no horizontal overflow or browser errors.

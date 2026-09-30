@@ -38,7 +38,7 @@ test('redundant section overlines are removed', () => {
 test('desktop header keeps five key links and a persistent selection action', () => {
   const nav = html.match(/<nav aria-label="Разделы страницы">([\s\S]*?)<\/nav>/i)?.[1] || '';
   assert.equal((nav.match(/<a /g) || []).length, 5);
-  for (const label of ['О проекте', 'Как здесь жить', 'Кварталы', 'Покупка', 'О компании']) assert.match(nav, new RegExp(label));
+  for (const label of ['О проекте', 'Как здесь жить', 'Кварталы', 'Покупка', 'Команда']) assert.match(nav, new RegExp(label));
   assert.match(html, /class="header-cta"[^>]+data-lead-intent="selection"/);
 });
 
