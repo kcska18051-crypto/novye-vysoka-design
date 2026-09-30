@@ -391,6 +391,15 @@
     });
   });
 
+  const tourForm = document.querySelector('#tour [data-demo-form]');
+  const tourSubmit = tourForm?.querySelector('[data-tour-submit]');
+  const syncTourSubmit = () => {
+    const intent = tourForm?.querySelector('input[name="intent"]:checked')?.value;
+    if (tourSubmit) tourSubmit.textContent = intent === 'video' ? 'Получить видео участка' : 'Записаться на экскурсию';
+  };
+  tourForm?.querySelectorAll('input[name="intent"]').forEach((option) => option.addEventListener('change', syncTourSubmit));
+  syncTourSubmit();
+
   const menuButton = document.querySelector('.menu-button');
   const mobileMenu = document.querySelector('.mobile-menu');
   const closeMenu = () => {
