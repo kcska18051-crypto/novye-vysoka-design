@@ -1,0 +1,23 @@
+#plots .house-promotion{margin:clamp(64px,7vw,100px) auto 0;max-width:1440px;color:#28392d;scroll-margin-top:100px}
+#plots .house-promotion-banner{position:relative;isolation:isolate;overflow:hidden;border:1px solid #ffffff8c;border-radius:22px;min-height:500px;background:#efecdf;display:flex;align-items:center}
+#plots .house-promotion-photo{position:absolute;inset:0;z-index:-2}
+#plots .house-promotion-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
+#plots .house-promotion-banner:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#f5f1e7ed 0%,#f5f1e7d9 28%,#f5f1e780 37%,transparent 49%);pointer-events:none}
+#plots .house-promotion-copy{position:relative;width:46%;padding:clamp(28px,4vw,58px);padding-right:12px}
+#plots .house-promotion-copy h2{font-family:var(--serif);font-size:clamp(36px,4vw,58px);font-weight:400;line-height:1.04;letter-spacing:-.035em;margin:0 0 22px;color:#253b2b}
+#plots .house-promotion-copy p{max-width:390px;font-size:17px;line-height:1.55;margin:0;color:#586052;text-wrap:pretty}
+#plots .house-promotion-cta{display:inline-flex;align-items:center;justify-content:center;gap:24px;min-height:54px;margin-top:28px;padding:15px 28px;border-radius:40px;background:#35492f;color:#fff9ed;text-decoration:none;font-size:16px;line-height:1.3;transition:background .2s}
+#plots .house-promotion-cta:hover{background:#263c26}
+#plots button.house-promotion-cta{border:0;font-family:inherit;cursor:pointer}
+.lead-intents[hidden],.lead-intents label[hidden]{display:none!important}
+#plots .house-promotion-cta:focus-visible{outline:2px solid #8d603a;outline-offset:5px}
+#plots .house-promotion-cta span{font-size:24px;line-height:1}
+#plots .house-promotion-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;list-style:none;padding:0;margin:22px 0 0}
+#plots .house-promotion-steps li{display:flex;align-items:center;gap:18px;min-width:0;padding:22px;border:1px solid #a3aa933b;border-radius:16px;background:#ffffff19}
+#plots .house-promotion-steps li>span{display:grid;place-items:center;flex:0 0 42px;width:42px;height:42px;border-radius:50%;background:#dedfcf;color:#35492f;font:400 26px/1 var(--serif)}
+#plots .house-promotion-steps p{margin:0;font-size:15px;line-height:1.5;color:#43513e}
+@media(min-width:1500px){#plots .house-promotion-banner{min-height:540px}}
+@media(max-width:1000px) and (min-width:701px){#plots .house-promotion-banner{min-height:470px}#plots .house-promotion-copy{width:48%;padding:30px 10px 30px 28px}#plots .house-promotion-copy h2{font-size:39px}#plots .house-promotion-copy p{font-size:15px}#plots .house-promotion-steps li{padding:16px;gap:12px}#plots .house-promotion-steps p{font-size:14px}}
+@media(max-width:700px){#plots .house-promotion-banner{display:flex;flex-direction:column;align-items:stretch;min-height:0;border-radius:16px}#plots .house-promotion-copy{width:auto;padding:28px 24px 12px;background:#efecdf;order:0}#plots .house-promotion-copy h2{font-size:clamp(34px,7vw,44px);max-width:480px;margin-bottom:17px}#plots .house-promotion-copy p{max-width:480px;font-size:16px}#plots .house-promotion-cta{margin-top:22px;font-size:15px;min-height:50px;padding:14px 24px}#plots .house-promotion-photo{position:relative;inset:auto;z-index:0;order:1;height:280px;overflow:hidden}#plots .house-promotion-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(#efecdf,transparent 28%);pointer-events:none}#plots .house-promotion-photo img{position:absolute;right:0;width:175%;max-width:none;object-position:right center}#plots .house-promotion-steps{grid-template-columns:1fr;gap:10px;margin-top:16px}#plots .house-promotion-steps li{padding:16px 18px;gap:16px;border-radius:12px}#plots .house-promotion-steps p{font-size:15px}#plots .house-promotion-steps li>span{flex-basis:36px;width:36px;height:36px;font-size:23px}}
+@media(prefers-reduced-motion:reduce){#plots .house-promotion-cta{transition:none}}
+@media(max-width:700px){#plots .house-promotion-photo{height:250px}#plots .house-promotion-photo img{width:100%;object-position:70% center}#plots .house-promotion-banner:before{display:none}}
