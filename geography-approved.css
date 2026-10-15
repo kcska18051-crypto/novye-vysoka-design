@@ -1,0 +1,14 @@
+/* Local geography refinement only. */
+#about.project-intro.section{padding-block:82px;align-items:start}
+#about .project-intro-copy{padding-top:12px}
+#about .project-intro-media{aspect-ratio:1.38}
+@media(max-width:1000px){
+ #about.project-intro.section{padding-block:54px;gap:34px}
+ #about .project-intro-copy{padding-top:0}
+ #about .project-intro-media{aspect-ratio:1.55}
+}
+@media(max-width:760px){
+ #about.project-intro.section{padding-top:23px;padding-bottom:49px;gap:21px}
+ #about .project-intro-media{aspect-ratio:auto}
+ #about .project-intro-media .project-intro-aerial{height:clamp(290px,46svh,410px);object-fit:cover;object-position:64% center}
+}
