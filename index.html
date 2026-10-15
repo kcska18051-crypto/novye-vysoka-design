@@ -23,6 +23,9 @@
   <link rel="stylesheet" href="transport-approved.css?v=20261015">
   <script src="transport-approved-data.js?v=20261015" defer></script>
   <script src="transport-approved.js?v=20261015" defer></script>
+  <link rel="stylesheet" href="quarters-approved.css?v=20261015">
+  <script src="quarters-approved.js?v=20261015" defer></script>
+  <script src="quarters-overview-approved.js?v=20261015" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Перейти к содержанию</a>
@@ -253,25 +256,15 @@
       </div>
     </aside>
 
-    <section class="plots section" id="plots" aria-labelledby="plots-title">
-      <div class="section-heading reveal">
-        <h2 id="plots-title">Выберите место<br>для своего дома</h2>
-        <p>Пять кварталов расположены между лесом и Волгой. Выберите квартал на карте, чтобы посмотреть его особенности и доступные участки.</p>
+    <section class="quarter-explorer section" id="plots" aria-labelledby="plots-title">
+      <div class="qe-heading"><h2 id="plots-title">Выберите квартал<br>для своего дома</h2><p>Пять кварталов проекта «Новые Высока» расположены среди лесов Рыбинского района. Выберите интересующую территорию и познакомьтесь с её генпланом.</p><a class="qe-glass qe-project-download" href="assets/quarter-overview/project-presentation.pdf" download="Новые Высока — презентация проекта.pdf">Скачать презентацию проекта <span aria-hidden="true">↓</span></a></div>
+      <div id="qe-overview">
+        <div class="qe-map-shell"><div class="qe-map-viewport" tabindex="0" role="region" aria-label="Обзор территории. Масштаб: плюс и минус. Перемещение: стрелки, перетаскивание или жест двумя пальцами."><div class="qe-scene"><img src="assets/quarter-overview/overview-clean.svg" alt="Визуализация территории Новых Высока" class="qe-landscape" draggable="false"><svg class="qe-regions" viewBox="0 0 1680 1187" aria-label="Кварталы проекта"><g role="button" tabindex="0" data-map-quarter="degtyaritsy" aria-label="Открыть генплан: Дегтярицы"><path d="M371 94 L477 70 L491 117 L711 98 L756 139 L749 184 L729 199 L739 250 L552 270 L533 284 L433 284 L399 221 L386 177 Z"/><text x="555" y="195">Дегтярицы</text></g><g role="button" tabindex="0" data-map-quarter="chernaya" aria-label="Открыть генплан: Чёрная речка"><path d="M434 285 L535 284 L552 305 L539 452 L573 468 L592 479 L590 524 L614 534 L630 550 L607 649 L548 650 L528 697 L516 696 L512 658 L480 677 L479 637 L414 630 L410 607 L431 455 L441 375 Z"/><text x="510" y="530">Чёрная речка</text></g><g role="button" tabindex="0" data-map-quarter="vysoka" aria-label="Открыть генплан: Новые Высока"><path d="M575 444 L781 465 L811 484 L830 490 L850 476 L929 493 L961 524 L1003 593 L981 605 L948 569 L763 537 L731 503 L587 481 L574 480 Z"/><text x="785" y="514">Новые Высока</text></g><g role="button" tabindex="0" data-map-quarter="nikolo" aria-label="Открыть генплан: Николо-Корма"><path d="M1009 584 L1149 501 L1166 498 L1196 549 L1224 596 L1253 637 L1289 679 L1324 720 L1291 740 L1249 747 L1199 776 L1164 790 L1143 790 L1112 752 L1078 711 Z"/><text x="1163" y="657">Николо-Корма</text></g></svg></div></div><div class="qe-quarter-popup" id="qe-quarter-popup" role="region" aria-label="Выбранный квартал" hidden><button class="qe-popup-close" type="button" aria-label="Закрыть информацию о квартале">×</button><h3 id="qe-popup-name"></h3><p id="qe-popup-price" hidden></p><button class="qe-glass" id="qe-open-selected" data-quarter="degtyaritsy">Посмотреть генплан ↗</button></div><div class="qe-map-controls" role="group" aria-label="Масштаб обзорной карты"><button class="qe-glass" id="qe-map-minus" aria-label="Отдалить карту">−</button><button class="qe-glass" id="qe-map-reset" aria-label="Показать всю карту">Весь генплан</button><button class="qe-glass" id="qe-map-plus" aria-label="Приблизить карту">+</button></div></div>
       </div>
-      <div class="interactive-map reveal" data-interactive-map>
-        <div class="map-filter-row" data-map-filters aria-label="Фильтры карты"></div>
-        <div class="map-layout">
-          <div class="map-canvas" aria-label="Интерактивная карта кварталов и окружения">
-            <img class="map-base" src="assets/quarters/masterplan.webp" alt="Общий генплан территории Новые Высока" loading="lazy">
-            <div class="map-markers" data-map-markers></div>
-            <div class="map-legend" aria-hidden="true"><span><i class="legend-quarter"></i>Кварталы</span><span><i class="legend-object"></i>Объекты рядом</span></div>
-          </div>
-          <aside class="map-detail" data-map-card aria-live="polite">
-            <div class="map-card-empty"><span>Нажмите на точку</span><h3>Выберите квартал или объект на карте</h3><p>Здесь появятся генплан, показатели квартала или краткая информация о месте.</p></div>
-          </aside>
-        </div>
-        <div class="map-live" data-map-live aria-live="polite"></div>
-        <div class="map-object-list" data-map-object-list aria-label="Все объекты карты"></div>
+      <div id="qe-detail" hidden>
+        <div class="qe-detail-top"><button type="button" class="qe-glass" id="qe-back">← К общему генплану</button><button class="qe-glass" type="button" id="qe-fullscreen">На весь экран ↗</button></div>
+        <div class="qe-detail-grid"><div class="qe-viewer-wrap"><div class="qe-viewer" tabindex="0" role="region" aria-label="Генплан Дегтяриц. Кнопки плюс и минус меняют масштаб, стрелки перемещают увеличенный план."><img id="qe-plan" src="assets/quarter-overview/degtyaritsy-plan.png" alt="Исходный генплан Дегтяриц с номерами участков, дорогами, масштабом и легендой" draggable="false"></div><button type="button" class="qe-glass qe-exit" id="qe-exit-fullscreen" hidden>Закрыть полный экран ×</button><div class="qe-zoom" role="group" aria-label="Масштаб генплана"><button class="qe-glass" id="qe-minus" aria-label="Уменьшить" type="button">−</button><button class="qe-glass" id="qe-reset" aria-label="Сбросить масштаб" type="button">100%</button><button class="qe-glass" id="qe-plus" aria-label="Увеличить" type="button">+</button></div></div>
+        <aside class="qe-info"><h3 tabindex="-1" id="qe-detail-title">Дегтярицы</h3><p class="qe-price">от 70 000 ₽<span>за сотку</span></p><div class="qe-key"><h4>Условные обозначения</h4><p><i class="qe-green" aria-hidden="true"></i>от 70 000 ₽/сотка</p><p><i class="qe-orange" aria-hidden="true"></i>специальная цена</p></div><a id="qe-pdf" class="qe-glass" href="assets/quarter-overview/degtyaritsy-plan.pdf" download>Скачать генплан PDF ↓</a><button type="button" class="button button-primary" data-lead-intent="selection" data-plan-quarter="Дегтярицы">Оставить заявку</button></aside></div>
       </div>
     </section>
 
