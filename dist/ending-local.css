@@ -1,0 +1,4 @@
+#company .company-reasons[hidden]{display:none!important}
+#company{padding-bottom:48px}
+#company + #tour{padding-top:48px}
+@media(max-width:760px){#company{padding-bottom:32px}#company + #tour{padding-top:32px}}
