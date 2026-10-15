@@ -20,7 +20,7 @@
   function zoom(v){scale=Math.max(1,Math.min(4,v));paint();}
   let activeTrigger=null, busy=false;
   const reduced=()=>matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const priceData={degtyaritsy:70000,nikolo:45000,vysoka:70000,chernaya:70000};
+  const priceData={degtyaritsy:70000,nikolo:45000,vysoka:70000,chernaya:100000};
   async function openQuarter(trigger){
     if(busy)return;busy=true;activeTrigger=trigger;
     const id=trigger.dataset.quarter,name=quarters[id];
