@@ -243,7 +243,7 @@
   const leadContent = {
     selection: { title: 'Подобрать участок', submit: 'Получить подборку' },
     tour: { title: 'Записаться на экскурсию', submit: 'Записаться на экскурсию' },
-    promotion: { title: 'Посмотреть участки по акции', submit: 'Получить подборку по акции' }
+    promotion: { title: 'Участвовать в акции', submit: 'Оставить заявку' }
   };
   const setLeadIntent = (intent) => {
     const selectedIntent = leadContent[intent] ? intent : 'selection';
@@ -251,6 +251,12 @@
     if (radio) radio.checked = true;
     if (leadTitle) leadTitle.textContent = leadContent[selectedIntent].title;
     if (leadSubmit) leadSubmit.textContent = leadContent[selectedIntent].submit;
+    const intents = leadForm?.querySelector('.lead-intents');
+    if (intents) intents.hidden = selectedIntent === 'promotion';
+    const intro = leadDialog?.querySelector('.lead-dialog-intro p');
+    if (intro) intro.textContent = selectedIntent === 'promotion'
+      ? 'Оставьте контакты — команда свяжется с вами и расскажет об участии в акции.'
+      : 'Оставьте контакты — команда уточнит ваши планы и предложит подходящий следующий шаг.';
   };
   const closeLead = () => {
     if (leadDialog?.open) leadDialog.close();

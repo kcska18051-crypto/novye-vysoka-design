@@ -11,7 +11,7 @@
   <script src="map-data.js?v=forest-soft1" defer></script>
   <script src="interactive-map-model.js" defer></script>
   <script src="interactive-map.js" defer></script>
-  <script src="app.js?v=labels1" defer></script>
+  <script src="app.js?v=promotion-form1" defer></script>
   <link rel="stylesheet" href="hero-approved.css?v=20261014">
   <link rel="stylesheet" href="features-approved.css?v=20261015">
   <script src="features-approved.js?v=20261015" defer></script>
@@ -28,6 +28,7 @@
   <script src="quarters-overview-approved.js?v=20261015-price100" defer></script>
   <link rel="stylesheet" href="around-approved.css?v=20261015-gallery">
   <script src="around-approved.js?v=20261015-gallery" defer></script>
+  <link rel="stylesheet" href="promotion-local.css?v=20261015-house">
 </head>
 <body>
   <a class="skip-link" href="#main">Перейти к содержанию</a>
@@ -244,20 +245,6 @@
       </div>
     </section>
 
-    <aside class="conversion-band promotion-band reveal" id="promotion" aria-label="Специальное предложение на участки">
-      <div class="promotion-copy">
-        <h2>Специальное предложение</h2>
-        <p class="promotion-offer">Участки от <span class="promotion-price">70 000 ₽</span> за сотку</p>
-        <p class="promotion-description">Цена действует на выбранные участки.</p>
-        <small>Актуальное наличие и полную стоимость проверим перед просмотром.</small>
-      </div>
-      <div class="promotion-visual">
-        <img class="promotion-image" src="assets/territory-panorama.jpg" alt="Территория Новых Высока между лесом и Волгой" loading="lazy">
-        <span class="promotion-image-shade" aria-hidden="true"></span>
-        <a class="button button-primary" href="#tour" data-lead-intent="promotion">Посмотреть участки по акции</a>
-      </div>
-    </aside>
-
     <section class="quarter-explorer section" id="plots" aria-labelledby="plots-title">
       <div class="qe-heading"><h2 id="plots-title">Выберите квартал<br>для своего дома</h2><p>Пять кварталов проекта «Новые Высока» расположены среди лесов Рыбинского района. Выберите интересующую территорию и познакомьтесь с её генпланом.</p><a class="qe-glass qe-project-download" href="assets/quarter-overview/project-presentation.pdf" download="Новые Высока — презентация проекта.pdf">Скачать презентацию проекта <span aria-hidden="true">↓</span></a></div>
       <div id="qe-overview">
@@ -279,6 +266,21 @@
         </div>
         <div class="around-gallery" data-around-gallery aria-live="polite"></div>
       </div>
+      <aside class="house-promotion" id="promotion" aria-labelledby="promotion-title">
+        <div class="house-promotion-banner">
+          <div class="house-promotion-photo"><img src="assets/promotion/modular-house.webp" alt="Модульный дом, участвующий в розыгрыше" loading="lazy"></div>
+          <div class="house-promotion-copy">
+            <h2 id="promotion-title">Разыгрываем<br>дом среди<br>покупателей</h2>
+            <p>С 29 октября покупайте участок в «Новых Высока» и становитесь участником розыгрыша модульного дома.</p>
+            <button class="house-promotion-cta" type="button" data-lead-intent="promotion">Участвовать в акции <span aria-hidden="true">→</span></button>
+          </div>
+        </div>
+        <ol class="house-promotion-steps" aria-label="Как участвовать">
+          <li><span aria-hidden="true">1</span><p>Купите участок в период акции.</p></li>
+          <li><span aria-hidden="true">2</span><p>Один приобретённый участок — один билет на участие.</p></li>
+          <li><span aria-hidden="true">3</span><p>После завершения акции проводится розыгрыш дома.</p></li>
+        </ol>
+      </aside>
     </section>
 
     <section class="purchase" id="purchase" aria-labelledby="purchase-title">
@@ -404,6 +406,7 @@
           <legend>Что вас интересует?</legend>
           <label><input type="radio" name="popup-intent" value="selection" checked> <span>Подобрать участок</span></label>
           <label><input type="radio" name="popup-intent" value="tour"> <span>Записаться на экскурсию</span></label>
+          <label hidden><input type="radio" name="popup-intent" value="promotion"> <span>Участвовать в акции</span></label>
         </fieldset>
         <label>Как к вам обращаться<input type="text" name="name" placeholder="Имя" autocomplete="name"></label>
         <label>Телефон<input type="tel" name="phone" placeholder="+7 ___ ___-__-__" inputmode="tel" autocomplete="tel" required aria-describedby="dialog-phone-error"><span class="field-error" id="dialog-phone-error"></span></label>
