@@ -1,0 +1,113 @@
+#plots.quarter-explorer{background:#eae6d8;color:#28392d;padding:72px clamp(20px,5vw,80px);max-width:none;scroll-margin-top:90px}
+#plots .qe-heading{display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:end;margin-bottom:32px}
+#plots .qe-heading h2{font-size:clamp(36px,4vw,60px);line-height:1.07;letter-spacing:-.035em;margin:0;color:inherit}
+#plots .qe-heading p{max-width:520px;font-size:17px;line-height:1.6;margin:0;color:#586052}
+#plots [hidden]{display:none!important}
+#plots .qe-tabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px}
+#plots .qe-glass{appearance:none;display:inline-flex;align-items:center;justify-content:center;gap:14px;min-height:44px;padding:11px 22px;border:1px solid #bcbba777;border-radius:28px;background:linear-gradient(150deg,#fff7,#fff1);box-shadow:inset 0 1px 0 #fff9,0 3px 12px #29342308;backdrop-filter:blur(14px);color:inherit;font:inherit;font-size:14px;text-decoration:none;cursor:pointer;transition:background .2s,box-shadow .2s}
+#plots .qe-glass:hover{background:linear-gradient(150deg,#fff9,#fff3)}
+#plots .qe-glass[aria-pressed=true]{background:linear-gradient(140deg,#52604d,#303f33);color:#f6efde;border-color:#7d8974;box-shadow:inset 0 1px 1px #fffbcc50}
+#plots .qe-glass:focus-visible,#plots .qe-viewer:focus-visible{outline:2px solid #80583d;outline-offset:4px}
+#plots .qe-overview-image{margin:0;position:relative;border-radius:16px;overflow:hidden;background:#d8d8ca}
+#plots #qe-aerial{display:block;width:100%;height:auto;max-height:620px;object-fit:contain}
+#plots .qe-overview-image.is-satellite #qe-aerial{height:440px;object-fit:contain;padding:28px 0 100px;image-rendering:auto}
+#plots .qe-overview-image figcaption{position:absolute;bottom:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:45px 32px 25px;background:linear-gradient(transparent,#14281cbb);color:#fff8e8}
+#plots .qe-overview-image.is-satellite figcaption{background:linear-gradient(transparent,#28392d55);color:#28392d}
+#plots .qe-overview-image h3{margin:0;font-size:32px;font-weight:400}
+#plots .qe-detail-top{display:flex;justify-content:space-between;gap:12px;margin-bottom:20px}
+#plots .qe-detail-grid{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:36px;align-items:start}
+#plots .qe-viewer-wrap{position:relative;min-width:0}
+#plots .qe-viewer{height:clamp(380px,44vw,650px);overflow:hidden;background:#dedfd3;border-radius:12px;display:grid;place-items:center;touch-action:pan-y;cursor:zoom-in}
+#plots .qe-viewer.is-zoomed{touch-action:none;cursor:grab}
+#plots .qe-viewer.is-dragging{cursor:grabbing}
+#plots #qe-plan{width:100%;height:100%;object-fit:contain;max-width:none;user-select:none;transform-origin:center;will-change:transform}
+#plots .qe-zoom{display:flex;justify-content:center;gap:8px;margin-top:12px}
+#plots .qe-zoom button{padding:0;min-width:44px;height:44px}
+#plots .qe-zoom #qe-reset{min-width:76px;font-variant-numeric:tabular-nums}
+#plots .qe-glass:disabled{opacity:.4;cursor:default}
+#plots .qe-info{padding-top:12px}
+#plots .qe-info h3{font-size:40px;line-height:1.1;margin:0 0 27px;font-weight:400}
+#plots .qe-price{font-size:29px;margin:0 0 35px;line-height:1.2}
+#plots .qe-price span{display:block;font-size:15px;margin-top:9px;color:#65705d}
+#plots .qe-key{padding:24px 0;border-top:1px solid #a5aa9655;margin-bottom:26px}
+#plots .qe-key h4{font:inherit;font-size:14px;margin:0 0 18px;color:#65705d}
+#plots .qe-key p{display:flex;align-items:center;gap:10px;font-size:14px;margin:12px 0}
+#plots .qe-key i{width:26px;height:16px;border:1px solid #31412b;flex-shrink:0}
+#plots .qe-green{background:#d0fc9b}#plots .qe-orange{background:#ffae4c}
+#plots .qe-info .button{width:100%}
+@media(max-width:800px){#plots.quarter-explorer{padding:45px 20px}#plots .qe-heading{grid-template-columns:1fr;gap:20px}#plots .qe-heading p{font-size:16px}#plots .qe-detail-grid{grid-template-columns:1fr;gap:24px}#plots .qe-viewer{height:60vw;min-height:280px}#plots .qe-info h3{font-size:34px;margin-bottom:18px}#plots .qe-price{margin-bottom:20px}#plots .qe-key{margin-bottom:16px;padding:16px 0}#plots .qe-overview-image figcaption{position:static;background:#344332;padding:18px;flex-wrap:wrap}#plots .qe-overview-image h3{font-size:27px}#plots .qe-overview-image.is-satellite #qe-aerial{height:280px;padding:20px 0}#plots .qe-overview-image.is-satellite figcaption{background:#344332;color:#fff8e8}#plots .qe-glass{padding:10px 16px;font-size:13px}#plots .qe-tabs{gap:8px}#plots .qe-info .button{min-height:48px}}
+@media(prefers-reduced-motion:reduce){#plots *{transition:none!important;scroll-behavior:auto!important}}
+
+#plots.is-detail .qe-heading{display:none}
+#plots .qe-viewer{touch-action:none}
+#plots .qe-scene{position:relative;overflow:hidden;border-radius:14px;transition:transform 420ms ease,opacity 420ms ease;isolation:isolate}
+#plots #qe-overview{overflow:hidden;border-radius:14px}
+#plots .qe-landscape{display:block;width:100%;height:auto}
+#plots .qe-regions{position:absolute;inset:0;width:100%;height:100%}
+#plots .qe-regions g{cursor:pointer;outline:none}
+#plots .qe-regions path{fill:transparent;stroke:transparent;stroke-width:1.4;vector-effect:non-scaling-stroke;transition:fill 400ms,stroke 400ms,opacity 400ms}
+#plots .qe-regions text{font:27px Georgia,serif;text-anchor:middle;fill:#fff8e8;stroke:#263a2b;stroke-width:3;stroke-linejoin:round;paint-order:stroke;pointer-events:none;opacity:0;transition:opacity 350ms}
+#plots .qe-regions g:hover path,#plots .qe-regions g:focus-visible path{fill:#f0c67830;stroke:#fff2cedd;stroke-width:1.5}
+#plots .qe-regions g:hover text,#plots .qe-regions g:focus-visible text{opacity:1}
+#plots .qe-scene.is-opening{transform:scale(1.32);opacity:0}
+#plots .qe-caption{font-size:12px;color:#66705f;margin:10px 0 0}
+#plots .qe-info #qe-pdf{width:100%;margin-bottom:14px}
+#plots .qe-viewer-wrap:fullscreen,#plots .qe-viewer-wrap.qe-expanded{background:#eae6d8;padding:24px;display:flex;flex-direction:column;position:fixed;inset:0;z-index:9999}
+#plots .qe-viewer-wrap:fullscreen .qe-viewer,#plots .qe-viewer-wrap.qe-expanded .qe-viewer{flex:1;height:auto;min-height:0}
+#plots .qe-exit{position:absolute;right:35px;top:35px;z-index:3}
+@media(max-width:800px){#plots.quarter-explorer:not(.is-detail){padding-inline:0}#plots:not(.is-detail) .qe-heading{padding-inline:20px}#plots .qe-scene{border-radius:0}#plots .qe-caption{padding-inline:20px}#plots .qe-regions text{font-size:37px}#plots .qe-viewer-wrap:fullscreen,#plots .qe-viewer-wrap.qe-expanded{padding:10px}#plots .qe-exit{right:20px;top:20px}}
+@media(hover:none){#plots .qe-regions text{opacity:1}#plots .qe-regions path{stroke:#fff0c955}}
+@media(prefers-reduced-motion:reduce){#plots .qe-scene,#plots .qe-regions path,#plots .qe-regions text{transition:none}}
+@media(max-width:800px){#plots .qe-regions text{opacity:1;font-size:50px;stroke-width:7}}
+
+#plots .qe-hover-shade{fill:#102114;opacity:0;pointer-events:none;transition:opacity 350ms}
+#plots .qe-regions.has-active .qe-hover-shade{opacity:.18}
+#plots .qe-regions g{pointer-events:none}
+#plots .qe-regions g path{pointer-events:all}
+@media(prefers-reduced-motion:reduce){#plots .qe-hover-shade{transition:none}}
+#plots.quarter-explorer{width:100%;max-width:none;margin:0;padding:64px max(40px,calc((100% - 1180px)/2));background:#eae6d8}
+#plots #qe-overview{overflow:visible;border-radius:0}
+#plots .qe-overview-toolbar{display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:56px;margin-bottom:16px}
+#plots .qe-overview-toolbar .qe-tabs{margin:0;gap:8px}
+#plots .qe-map-shell{position:relative;transition:opacity 420ms;overflow:hidden;border-radius:12px}
+#plots .qe-map-shell.is-opening{opacity:0}
+#plots .qe-map-viewport{position:relative;width:100%;aspect-ratio:1491/1055;max-height:760px;overflow:hidden;background:#c6c9b7;touch-action:none;cursor:grab;outline-offset:4px}
+#plots .qe-map-viewport:active{cursor:grabbing}
+#plots .qe-scene{position:absolute;left:50%;top:50%;overflow:visible;border-radius:0;transform-origin:0 0;transition:none;will-change:transform}
+#plots .qe-scene.is-focusing{transition:transform 420ms cubic-bezier(.2,.65,.3,1)}
+#plots .qe-landscape{width:100%;height:100%;user-select:none;filter:brightness(1.16) contrast(1.08) saturate(.94)}
+#plots .qe-regions{width:100%;height:100%;pointer-events:none}
+#plots .qe-map-controls{position:absolute;right:18px;bottom:18px;display:flex;gap:7px}
+#plots .qe-map-controls .qe-glass{min-width:44px;padding:0 12px;background:linear-gradient(140deg,#f7f0d9de,#eee8d4a8);color:#243b29}
+#plots #qe-map-reset{min-width:76px;font-variant-numeric:tabular-nums}
+#plots .qe-map-viewport:focus-visible{outline:2px solid #80603f}
+@media(max-width:800px){#plots.quarter-explorer,#plots.quarter-explorer:not(.is-detail){padding:40px 20px}#plots:not(.is-detail) .qe-heading{padding:0}#plots .qe-overview-toolbar{align-items:stretch;flex-direction:column;gap:10px}#plots .qe-overview-toolbar .qe-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px}#plots .qe-overview-toolbar .qe-tabs button{padding:9px 5px;font-size:12px;min-width:0}#plots .qe-map-viewport{aspect-ratio:1491/1055;max-height:none}#plots .qe-map-shell{border-radius:8px}#plots .qe-map-controls{position:static;justify-content:center;padding-top:12px}#plots #qe-open-selected{align-self:stretch}}
+@media(prefers-reduced-motion:reduce){#plots .qe-scene.is-focusing,#plots .qe-map-shell{transition:none}}
+#plots .qe-map-viewport{max-height:none}
+@media(max-width:800px){#plots .qe-map-controls{justify-content:flex-start;gap:6px}}
+#plots .qe-map-viewport{aspect-ratio:1680/1187}
+#plots .qe-landscape{filter:brightness(1.06) contrast(1.03)}
+#plots .qe-regions{pointer-events:none}
+#plots .qe-regions g{pointer-events:none}
+#plots .qe-regions g path{pointer-events:all;fill:transparent;stroke:transparent;cursor:pointer}
+#plots .qe-regions g:hover path,#plots .qe-regions g:focus-visible path{fill:#eed19b55;stroke:#fff2d4;stroke-width:1.5}
+#plots .qe-regions text{font-size:28px;opacity:0;stroke:#253a24;stroke-width:4}
+#plots .qe-regions g:hover text,#plots .qe-regions g:focus-visible text{opacity:1}
+#plots .qe-overview-toolbar{flex-wrap:wrap}
+@media(max-width:800px){#plots .qe-overview-toolbar .qe-tabs{grid-template-columns:repeat(2,minmax(0,1fr))}#plots .qe-regions text{font-size:40px}#plots .qe-regions g path{stroke:#fff1ce66}}
+#plots .qe-heading{grid-template-columns:1.1fr 1fr;align-items:start;column-gap:64px;row-gap:18px}
+#plots .qe-heading h2{grid-row:1/3}
+#plots .qe-heading p{grid-column:2}
+#plots .qe-project-download{grid-column:2;justify-self:start}
+#plots .qe-regions text{opacity:1}
+#plots .qe-regions g.is-active path{fill:#eed19b55;stroke:#fff2d4;stroke-width:1.5}
+#plots .qe-quarter-popup{position:absolute;z-index:5;width:260px;max-width:calc(100% - 24px);padding:23px 18px 18px;border:1px solid #fff6d599;border-radius:16px;background:linear-gradient(145deg,#f4efdfed,#dedccaeb);backdrop-filter:blur(18px);box-shadow:inset 0 1px 0 #fff9,0 10px 30px #12261733;color:#293c2d}
+#plots .qe-quarter-popup h3{font:27px Georgia,serif;margin:0 12px 13px 0;line-height:1.1}
+#plots .qe-quarter-popup p{font-size:14px;margin:0 0 15px}
+#plots .qe-quarter-popup .qe-glass{width:100%;padding:10px 12px}
+#plots .qe-popup-close{position:absolute;right:8px;top:5px;background:none;border:0;color:inherit;font-size:24px;width:32px;height:32px;cursor:pointer}
+@media(max-width:800px){#plots .qe-heading{grid-template-columns:1fr;gap:18px}#plots .qe-heading h2,#plots .qe-heading p,#plots .qe-project-download{grid-column:1;grid-row:auto}#plots .qe-project-download{justify-self:start}#plots .qe-quarter-popup{width:240px;padding:22px 15px 15px}#plots .qe-quarter-popup h3{font-size:24px}}
+#plots .qe-detail-top{position:sticky;top:80px;z-index:8;padding:12px 0;background:#eae6d8}
+#plots #qe-back{background:#354933;color:#fff5e1;border-color:#8b977e}
+#plots #qe-map-reset{min-width:124px;font-size:13px}
+@media(max-width:800px){#plots .qe-detail-top{top:68px;gap:8px}#plots #qe-back{padding-inline:12px}#plots #qe-fullscreen{padding-inline:10px;font-size:12px}}
