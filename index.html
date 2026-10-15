@@ -18,6 +18,8 @@
   <link rel="stylesheet" href="geography-approved.css?v=20261015">
   <link rel="stylesheet" href="journey-approved.css?v=20261015">
   <script src="journey-approved.js?v=20261015" defer></script>
+  <link rel="stylesheet" href="cinema-approved.css?v=20261015">
+  <script src="cinema-approved.js?v=20261015" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Перейти к содержанию</a>
@@ -203,41 +205,23 @@
       </div>
     </section>
 
-    <section class="media-story section" id="media" aria-labelledby="media-title">
-      <div class="media-heading reveal">
-        <h2 id="media-title">Увидеть место, прежде чем приехать</h2>
-        <p>Панорама с квадрокоптера и короткие видео с территории проекта.</p>
+    <section class="media-story section cinema-section" id="media" aria-labelledby="media-title">
+      <div class="cinema-heading reveal">
+        <h2 id="media-title">Посмотрите «Новые&nbsp;Высока» своими глазами</h2>
+        <p>Реальные съёмки территории с высоты и прогулки с основателем проекта. Познакомьтесь с местом ещё до поездки.</p>
       </div>
-
-      <button class="project-film reveal" type="button" data-video-provider="rutube" data-video-id="479c0e8d954df2c26bb9ef3a9c9324f0" data-video-title="Фильм о проекте Новые Высока">
-        <img src="assets/video-project.webp" alt="Панорама проекта Новые Высока в фильме с квадрокоптера" loading="lazy">
-        <span class="project-film-shade" aria-hidden="true"></span>
-        <span class="video-play" aria-hidden="true">▶</span>
-        <span class="project-film-copy"><small>Горизонтальное видео · фильм с квадрокоптера</small><strong>Проект «Новые Высока»</strong><em>Посмотреть территорию целиком</em></span>
-      </button>
-
-      <div class="reels-heading reveal">
-        <div><h3>Прогулка по территории вместе с основателем</h3></div>
-        <p>Выберите ролик, чтобы увидеть место с разных точек.</p>
+      <div class="cinema-track reveal" aria-label="Видео о Новых Высока">
+<button class="cinema-card cinema-wide is-selected" type="button" data-video-provider="rutube" data-video-id="479c0e8d954df2c26bb9ef3a9c9324f0" data-video-title="Территория с высоты" aria-label="Территория с высоты"><img src="assets/video-project.webp" alt="Панорама проекта Новые Высока в фильме с квадрокоптера" loading="lazy"><span class="cinema-shade" aria-hidden="true"></span><span class="cinema-play" aria-hidden="true">▶</span><strong>Территория с высоты</strong></button>
+<button class="cinema-card reel-card" type="button" data-video-provider="kinescope" data-video-id="7c3wwKGJfzTnkFvgZEdFKM" data-video-title="Знакомство с проектом" aria-label="Знакомство с проектом"><img src="assets/video-vertical-01.webp" alt="Дмитрий Родионов рассказывает о проекте на берегу Волги" loading="lazy"><span class="cinema-shade" aria-hidden="true"></span><span class="cinema-play" aria-hidden="true">▶</span><strong>Знакомство с проектом</strong></button>
+<button class="cinema-card reel-card" type="button" data-video-provider="kinescope" data-video-id="hYFnWPwiEZDBfERDFrGhbP" data-video-title="Высоковский бор" aria-label="Высоковский бор"><img src="assets/video-vertical-02.webp" alt="Дмитрий Родионов рассказывает о Высоковском боре" loading="lazy"><span class="cinema-shade" aria-hidden="true"></span><span class="cinema-play" aria-hidden="true">▶</span><strong>Высоковский бор</strong></button>
+<button class="cinema-card reel-card" type="button" data-video-provider="kinescope" data-video-id="49XHTBNAjzHaVuuGChi9pu" data-video-title="Прогулка по территории" aria-label="Прогулка по территории"><img src="assets/video-vertical-03.webp" alt="Дмитрий Родионов на территории проекта" loading="lazy"><span class="cinema-shade" aria-hidden="true"></span><span class="cinema-play" aria-hidden="true">▶</span><strong>Прогулка по территории</strong></button>
+<button class="cinema-card reel-card" type="button" data-video-provider="kinescope" data-video-id="xwq2KvpNrgm3ua2rp9NPqV" data-video-title="Лесные маршруты" aria-label="Лесные маршруты"><img src="assets/video-vertical-04.webp" alt="Высокие деревья на лесном маршруте" loading="lazy"><span class="cinema-shade" aria-hidden="true"></span><span class="cinema-play" aria-hidden="true">▶</span><strong>Лесные маршруты</strong></button>
+<button class="cinema-card reel-card" type="button" data-video-provider="kinescope" data-video-id="veQDmoFzfTdshw6w3oKdGd" data-video-title="Дороги и прогулки" aria-label="Дороги и прогулки"><img src="assets/video-vertical-05.webp" alt="Поездка по лесной дороге" loading="lazy"><span class="cinema-shade" aria-hidden="true"></span><span class="cinema-play" aria-hidden="true">▶</span><strong>Дороги и прогулки</strong></button>
       </div>
-      <div class="reels-track reveal" aria-label="Вертикальные видео о проекте">
-        <button class="reel-card" type="button" data-video-provider="kinescope" data-video-id="7c3wwKGJfzTnkFvgZEdFKM" data-video-title="Дмитрий Родионов о проекте у берега Волги">
-          <img src="assets/video-vertical-01.webp" alt="Дмитрий Родионов рассказывает о проекте на берегу Волги" loading="lazy"><span class="reel-shade"></span><span class="reel-number">01</span><span class="video-play" aria-hidden="true">▶</span><strong>О проекте у Волги</strong>
-        </button>
-        <button class="reel-card" type="button" data-video-provider="kinescope" data-video-id="hYFnWPwiEZDBfERDFrGhbP" data-video-title="Дмитрий Родионов о Высоковском боре">
-          <img src="assets/video-vertical-02.webp" alt="Дмитрий Родионов рассказывает о Высоковском боре" loading="lazy"><span class="reel-shade"></span><span class="reel-number">02</span><span class="video-play" aria-hidden="true">▶</span><strong>Высоковский бор</strong>
-        </button>
-        <button class="reel-card" type="button" data-video-provider="kinescope" data-video-id="49XHTBNAjzHaVuuGChi9pu" data-video-title="Дмитрий Родионов о территории Новых Высока">
-          <img src="assets/video-vertical-03.webp" alt="Дмитрий Родионов на территории проекта" loading="lazy"><span class="reel-shade"></span><span class="reel-number">03</span><span class="video-play" aria-hidden="true">▶</span><strong>О территории</strong>
-        </button>
-        <button class="reel-card" type="button" data-video-provider="kinescope" data-video-id="xwq2KvpNrgm3ua2rp9NPqV" data-video-title="Лесные маршруты рядом с проектом">
-          <img src="assets/video-vertical-04.webp" alt="Высокие деревья на лесном маршруте" loading="lazy"><span class="reel-shade"></span><span class="reel-number">04</span><span class="video-play" aria-hidden="true">▶</span><strong>Лесные маршруты</strong>
-        </button>
-        <button class="reel-card" type="button" data-video-provider="kinescope" data-video-id="veQDmoFzfTdshw6w3oKdGd" data-video-title="Поездка по лесной дороге рядом с проектом">
-          <img src="assets/video-vertical-05.webp" alt="Поездка по лесной дороге" loading="lazy"><span class="reel-shade"></span><span class="reel-number">05</span><span class="video-play" aria-hidden="true">▶</span><strong>Дороги и прогулки</strong>
-        </button>
+      <div class="cinema-controls">
+        <button class="cinema-arrow" type="button" data-cinema-prev aria-label="Предыдущее видео"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M19 12H5m6-6-6 6 6 6"/></svg></button>
+        <button class="cinema-arrow" type="button" data-cinema-next aria-label="Следующее видео"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button>
       </div>
-
     </section>
 
     <section class="location section" id="location" aria-labelledby="location-title">
