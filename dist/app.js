@@ -421,12 +421,26 @@
   const closeMenu = () => {
     if (!menuButton || !mobileMenu) return;
     menuButton.setAttribute('aria-expanded', 'false');
+    menuButton.querySelector('[data-menu-label]').textContent = 'Меню';
     mobileMenu.hidden = true;
   };
   menuButton?.addEventListener('click', () => {
     const open = menuButton.getAttribute('aria-expanded') === 'true';
     menuButton.setAttribute('aria-expanded', String(!open));
+    menuButton.querySelector('[data-menu-label]').textContent = open ? 'Меню' : 'Закрыть';
     if (mobileMenu) mobileMenu.hidden = open;
   });
   mobileMenu?.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && menuButton?.getAttribute('aria-expanded') === 'true') {
+      closeMenu();
+      menuButton.focus();
+    }
+  });
+  document.addEventListener('click', (event) => {
+    if (!siteHeader?.contains(event.target) && !mobileMenu?.contains(event.target)) closeMenu();
+  });
+  matchMedia('(min-width: 1181px)').addEventListener('change', (event) => {
+    if (event.matches) closeMenu();
+  });
 })();

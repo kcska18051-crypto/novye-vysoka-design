@@ -11,7 +11,7 @@
   <script src="map-data.js?v=forest-soft1" defer></script>
   <script src="interactive-map-model.js" defer></script>
   <script src="interactive-map.js" defer></script>
-  <script src="app.js?v=promotion-form1" defer></script>
+  <script src="app.js?v=header-glass1" defer></script>
   <link rel="stylesheet" href="hero-approved.css?v=20261014">
   <link rel="stylesheet" href="features-approved.css?v=20261015">
   <script src="features-approved.js?v=20261015" defer></script>
@@ -31,6 +31,7 @@
   <link rel="stylesheet" href="promotion-local.css?v=20261015-house">
   <link rel="stylesheet" href="purchase-local.css?v=20261015-wide2">
   <link rel="stylesheet" href="ending-local.css?v=20261015">
+  <link rel="stylesheet" href="header-local.css?v=glass1">
 </head>
 <body>
   <a class="skip-link" href="#main">Перейти к содержанию</a>
@@ -42,26 +43,28 @@
     </a>
     <nav aria-label="Разделы страницы">
       <a href="#about">О проекте</a>
-      <a href="#life">Как здесь жить</a>
-      <a href="#plots">Кварталы</a>
-      <a href="#purchase">Покупка</a>
-      <a href="#company">Команда</a>
+      <a href="#life">Жизнь за городом</a>
+      <a href="#location">Как добраться</a>
+      <a href="#plots">Участки</a>
+      <a href="#purchase">Условия покупки</a>
+      <a href="#company">О команде</a>
     </nav>
     <a class="header-cta" href="#tour" data-lead-intent="selection">Выбрать участок</a>
     <a class="header-phone" href="tel:+79092801024">+7 (909) 280-10-24</a>
-    <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu">Меню</button>
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu"><span data-menu-label>Меню</span><span class="menu-mark" aria-hidden="true"></span></button>
   </header>
-  <div class="mobile-menu" id="mobile-menu" hidden>
+  <div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Разделы страницы" hidden>
     <a href="#about">О проекте</a>
-    <a href="#life">Живой маршрут</a>
-    <a href="#media">Видео</a>
-    <a href="#location">Расположение</a>
-    <a href="#plots">Кварталы</a>
-    <a href="#purchase">Покупка</a>
-    <a href="#company">Команда</a>
-    <a href="#faq">Вопросы</a>
+    <a href="#life">Жизнь за городом</a>
+    <a href="#location">Как добраться</a>
+    <a href="#plots">Участки</a>
+    <a href="#purchase">Условия покупки</a>
+    <a href="#company">О команде</a>
+    <a href="#faq">Вопросы и ответы</a>
+    <a href="#tour">Приехать на просмотр</a>
     <a href="#contact">Контакты</a>
-    <a href="tel:+79092801024">+7 (909) 280-10-24</a>
+    <a class="mobile-menu-phone" href="tel:+79092801024">+7 (909) 280-10-24</a>
+    <a class="mobile-menu-cta" href="#tour" data-lead-intent="selection">Подобрать участок <span aria-hidden="true">→</span></a>
   </div>
 
   <main id="main">
@@ -383,7 +386,7 @@
         <div><a href="tel:+79092801024">+7 (909) 280-10-24</a><a href="mailto:mail@landmarket.biz">mail@landmarket.biz</a></div>
         <p><a class="footer-address" href="https://yandex.ru/maps/?text=Рыбинск%2C%20Крестовая%20141" target="_blank" rel="noopener noreferrer">Ярославская область, г. Рыбинск<br>ул. Крестовая, д. 141</a></p>
       </div>
-      <div class="footer-bottom"><span>Локальный дизайн-пилот · 2026</span><nav class="footer-legal" aria-label="Правовая информация"><a href="https://landmarket.biz/privacy" target="_blank" rel="noopener noreferrer">Политика конфиденциальности</a><a href="#">Пользовательское соглашение</a></nav><a href="#top">Наверх ↑</a></div>
+      <div class="footer-bottom"><nav class="footer-legal" aria-label="Правовая информация"><a href="https://landmarket.biz/privacy" target="_blank" rel="noopener noreferrer">Политика конфиденциальности</a><a href="#">Пользовательское соглашение</a></nav><a class="agency-credit" href="https://redstaragency.ru/" target="_blank" rel="noopener noreferrer" aria-label="Разработка сайта — Red Star Agency"><img src="assets/redstar-agency-credit.svg" width="179" height="18" alt="Разработка сайта — Red Star Agency" loading="lazy"></a></div>
     </footer>
   </main>
   <button class="floating-bird-control" type="button" aria-pressed="false" aria-label="Включить звуки леса" aria-describedby="sound-status" tabindex="-1" inert><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="m2 16 4-1c1-4 4-7 8-6V7a3 3 0 0 1 6 0l2 2-3 1c0 6-5 10-11 8l-5 2 2-4Z"/><path d="M8 14c2 1 4 0 5-2M11 19v2m4-3v3"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor" stroke="none"/></svg><span class="sound-wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span class="sound-floating-label">Звук</span></button>
