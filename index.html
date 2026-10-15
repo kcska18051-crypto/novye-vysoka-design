@@ -26,6 +26,8 @@
   <link rel="stylesheet" href="quarters-approved.css?v=20261015">
   <script src="quarters-approved.js?v=20261015-price100" defer></script>
   <script src="quarters-overview-approved.js?v=20261015-price100" defer></script>
+  <link rel="stylesheet" href="around-approved.css?v=20261015-gallery">
+  <script src="around-approved.js?v=20261015-gallery" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Перейти к содержанию</a>
@@ -265,6 +267,17 @@
         <div class="qe-detail-top"><button type="button" class="qe-glass" id="qe-back">← К общему генплану</button><button class="qe-glass" type="button" id="qe-fullscreen">На весь экран ↗</button></div>
         <div class="qe-detail-grid"><div class="qe-viewer-wrap"><div class="qe-viewer" tabindex="0" role="region" aria-label="Генплан Дегтяриц. Кнопки плюс и минус меняют масштаб, стрелки перемещают увеличенный план."><img id="qe-plan" src="assets/quarter-overview/degtyaritsy-plan.png" alt="Исходный генплан Дегтяриц с номерами участков, дорогами, масштабом и легендой" draggable="false"></div><button type="button" class="qe-glass qe-exit" id="qe-exit-fullscreen" hidden>Закрыть полный экран ×</button><div class="qe-zoom" role="group" aria-label="Масштаб генплана"><button class="qe-glass" id="qe-minus" aria-label="Уменьшить" type="button">−</button><button class="qe-glass" id="qe-reset" aria-label="Сбросить масштаб" type="button">100%</button><button class="qe-glass" id="qe-plus" aria-label="Увеличить" type="button">+</button></div></div>
         <aside class="qe-info"><h3 tabindex="-1" id="qe-detail-title">Дегтярицы</h3><p class="qe-price">от 70 000 ₽<span>за сотку</span></p><div class="qe-key"><h4>Условные обозначения</h4><p><i class="qe-green" aria-hidden="true"></i>от 70 000 ₽/сотка</p><p><i class="qe-orange" aria-hidden="true"></i>специальная цена</p></div><a id="qe-pdf" class="qe-glass" href="assets/quarter-overview/degtyaritsy-plan.pdf" download>Скачать генплан PDF ↓</a><button type="button" class="button button-primary" data-lead-intent="selection" data-plan-quarter="Дегтярицы">Оставить заявку</button></aside></div>
+      </div>
+      <div class="around" id="around" data-around aria-labelledby="around-title">
+        <div class="around-head">
+          <h2 id="around-title">За городом — не значит вдали от всего</h2>
+          <p>Лесные прогулки, отдых у Волги и всё необходимое для повседневной жизни. Посмотрите, что находится рядом с «Новыми Высока».</p>
+        </div>
+        <div class="around-tabs" role="tablist" aria-label="Что находится рядом">
+          <button type="button" role="tab" data-around-category="life" aria-selected="false">Для жизни</button>
+          <button type="button" role="tab" data-around-category="rest" aria-selected="true">Для отдыха</button>
+        </div>
+        <div class="around-gallery" data-around-gallery aria-live="polite"></div>
       </div>
     </section>
 
