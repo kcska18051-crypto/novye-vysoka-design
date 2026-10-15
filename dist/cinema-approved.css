@@ -1,0 +1,38 @@
+#media.cinema-section{display:block;padding-block:74px;overflow:hidden}
+#media .cinema-heading{display:grid;grid-template-columns:1.15fr .85fr;gap:65px;align-items:end;margin-bottom:32px}
+#media .cinema-heading h2{font-family:var(--serif);font-size:clamp(36px,3.5vw,52px);line-height:1.1;letter-spacing:-.035em;max-width:650px;margin:0;text-wrap:balance}
+#media .cinema-heading p{font-size:17px;line-height:1.6;color:var(--muted);max-width:430px;margin:0}
+#media .cinema-track{--cinema-height:340px;display:flex;gap:18px;align-items:center;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x proximity;scroll-padding-left:18px;padding:24px 18px; margin-inline:-18px;scrollbar-width:none;touch-action:pan-x pan-y pinch-zoom;overscroll-behavior-x:contain}
+#media .cinema-track::-webkit-scrollbar{display:none}
+#media .cinema-card{position:relative;isolation:isolate;display:block;flex:0 0 auto;width:auto;height:var(--cinema-height);aspect-ratio:9/16;min-height:0;max-width:none;border:0;padding:0;border-radius:10px;overflow:hidden;cursor:pointer;text-align:left;background:#243021;color:#fff4e2;scroll-snap-align:start;transform:scale(1);opacity:.8;transition:transform .55s cubic-bezier(.2,.7,.2,1),opacity .4s,box-shadow .4s;box-shadow:none}
+#media .cinema-card.cinema-wide{aspect-ratio:16/9}
+#media .cinema-card.is-selected{transform:scale(1.04);opacity:1;z-index:2;box-shadow:0 12px 22px -14px #18241780}
+#media .cinema-card.cinema-wide.is-selected{transform:none}
+#media .cinema-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:none;transition:none}
+#media .cinema-shade{position:absolute;inset:0;background:linear-gradient(0deg,#0c170ee6,transparent 55%);pointer-events:none}
+#media .cinema-card strong{position:absolute;left:20px;right:18px;bottom:22px;font-family:var(--serif);font-size:24px;line-height:1.15;font-weight:400;letter-spacing:-.025em;z-index:2}
+#media .cinema-wide strong{font-size:32px}
+#media .cinema-play,#media .cinema-arrow{display:grid;place-items:center;border:1px solid #fff0ce8c;background:linear-gradient(135deg,#fff5d72e,#f5e7bb0a),#23302138;box-shadow:inset 0 1px 1px #fffbe173,inset 0 -1px 1px #fff4d333,0 5px 14px #1524181a;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:50%;color:#fff5dd}
+#media .cinema-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:56px;height:56px;font-size:20px;padding-left:3px}
+#media .cinema-controls{display:flex;justify-content:flex-end;align-items:center;gap:10px;width:100%;min-height:46px;margin:0;padding:0;position:relative}
+#media .cinema-arrow{box-sizing:border-box;flex:0 0 46px;width:46px;height:46px;min-width:46px;min-height:46px;margin:0;padding:0;appearance:none;line-height:1;transform:none;font-size:23px;color:#35442c;border-color:#857a5b66;background-color:#d8d0ba55;cursor:pointer;transition:background-color .3s}
+#media .cinema-arrow:hover:not(:disabled){background-color:#b7ac8966}
+#media .cinema-arrow:disabled{opacity:.35;cursor:default}
+#media .cinema-card:focus-visible,#media .cinema-arrow:focus-visible{outline:2px solid #946641;outline-offset:4px}
+@media(max-width:1000px){#media .cinema-heading{gap:30px}#media .cinema-track{--cinema-height:300px}}
+@media(max-width:760px){
+ #media.cinema-section{padding-block:48px}
+ #media .cinema-heading{display:block;margin-bottom:18px}
+ #media .cinema-heading h2{font-size:35px}
+ #media .cinema-heading p{font-size:15px;line-height:1.55;margin-top:18px}
+ #media .cinema-track{--cinema-height:260px;gap:16px;scroll-snap-type:x mandatory;padding-block:17px}
+ #media .cinema-card.cinema-wide{width:calc(100vw - 48px);height:auto;aspect-ratio:16/9}
+ #media .cinema-card strong{font-size:21px;left:15px;bottom:17px}
+ #media .cinema-wide strong{font-size:25px}
+ #media .cinema-play{width:48px;height:48px;font-size:17px}
+ #media .cinema-controls{margin-top:0}
+}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){#media .cinema-play{background:#243021cc}}
+@media(prefers-reduced-motion:reduce){#media .cinema-card,#media .cinema-arrow{transition:none}#media .cinema-track{scroll-behavior:auto}}
+
+#media .cinema-arrow svg{display:block;width:22px;height:22px;flex:none;pointer-events:none}
