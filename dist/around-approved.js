@@ -5,7 +5,7 @@
   const groups = {
     life: [
       { title: 'Магазины', image: 'shop-visualization.webp', alt: 'Визуализация магазина у дороги' },
-      { title: 'Остановки общественного транспорта', image: 'stop-degtyaritsy.png' },
+      { title: 'Остановки транспорта', image: 'stop-degtyaritsy.png' },
       { title: 'Образовательные учреждения', image: 'school-green-v2.webp', alt: 'Художественно обработанное фото образовательного учреждения среди зелени' },
       { title: 'Дороги и подъезды', image: 'road-edited.webp' }
     ],
@@ -26,7 +26,7 @@
     void gallery.offsetWidth;
     gallery.classList.add('is-changing');
     gallery.replaceChildren(...groups[category].map(item => {
-      const card = document.createElement('div');
+      const card = document.createElement('figure');
       card.className = 'around-card';
       if (item.image === 'stop-degtyaritsy.png') card.classList.add('around-card--stop');
       if (item.image === 'river-edited.webp') card.classList.add('around-card--river');
@@ -37,7 +37,10 @@
       image.alt = item.alt || item.title;
       image.loading = 'eager';
       photo.append(image);
-      card.append(photo);
+      const caption = document.createElement('figcaption');
+      caption.className = 'around-caption';
+      caption.textContent = item.title;
+      card.append(photo, caption);
       return card;
     }));
     gallery.scrollLeft = 0;
