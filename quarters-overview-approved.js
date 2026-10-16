@@ -23,7 +23,8 @@
   x=Math.max(-maxX,Math.min(maxX,x));y=Math.max(-maxY,Math.min(maxY,y));
   scene.style.width=`${baseW}px`;scene.style.height=`${baseH}px`;
   scene.style.transform=`translate(${-baseW*scale/2+x}px,${-baseH*scale/2+y}px) scale(${scale})`;
-  $('#qe-map-reset').textContent='Весь генплан';$('#qe-map-reset').setAttribute('aria-label',`Вернуться к общему генплану. Текущий масштаб ${Math.round(scale*100)} процентов`);$('#qe-map-minus').disabled=scale<=1;$('#qe-map-plus').disabled=scale>=5;
+  viewport.classList.toggle('is-zoomed',scale>1);
+  $('#qe-map-reset').textContent='Весь генплан';$('#qe-map-reset').setAttribute('aria-label',`Весь генплан. Текущий масштаб ${Math.round(scale*100)} процентов`);$('#qe-map-minus').disabled=scale<=1;$('#qe-map-plus').disabled=scale>=5;
  }
  function stop(){clearTimeout(timer);scene.classList.remove('is-focusing')}
  function animate(){scene.classList.add('is-focusing');clearTimeout(timer);timer=setTimeout(()=>scene.classList.remove('is-focusing'),450)}

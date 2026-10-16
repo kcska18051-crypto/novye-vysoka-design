@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/svg+xml" href="magazin-zemli-logo.svg">
   <meta name="theme-color" content="#172016">
   <title>Новые Высока — локальный дизайн-пилот</title>
   <link rel="stylesheet" href="styles.css">
@@ -11,7 +12,7 @@
   <script src="map-data.js?v=forest-soft1" defer></script>
   <script src="interactive-map-model.js" defer></script>
   <script src="interactive-map.js" defer></script>
-  <script src="app.js?v=20261016-installment" defer></script>
+  <script src="app.js?v=20261016-success" defer></script>
   <link rel="stylesheet" href="hero-approved.css?v=20261014">
   <link rel="stylesheet" href="features-approved.css?v=20261015">
   <script src="features-approved.js?v=20261015" defer></script>
@@ -24,20 +25,21 @@
   <script src="transport-approved-data.js?v=20261016-directions" defer></script>
   <script src="transport-approved.js?v=20261015" defer></script>
   <link rel="stylesheet" href="quarters-approved.css?v=20261015">
-  <script src="quarters-approved.js?v=20261015-price100" defer></script>
-  <script src="quarters-overview-approved.js?v=20261015-price100" defer></script>
+  <script src="quarters-approved.js?v=20261016-qa" defer></script>
+  <script src="quarters-overview-approved.js?v=20261016-qa" defer></script>
   <link rel="stylesheet" href="around-approved.css?v=20261016-review">
-  <script src="around-approved.js?v=20261016-review" defer></script>
+  <script src="around-approved.js?v=20261016-qa" defer></script>
   <link rel="stylesheet" href="promotion-local.css?v=20261015-house">
   <link rel="stylesheet" href="purchase-local.css?v=20261015-wide2">
   <link rel="stylesheet" href="ending-local.css?v=20261015">
   <link rel="stylesheet" href="header-local.css?v=glass1">
+  <link rel="stylesheet" href="qa-polish.css?v=20261016-success">
 </head>
 <body>
   <a class="skip-link" href="#main">Перейти к содержанию</a>
 
   <header class="site-header" aria-label="Главная навигация">
-    <a class="brand" href="#top" aria-label="Магазин Земли — Новые Высока">
+    <a class="brand" href="#top" aria-label="Магазин Земли — проект «Новые Высока»">
       <img class="brand-logo" src="magazin-zemli-logo.svg" alt="Магазин Земли" width="597" height="168">
       <span class="brand-project">проект «Новые Высока»</span>
     </a>
@@ -85,7 +87,7 @@
         </div>
       </div>
 
-      <button class="sound-control" type="button" aria-pressed="false" aria-describedby="sound-status" aria-label="Включить звуки леса">
+      <button class="sound-control" type="button" aria-pressed="false" aria-describedby="sound-status" aria-label="Послушать лес — включить звуки леса">
         <span class="sound-bird" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="m2 16 4-1c1-4 4-7 8-6V7a3 3 0 0 1 6 0l2 2-3 1c0 6-5 10-11 8l-5 2 2-4Z"/><path d="M8 14c2 1 4 0 5-2M11 19v2m4-3v3"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor" stroke="none"/></svg></span><span class="sound-wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
         <span><strong>Послушать лес</strong></span>
       </button>
@@ -138,7 +140,7 @@
       </div>
 
       <figure class="project-intro-media reveal" aria-label="Проект Новые Высока с высоты птичьего полёта">
-        <img class="project-intro-aerial" src="assets/forest-v2/intro-sunset.webp" alt="Лес, открытые поляны и большая вода в тёплом закатном свете">
+        <img loading="lazy" decoding="async" class="project-intro-aerial" data-src="assets/forest-v2/intro-sunset.webp" alt="Лес, открытые поляны и большая вода в тёплом закатном свете">
         <div class="project-intro-shade" aria-hidden="true"></div>
       </figure>
     </section>
@@ -152,59 +154,59 @@
       </div>
 
       <div class="journey-tabs" role="tablist" aria-label="Сцены загородной жизни">
-        <button class="journey-tab is-active" id="journey-tab-forest" type="button" role="tab" data-scene="forest" aria-selected="true" aria-controls="journey-panel-forest"><img class="journey-tab-preview" src="assets/forest-v2/trail.webp" alt="" loading="lazy"><span>Лес</span></button>
-        <button class="journey-tab" id="journey-tab-mushrooms" type="button" role="tab" data-scene="mushrooms" aria-selected="false" aria-controls="journey-panel-mushrooms" tabindex="-1"><img class="journey-tab-preview" src="assets/forest-v2/mushrooms-client.webp" alt="" loading="lazy"><span>За грибами</span></button>
-        <button class="journey-tab" id="journey-tab-cycle" type="button" role="tab" data-scene="cycle" aria-selected="false" aria-controls="journey-panel-cycle" tabindex="-1"><img class="journey-tab-preview" src="assets/forest-v2/cycle.webp" alt="" loading="lazy"><span>Велопрогулки</span></button>
-        <button class="journey-tab" id="journey-tab-water" type="button" role="tab" data-scene="water" aria-selected="false" aria-controls="journey-panel-water" tabindex="-1"><img class="journey-tab-preview" src="assets/forest-v2/pier-client.webp" alt="" loading="lazy"><span>Вода</span></button>
-        <button class="journey-tab" id="journey-tab-sup" type="button" role="tab" data-scene="sup" aria-selected="false" aria-controls="journey-panel-sup" tabindex="-1"><img class="journey-tab-preview" src="assets/forest-v2/sup.webp" alt="" loading="lazy"><span>На сапе</span></button>
-        <button class="journey-tab" id="journey-tab-home" type="button" role="tab" data-scene="home" aria-selected="false" aria-controls="journey-panel-home" tabindex="-1"><img class="journey-tab-preview" src="assets/forest-v2/home-client.webp" alt="" loading="lazy"><span>Дом</span></button>
-        <button class="journey-tab" id="journey-tab-family" type="button" role="tab" data-scene="family" aria-selected="false" aria-controls="journey-panel-family" tabindex="-1"><img class="journey-tab-preview" src="assets/forest-v2/family.webp" alt="" loading="lazy"><span>Семья</span></button>
-        <button class="journey-tab" id="journey-tab-fire" type="button" role="tab" data-scene="fire" aria-selected="false" aria-controls="journey-panel-fire" tabindex="-1"><img class="journey-tab-preview" src="assets/forest-v2/fire-client.webp" alt="" loading="lazy"><span>У огня</span></button>
+        <button class="journey-tab is-active" id="journey-tab-forest" type="button" role="tab" data-scene="forest" aria-selected="true" aria-controls="journey-panel-forest"><img class="journey-tab-preview" data-src="assets/forest-v2/trail.webp" alt="" loading="lazy"><span>Лес</span></button>
+        <button class="journey-tab" id="journey-tab-mushrooms" type="button" role="tab" data-scene="mushrooms" aria-selected="false" aria-controls="journey-panel-mushrooms" tabindex="-1"><img class="journey-tab-preview" data-src="assets/forest-v2/mushrooms-client.webp" alt="" loading="lazy"><span>За грибами</span></button>
+        <button class="journey-tab" id="journey-tab-cycle" type="button" role="tab" data-scene="cycle" aria-selected="false" aria-controls="journey-panel-cycle" tabindex="-1"><img class="journey-tab-preview" data-src="assets/forest-v2/cycle.webp" alt="" loading="lazy"><span>Велопрогулки</span></button>
+        <button class="journey-tab" id="journey-tab-water" type="button" role="tab" data-scene="water" aria-selected="false" aria-controls="journey-panel-water" tabindex="-1"><img class="journey-tab-preview" data-src="assets/forest-v2/pier-client.webp" alt="" loading="lazy"><span>Вода</span></button>
+        <button class="journey-tab" id="journey-tab-sup" type="button" role="tab" data-scene="sup" aria-selected="false" aria-controls="journey-panel-sup" tabindex="-1"><img class="journey-tab-preview" data-src="assets/forest-v2/sup.webp" alt="" loading="lazy"><span>На сапе</span></button>
+        <button class="journey-tab" id="journey-tab-home" type="button" role="tab" data-scene="home" aria-selected="false" aria-controls="journey-panel-home" tabindex="-1"><img class="journey-tab-preview" data-src="assets/forest-v2/home-client.webp" alt="" loading="lazy"><span>Дом</span></button>
+        <button class="journey-tab" id="journey-tab-family" type="button" role="tab" data-scene="family" aria-selected="false" aria-controls="journey-panel-family" tabindex="-1"><img class="journey-tab-preview" data-src="assets/forest-v2/family.webp" alt="" loading="lazy"><span>Семья</span></button>
+        <button class="journey-tab" id="journey-tab-fire" type="button" role="tab" data-scene="fire" aria-selected="false" aria-controls="journey-panel-fire" tabindex="-1"><img class="journey-tab-preview" data-src="assets/forest-v2/fire-client.webp" alt="" loading="lazy"><span>У огня</span></button>
       </div>
 
       <div class="journey-track" data-journey-track aria-label="Фотопрогулка по загородной жизни">
-        <button class="journey-panel is-active" id="journey-panel-forest" type="button" data-scene="forest" aria-labelledby="journey-tab-forest" aria-expanded="true">
-          <img src="assets/forest-v2/trail.webp" alt="Прогулка по солнечной тропе в сосновом лесу">
+        <button class="journey-panel is-active" id="journey-panel-forest" type="button" data-scene="forest" aria-expanded="true">
+          <img loading="lazy" decoding="async" data-src="assets/forest-v2/trail.webp" alt="Прогулка по солнечной тропе в сосновом лесу">
           <span class="journey-shade" aria-hidden="true"></span>
           <span class="journey-rail-label">Лес</span>
           <span class="journey-copy"><small>Утро</small><strong>Выйти на тропу раньше всех</strong><em>Высоковский бор рядом — прогулка начинается у дома</em></span>
         </button>
-        <button class="journey-panel" id="journey-panel-mushrooms" type="button" data-scene="mushrooms" aria-labelledby="journey-tab-mushrooms" aria-expanded="false">
-          <picture><source media="(max-width: 760px)" srcset="assets/forest-v2/mushrooms-client-mobile.webp"><img src="assets/forest-v2/mushrooms-client.webp" alt="Грибы среди мха и хвои в солнечном лесу" loading="lazy"></picture>
+        <button class="journey-panel" id="journey-panel-mushrooms" type="button" data-scene="mushrooms" aria-expanded="false">
+          <picture><source media="(max-width: 760px)" data-srcset="assets/forest-v2/mushrooms-client-mobile.webp"><img data-src="assets/forest-v2/mushrooms-client.webp" alt="Грибы среди мха и хвои в солнечном лесу" loading="lazy"></picture>
           <span class="journey-shade" aria-hidden="true"></span><span class="journey-rail-label">За грибами</span>
           <span class="journey-copy"><small>Лесные находки</small><strong>Замедлиться на лесной тропе</strong><em>Неспешная прогулка с корзинкой — замечать маленькие находки среди мха и хвои</em></span>
         </button>
-        <button class="journey-panel" id="journey-panel-cycle" type="button" data-scene="cycle" aria-labelledby="journey-tab-cycle" aria-expanded="false">
-          <img src="assets/forest-v2/cycle.webp" alt="Семейная велопрогулка по сосновому лесу" loading="lazy">
+        <button class="journey-panel" id="journey-panel-cycle" type="button" data-scene="cycle" aria-expanded="false">
+          <img data-src="assets/forest-v2/cycle.webp" alt="Семейная велопрогулка по сосновому лесу" loading="lazy">
           <span class="journey-shade" aria-hidden="true"></span>
           <span class="journey-rail-label">Велопрогулки</span>
           <span class="journey-copy"><small>Активный день</small><strong>Уехать всей семьёй по лесной дороге</strong><em>Семейный маршрут на велосипеде среди сосен</em></span>
         </button>
-        <button class="journey-panel" id="journey-panel-water" type="button" data-scene="water" aria-labelledby="journey-tab-water" aria-expanded="false">
-          <picture><source media="(max-width: 760px)" srcset="assets/forest-v2/pier-client-mobile.webp"><img src="assets/forest-v2/pier-client.webp" alt="Отдых у большой воды в окружении леса"></picture>
+        <button class="journey-panel" id="journey-panel-water" type="button" data-scene="water" aria-expanded="false">
+          <picture><source media="(max-width: 760px)" data-srcset="assets/forest-v2/pier-client-mobile.webp"><img loading="lazy" decoding="async" data-src="assets/forest-v2/pier-client.webp" alt="Отдых у большой воды в окружении леса"></picture>
           <span class="journey-shade" aria-hidden="true"></span>
           <span class="journey-rail-label">Вода</span>
           <span class="journey-copy"><small>День</small><strong>Провести день у большой воды</strong><em>Берег Волги — для прогулок, рыбалки и отдыха</em></span>
         </button>
-        <button class="journey-panel" id="journey-panel-sup" type="button" data-scene="sup" aria-labelledby="journey-tab-sup" aria-expanded="false">
-          <img src="assets/forest-v2/sup.webp" alt="Прогулка на сапах вдоль пологого лесного берега" loading="lazy">
+        <button class="journey-panel" id="journey-panel-sup" type="button" data-scene="sup" aria-expanded="false">
+          <img data-src="assets/forest-v2/sup.webp" alt="Прогулка на сапах вдоль пологого лесного берега" loading="lazy">
           <span class="journey-shade" aria-hidden="true"></span><span class="journey-rail-label">На сапе</span>
           <span class="journey-copy"><small>На воде</small><strong>Смотреть на берег с воды</strong><em>Неспешная прогулка на сапе вдоль лесного берега</em></span>
         </button>
-        <button class="journey-panel" id="journey-panel-home" type="button" data-scene="home" aria-labelledby="journey-tab-home" aria-expanded="false">
-          <picture><source media="(max-width: 760px)" srcset="assets/forest-v2/home-client-mobile.webp"><img src="assets/forest-v2/home-client.webp" alt="Семья за столом на террасе загородного дома"></picture>
+        <button class="journey-panel" id="journey-panel-home" type="button" data-scene="home" aria-expanded="false">
+          <picture><source media="(max-width: 760px)" data-srcset="assets/forest-v2/home-client-mobile.webp"><img loading="lazy" decoding="async" data-src="assets/forest-v2/home-client.webp" alt="Семья за столом на террасе загородного дома"></picture>
           <span class="journey-shade" aria-hidden="true"></span>
           <span class="journey-rail-label">Дом</span>
           <span class="journey-copy"><small>Вечер</small><strong>Собраться за одним столом</strong><em>Тихий вечер с близкими на собственной террасе</em></span>
         </button>
-        <button class="journey-panel" id="journey-panel-family" type="button" data-scene="family" aria-labelledby="journey-tab-family" aria-expanded="false">
-          <img src="assets/forest-v2/family.webp" alt="Семейная прогулка по берегу">
+        <button class="journey-panel" id="journey-panel-family" type="button" data-scene="family" aria-expanded="false">
+          <img loading="lazy" decoding="async" data-src="assets/forest-v2/family.webp" alt="Семейная прогулка по берегу">
           <span class="journey-shade" aria-hidden="true"></span>
           <span class="journey-rail-label">Семья</span>
           <span class="journey-copy"><small>Выходные</small><strong>Оставить городскую спешку позади</strong><em>Большая прогулка без спешки и расписания</em></span>
         </button>
-        <button class="journey-panel" id="journey-panel-fire" type="button" data-scene="fire" aria-labelledby="journey-tab-fire" aria-expanded="false">
-          <picture><source media="(max-width: 760px)" srcset="assets/forest-v2/fire-client-mobile.webp"><img src="assets/forest-v2/fire-client.webp" alt="Компания друзей у кострища в сосновом лесу" loading="lazy"></picture>
+        <button class="journey-panel" id="journey-panel-fire" type="button" data-scene="fire" aria-expanded="false">
+          <picture><source media="(max-width: 760px)" data-srcset="assets/forest-v2/fire-client-mobile.webp"><img data-src="assets/forest-v2/fire-client.webp" alt="Компания друзей у кострища в сосновом лесу" loading="lazy"></picture>
           <span class="journey-shade" aria-hidden="true"></span><span class="journey-rail-label">У огня</span>
           <span class="journey-copy"><small>После заката</small><strong>Продлить вечер у огня</strong><em>Тёплые разговоры и время с близкими у кострища</em></span>
         </button>
@@ -225,12 +227,12 @@
         <p>Реальные съёмки территории с высоты и прогулки с основателем проекта. Познакомьтесь с местом ещё до поездки.</p>
       </div>
       <div class="cinema-track reveal" aria-label="Видео о Новых Высока">
-<button class="cinema-card cinema-wide is-selected" type="button" data-video-provider="rutube" data-video-id="479c0e8d954df2c26bb9ef3a9c9324f0" data-video-title="Территория с высоты" aria-label="Территория с высоты"><img src="assets/video-project.webp" alt="Панорама проекта Новые Высока в фильме с квадрокоптера" loading="lazy"><span class="cinema-shade" aria-hidden="true"></span><span class="cinema-play" aria-hidden="true">▶</span><strong>Территория с высоты</strong></button>
-<button class="cinema-card reel-card" type="button" data-video-provider="kinescope" data-video-id="7c3wwKGJfzTnkFvgZEdFKM" data-video-title="Знакомство с проектом" aria-label="Знакомство с проектом"><img src="assets/video-vertical-01.webp" alt="Дмитрий Родионов рассказывает о проекте на берегу Волги" loading="lazy"><span class="cinema-shade" aria-hidden="true"></span><span class="cinema-play" aria-hidden="true">▶</span><strong>Знакомство с проектом</strong></button>
-<button class="cinema-card reel-card" type="button" data-video-provider="kinescope" data-video-id="hYFnWPwiEZDBfERDFrGhbP" data-video-title="Высоковский бор" aria-label="Высоковский бор"><img src="assets/video-vertical-02.webp" alt="Дмитрий Родионов рассказывает о Высоковском боре" loading="lazy"><span class="cinema-shade" aria-hidden="true"></span><span class="cinema-play" aria-hidden="true">▶</span><strong>Высоковский бор</strong></button>
-<button class="cinema-card reel-card" type="button" data-video-provider="kinescope" data-video-id="49XHTBNAjzHaVuuGChi9pu" data-video-title="Прогулка по территории" aria-label="Прогулка по территории"><img src="assets/video-vertical-03.webp" alt="Дмитрий Родионов на территории проекта" loading="lazy"><span class="cinema-shade" aria-hidden="true"></span><span class="cinema-play" aria-hidden="true">▶</span><strong>Прогулка по территории</strong></button>
-<button class="cinema-card reel-card" type="button" data-video-provider="kinescope" data-video-id="xwq2KvpNrgm3ua2rp9NPqV" data-video-title="Лесные маршруты" aria-label="Лесные маршруты"><img src="assets/video-vertical-04.webp" alt="Высокие деревья на лесном маршруте" loading="lazy"><span class="cinema-shade" aria-hidden="true"></span><span class="cinema-play" aria-hidden="true">▶</span><strong>Лесные маршруты</strong></button>
-<button class="cinema-card reel-card" type="button" data-video-provider="kinescope" data-video-id="veQDmoFzfTdshw6w3oKdGd" data-video-title="Дороги и прогулки" aria-label="Дороги и прогулки"><img src="assets/video-vertical-05.webp" alt="Поездка по лесной дороге" loading="lazy"><span class="cinema-shade" aria-hidden="true"></span><span class="cinema-play" aria-hidden="true">▶</span><strong>Дороги и прогулки</strong></button>
+<button class="cinema-card cinema-wide is-selected" type="button" data-video-provider="rutube" data-video-id="479c0e8d954df2c26bb9ef3a9c9324f0" data-video-title="Территория с высоты" aria-label="Территория с высоты"><img data-src="assets/video-project.webp" alt="Панорама проекта Новые Высока в фильме с квадрокоптера" loading="lazy"><span class="cinema-shade" aria-hidden="true"></span><span class="cinema-play" aria-hidden="true">▶</span><strong>Территория с высоты</strong></button>
+<button class="cinema-card reel-card" type="button" data-video-provider="kinescope" data-video-id="7c3wwKGJfzTnkFvgZEdFKM" data-video-title="Знакомство с проектом" aria-label="Знакомство с проектом"><img data-src="assets/video-vertical-01.webp" alt="Дмитрий Родионов рассказывает о проекте на берегу Волги" loading="lazy"><span class="cinema-shade" aria-hidden="true"></span><span class="cinema-play" aria-hidden="true">▶</span><strong>Знакомство с проектом</strong></button>
+<button class="cinema-card reel-card" type="button" data-video-provider="kinescope" data-video-id="hYFnWPwiEZDBfERDFrGhbP" data-video-title="Высоковский бор" aria-label="Высоковский бор"><img data-src="assets/video-vertical-02.webp" alt="Дмитрий Родионов рассказывает о Высоковском боре" loading="lazy"><span class="cinema-shade" aria-hidden="true"></span><span class="cinema-play" aria-hidden="true">▶</span><strong>Высоковский бор</strong></button>
+<button class="cinema-card reel-card" type="button" data-video-provider="kinescope" data-video-id="49XHTBNAjzHaVuuGChi9pu" data-video-title="Прогулка по территории" aria-label="Прогулка по территории"><img data-src="assets/video-vertical-03.webp" alt="Дмитрий Родионов на территории проекта" loading="lazy"><span class="cinema-shade" aria-hidden="true"></span><span class="cinema-play" aria-hidden="true">▶</span><strong>Прогулка по территории</strong></button>
+<button class="cinema-card reel-card" type="button" data-video-provider="kinescope" data-video-id="xwq2KvpNrgm3ua2rp9NPqV" data-video-title="Лесные маршруты" aria-label="Лесные маршруты"><img data-src="assets/video-vertical-04.webp" alt="Высокие деревья на лесном маршруте" loading="lazy"><span class="cinema-shade" aria-hidden="true"></span><span class="cinema-play" aria-hidden="true">▶</span><strong>Лесные маршруты</strong></button>
+<button class="cinema-card reel-card" type="button" data-video-provider="kinescope" data-video-id="veQDmoFzfTdshw6w3oKdGd" data-video-title="Дороги и прогулки" aria-label="Дороги и прогулки"><img data-src="assets/video-vertical-05.webp" alt="Поездка по лесной дороге" loading="lazy"><span class="cinema-shade" aria-hidden="true"></span><span class="cinema-play" aria-hidden="true">▶</span><strong>Дороги и прогулки</strong></button>
       </div>
       <div class="cinema-controls">
         <button class="cinema-arrow" type="button" data-cinema-prev aria-label="Предыдущее видео"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M19 12H5m6-6-6 6 6 6"/></svg></button>
@@ -253,11 +255,11 @@
     <section class="quarter-explorer section" id="plots" aria-labelledby="plots-title">
       <div class="qe-heading"><h2 id="plots-title">Выберите квартал<br>для своего дома</h2><p>Пять кварталов проекта «Новые Высока» расположены среди лесов Рыбинского района. Выберите интересующую территорию и познакомьтесь с её генпланом.</p><a class="qe-glass qe-project-download" href="assets/quarter-overview/project-presentation.pdf" download="Новые Высока — презентация проекта.pdf">Скачать презентацию проекта <span aria-hidden="true">↓</span></a></div>
       <div id="qe-overview">
-        <div class="qe-map-shell"><div class="qe-map-viewport" tabindex="0" role="region" aria-label="Обзор территории. Масштаб: плюс и минус. Перемещение: стрелки, перетаскивание или жест двумя пальцами."><div class="qe-scene"><img src="assets/quarter-overview/overview-clean.svg" alt="Визуализация территории Новых Высока" class="qe-landscape" draggable="false"><svg class="qe-regions" viewBox="0 0 1680 1187" aria-label="Кварталы проекта"><g role="button" tabindex="0" data-map-quarter="degtyaritsy" aria-label="Открыть генплан: Дегтярицы"><path d="M371 94 L477 70 L491 117 L711 98 L756 139 L749 184 L729 199 L739 250 L552 270 L533 284 L433 284 L399 221 L386 177 Z"/><text x="555" y="195">Дегтярицы</text></g><g role="button" tabindex="0" data-map-quarter="chernaya" aria-label="Открыть генплан: Чёрная речка"><path d="M434 285 L535 284 L552 305 L539 452 L573 468 L592 479 L590 524 L614 534 L630 550 L607 649 L548 650 L528 697 L516 696 L512 658 L480 677 L479 637 L414 630 L410 607 L431 455 L441 375 Z"/><text x="510" y="530">Чёрная речка</text></g><g role="button" tabindex="0" data-map-quarter="vysoka" aria-label="Открыть генплан: Новые Высока"><path d="M575 444 L781 465 L811 484 L830 490 L850 476 L929 493 L961 524 L1003 593 L981 605 L948 569 L763 537 L731 503 L587 481 L574 480 Z"/><text x="785" y="514">Новые Высока</text></g><g role="button" tabindex="0" data-map-quarter="nikolo" aria-label="Открыть генплан: Николо-Корма"><path d="M1009 584 L1149 501 L1166 498 L1196 549 L1224 596 L1253 637 L1289 679 L1324 720 L1291 740 L1249 747 L1199 776 L1164 790 L1143 790 L1112 752 L1078 711 Z"/><text x="1163" y="657">Николо-Корма</text></g></svg></div></div><div class="qe-quarter-popup" id="qe-quarter-popup" role="region" aria-label="Выбранный квартал" hidden><button class="qe-popup-close" type="button" aria-label="Закрыть информацию о квартале">×</button><h3 id="qe-popup-name"></h3><p id="qe-popup-price" hidden></p><button class="qe-glass" id="qe-open-selected" data-quarter="degtyaritsy">Посмотреть генплан ↗</button></div><div class="qe-map-controls" role="group" aria-label="Масштаб обзорной карты"><button class="qe-glass" id="qe-map-minus" aria-label="Отдалить карту">−</button><button class="qe-glass" id="qe-map-reset" aria-label="Показать всю карту">Весь генплан</button><button class="qe-glass" id="qe-map-plus" aria-label="Приблизить карту">+</button></div></div>
+        <div class="qe-map-shell"><div class="qe-map-viewport" tabindex="0" role="region" aria-label="Обзор территории. Масштаб: плюс и минус. Перемещение: стрелки, перетаскивание или жест двумя пальцами."><div class="qe-scene"><img loading="lazy" decoding="async" src="assets/quarter-overview/overview-clean.svg" alt="Визуализация территории Новых Высока" class="qe-landscape" draggable="false"><svg class="qe-regions" viewBox="0 0 1680 1187" aria-label="Кварталы проекта"><g role="button" tabindex="0" data-map-quarter="degtyaritsy" aria-label="Открыть генплан: Дегтярицы"><path d="M371 94 L477 70 L491 117 L711 98 L756 139 L749 184 L729 199 L739 250 L552 270 L533 284 L433 284 L399 221 L386 177 Z"/><text x="555" y="195">Дегтярицы</text></g><g role="button" tabindex="0" data-map-quarter="chernaya" aria-label="Открыть генплан: Чёрная речка"><path d="M434 285 L535 284 L552 305 L539 452 L573 468 L592 479 L590 524 L614 534 L630 550 L607 649 L548 650 L528 697 L516 696 L512 658 L480 677 L479 637 L414 630 L410 607 L431 455 L441 375 Z"/><text x="510" y="530">Чёрная речка</text></g><g role="button" tabindex="0" data-map-quarter="vysoka" aria-label="Открыть генплан: Новые Высока"><path d="M575 444 L781 465 L811 484 L830 490 L850 476 L929 493 L961 524 L1003 593 L981 605 L948 569 L763 537 L731 503 L587 481 L574 480 Z"/><text x="785" y="514">Новые Высока</text></g><g role="button" tabindex="0" data-map-quarter="nikolo" aria-label="Открыть генплан: Николо-Корма"><path d="M1009 584 L1149 501 L1166 498 L1196 549 L1224 596 L1253 637 L1289 679 L1324 720 L1291 740 L1249 747 L1199 776 L1164 790 L1143 790 L1112 752 L1078 711 Z"/><text x="1163" y="657">Николо-Корма</text></g></svg></div></div><div class="qe-quarter-popup" id="qe-quarter-popup" role="region" aria-label="Выбранный квартал" hidden><button class="qe-popup-close" type="button" aria-label="Закрыть информацию о квартале">×</button><h3 id="qe-popup-name"></h3><p id="qe-popup-price" hidden></p><button class="qe-glass" id="qe-open-selected" data-quarter="degtyaritsy">Посмотреть генплан ↗</button></div><div class="qe-map-controls" role="group" aria-label="Масштаб обзорной карты"><button class="qe-glass" id="qe-map-minus" aria-label="Отдалить карту">−</button><button class="qe-glass" id="qe-map-reset" aria-label="Показать всю карту">Весь генплан</button><button class="qe-glass" id="qe-map-plus" aria-label="Приблизить карту">+</button></div></div>
       </div>
       <div id="qe-detail" hidden>
         <div class="qe-detail-top"><button type="button" class="qe-glass" id="qe-back">← К общему генплану</button><button class="qe-glass" type="button" id="qe-fullscreen">На весь экран ↗</button></div>
-        <div class="qe-detail-grid"><div class="qe-viewer-wrap"><div class="qe-viewer" tabindex="0" role="region" aria-label="Генплан Дегтяриц. Кнопки плюс и минус меняют масштаб, стрелки перемещают увеличенный план."><img id="qe-plan" src="assets/quarter-overview/degtyaritsy-plan.png" alt="Исходный генплан Дегтяриц с номерами участков, дорогами, масштабом и легендой" draggable="false"></div><button type="button" class="qe-glass qe-exit" id="qe-exit-fullscreen" hidden>Закрыть полный экран ×</button><div class="qe-zoom" role="group" aria-label="Масштаб генплана"><button class="qe-glass" id="qe-minus" aria-label="Уменьшить" type="button">−</button><button class="qe-glass" id="qe-reset" aria-label="Сбросить масштаб" type="button">100%</button><button class="qe-glass" id="qe-plus" aria-label="Увеличить" type="button">+</button></div></div>
+        <div class="qe-detail-grid"><div class="qe-viewer-wrap"><div class="qe-viewer" tabindex="0" role="region" aria-label="Генплан Дегтяриц. Кнопки плюс и минус меняют масштаб, стрелки перемещают увеличенный план."><img loading="lazy" decoding="async" id="qe-plan" data-src="assets/quarter-overview/degtyaritsy-plan.png" alt="Исходный генплан Дегтяриц с номерами участков, дорогами, масштабом и легендой" draggable="false"></div><button type="button" class="qe-glass qe-exit" id="qe-exit-fullscreen" hidden>Закрыть полный экран ×</button><div class="qe-zoom" role="group" aria-label="Масштаб генплана"><button class="qe-glass" id="qe-minus" aria-label="Уменьшить" type="button">−</button><button class="qe-glass" id="qe-reset" aria-label="Сбросить масштаб" type="button">100%</button><button class="qe-glass" id="qe-plus" aria-label="Увеличить" type="button">+</button></div></div>
         <aside class="qe-info"><h3 tabindex="-1" id="qe-detail-title">Дегтярицы</h3><p class="qe-price">от 70 000 ₽<span>за сотку</span></p><div class="qe-key"><h4>Условные обозначения</h4><p><i class="qe-green" aria-hidden="true"></i>от 70 000 ₽/сотка</p><p><i class="qe-orange" aria-hidden="true"></i>специальная цена</p></div><a id="qe-pdf" class="qe-glass" href="assets/quarter-overview/degtyaritsy-plan.pdf" download>Скачать генплан PDF ↓</a><button type="button" class="button button-primary" data-lead-intent="selection" data-plan-quarter="Дегтярицы">Оставить заявку</button></aside></div>
       </div>
       <div class="around" id="around" data-around aria-labelledby="around-title">
@@ -372,7 +374,7 @@
           <label>Телефон<input type="tel" name="phone" placeholder="+7 ___ ___-__-__" inputmode="tel" autocomplete="tel" required aria-describedby="tour-phone-error"><span class="field-error" id="tour-phone-error"></span></label>
           <div class="form-consents">
             <label><input type="checkbox" name="personal-data" required> <span>Согласен на обработку персональных данных в соответствии с <a href="https://landmarket.biz/privacy" target="_blank" rel="noopener noreferrer">политикой конфиденциальности</a></span></label>
-            <label><input type="checkbox" name="terms" required> <span>Принимаю условия <a href="#" aria-label="Пользовательское соглашение — ссылка будет добавлена перед публикацией">пользовательского соглашения</a></span></label>
+            <label><input type="checkbox" name="terms" required> <span>Принимаю условия <a href="#" aria-label="пользовательского соглашения — ссылка будет добавлена перед публикацией">пользовательского соглашения</a></span></label>
           </div>
           <button class="button button-primary" type="submit" data-tour-submit>Записаться на экскурсию</button>
           <small class="form-status" role="status"></small>
@@ -394,7 +396,7 @@
   <dialog class="quarter-plan-dialog" id="quarter-plan-dialog" aria-labelledby="quarter-plan-title">
     <div class="quarter-plan-dialog-shell">
       <div class="quarter-plan-dialog-head"><h2 id="quarter-plan-title">Генплан квартала</h2><button class="quarter-plan-dialog-close" type="button" aria-label="Закрыть генплан">×</button></div>
-      <div class="quarter-plan-zoom"><img src="" alt="" data-quarter-plan-image></div>
+      <div class="quarter-plan-zoom"><img loading="lazy" decoding="async" src="" alt="" data-quarter-plan-image></div>
     </div>
   </dialog>
 
@@ -417,7 +419,7 @@
         <label>Телефон<input type="tel" name="phone" placeholder="+7 ___ ___-__-__" inputmode="tel" autocomplete="tel" required aria-describedby="dialog-phone-error"><span class="field-error" id="dialog-phone-error"></span></label>
         <div class="form-consents">
           <label><input type="checkbox" name="personal-data" required> <span>Согласен на обработку персональных данных в соответствии с <a href="https://landmarket.biz/privacy" target="_blank" rel="noopener noreferrer">политикой конфиденциальности</a></span></label>
-          <label><input type="checkbox" name="terms" required> <span>Принимаю условия <a href="#" aria-label="Пользовательское соглашение — ссылка будет добавлена перед публикацией">пользовательского соглашения</a></span></label>
+          <label><input type="checkbox" name="terms" required> <span>Принимаю условия <a href="#" aria-label="пользовательского соглашения — ссылка будет добавлена перед публикацией">пользовательского соглашения</a></span></label>
         </div>
         <button class="button button-primary lead-dialog-submit" type="submit">Получить подборку</button>
         <small class="form-status" role="status"></small>

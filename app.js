@@ -2,6 +2,31 @@
   const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
   const mobile = matchMedia('(max-width: 760px)');
   document.documentElement.classList.add('motion-ready');
+  // Native lazy loading can fetch images several screens before they are needed.
+  // Keep large galleries out of the first-screen network queue.
+  const loadDeferredImage = (image) => {
+    if (!image?.dataset.src) return;
+    image.loading = 'eager';
+    image.closest('picture')?.querySelectorAll('source[data-srcset]').forEach(source => {
+      source.srcset = source.dataset.srcset;
+      delete source.dataset.srcset;
+    });
+    image.src = image.dataset.src;
+    delete image.dataset.src;
+  };
+  const deferredImages = [...document.querySelectorAll('img[data-src]:not(#qe-plan):not(.journey-tab-preview)')];
+  if ('IntersectionObserver' in window) {
+    const mediaObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        loadDeferredImage(entry.target);
+        mediaObserver.unobserve(entry.target);
+      });
+    }, { rootMargin: '400px' });
+    deferredImages.forEach(image => mediaObserver.observe(image));
+  } else {
+    deferredImages.forEach(loadDeferredImage);
+  }
 
   const reveals = [...document.querySelectorAll('.reveal')];
   const showAllReveals = () => reveals.forEach((item) => item.classList.add('is-visible'));
@@ -52,14 +77,26 @@
   let journeyIndex = 0;
   let journeyFrame = 0;
 
+  let journeyNearby = !('IntersectionObserver' in window);
   const preloadJourneyNeighbors = (index) => {
-    [index - 1, index + 1].forEach((neighborIndex) => {
-      const source = journeyPanels[neighborIndex]?.querySelector('img')?.currentSrc || journeyPanels[neighborIndex]?.querySelector('img')?.src;
-      if (!source) return;
-      const preload = new Image();
-      preload.src = source;
+    if (!journeyNearby) return;
+    [index - 1, index, index + 1].forEach((neighborIndex) => {
+      const image = journeyPanels[neighborIndex]?.querySelector('img');
+      if (image) {
+        image.loading = 'eager';
+        loadDeferredImage(image);
+      }
     });
   };
+  if (journeyTrack && !journeyNearby) {
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) return;
+      journeyNearby = true;
+      preloadJourneyNeighbors(journeyIndex);
+      observer.disconnect();
+    }, { rootMargin: '400px 0px' });
+    observer.observe(journeyTrack);
+  }
 
   const activateScene = (index, { scrollMobile = false, focusTab = false } = {}) => {
     if (!journeyPanels.length) return;
@@ -270,7 +307,13 @@
     setLeadIntent(trigger.dataset.leadIntent);
     const status = leadDialog.querySelector('.form-status');
     if (status) status.textContent = '';
-    leadForm?.classList.remove('is-error', 'is-loading', 'is-success');
+    leadForm?.classList.remove('is-error', 'is-loading', 'is-success', 'is-submitted');
+    const success = leadForm?.querySelector('.form-success');
+    if (success) success.hidden = true;
+    if (leadSubmit) {
+      leadSubmit.disabled = false;
+      leadSubmit.removeAttribute('aria-busy');
+    }
     leadDialog.showModal();
   };
   document.addEventListener('click', (event) => {
@@ -299,7 +342,9 @@
       if (!button) return;
       button.setAttribute('aria-pressed', String(playing));
       button.classList.toggle('is-playing', playing);
-      button.setAttribute('aria-label', playing ? 'Выключить звуки леса' : 'Включить звуки леса');
+      button.setAttribute('aria-label', button === soundButton
+        ? `Послушать лес — ${playing ? 'выключить' : 'включить'} звуки леса`
+        : `Звук — ${playing ? 'выключить' : 'включить'} звуки леса`);
     });
     const strong = soundButton?.querySelector('strong');
     if (strong) strong.textContent = 'Послушать лес';
@@ -367,6 +412,28 @@
     const submit = demoForm.querySelector('button[type="submit"]');
     const status = demoForm.querySelector('.form-status');
     const error = phone?.parentElement.querySelector('.field-error');
+    const success = document.createElement('div');
+    success.className = 'form-success';
+    success.hidden = true;
+    success.setAttribute('role', 'status');
+    const successTitle = document.createElement('h3');
+    successTitle.tabIndex = -1;
+    successTitle.textContent = 'Спасибо! Ваша заявка принята';
+    const successText = document.createElement('p');
+    successText.textContent = 'В ближайшее время с вами свяжется менеджер.';
+    success.append(successTitle, successText);
+    demoForm.append(success);
+    // Backend integration: dispatch only after the server confirms receipt.
+    demoForm.addEventListener('lead:success', () => {
+      demoForm.classList.remove('is-loading', 'is-error');
+      demoForm.classList.add('is-submitted');
+      success.hidden = false;
+      if (submit) {
+        submit.disabled = true;
+        submit.removeAttribute('aria-busy');
+      }
+      successTitle.focus({ preventScroll: true });
+    });
     phone?.addEventListener('input', () => {
       phone.value = formatPhone(phone.value);
       phone.setCustomValidity('');
@@ -376,6 +443,7 @@
     });
     demoForm.addEventListener('submit', (event) => {
       event.preventDefault();
+      if (demoForm.classList.contains('is-loading') || demoForm.classList.contains('is-submitted')) return;
       const phoneDigits = phone?.value.replace(/\D/g, '') || '';
       if (phone && phoneDigits.length !== 11) {
         phone.setCustomValidity('Введите телефон полностью');
@@ -399,8 +467,8 @@
       }
       if (status) status.textContent = 'Проверяем данные…';
       setTimeout(() => {
+        if (demoForm.classList.contains('is-submitted')) return;
         demoForm.classList.remove('is-loading');
-        demoForm.classList.add('is-success');
         if (submit) {
           submit.disabled = false;
           submit.removeAttribute('aria-busy');

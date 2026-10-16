@@ -7,6 +7,7 @@
   let scale=1,x=0,y=0;
   const pointers=new Map(); let gesture=null;
   function paint(){
+    if(!plan.naturalWidth || !plan.naturalHeight)return;
     const w=viewer.clientWidth,h=viewer.clientHeight;
     const ratio=plan.naturalWidth/plan.naturalHeight;
     const iw=Math.min(w,h*ratio),ih=iw/ratio;
@@ -28,7 +29,7 @@
     scene.classList.add('is-opening');
     await new Promise(resolve=>setTimeout(resolve,reduced()?0:420));
     $('#qe-detail-title').textContent=name;
-    plan.src=`assets/quarter-overview/${id}-plan.png`;plan.alt=`Исходный генплан квартала «${name}»`;
+    plan.loading='eager';plan.src=`assets/quarter-overview/${id}-plan.png`;plan.alt=`Исходный генплан квартала «${name}»`;
     viewer.setAttribute('aria-label',`Генплан квартала «${name}». Масштаб: плюс и минус. Перемещение: стрелки или перетаскивание.`);
     const price=priceData[id];$('.qe-price').hidden=!price;
     if(price)$('.qe-price').innerHTML=`от ${price.toLocaleString('ru-RU')} ₽<span>за сотку</span>`;
