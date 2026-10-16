@@ -243,6 +243,7 @@
   const leadContent = {
     selection: { title: 'Подобрать участок', submit: 'Получить подборку' },
     tour: { title: 'Записаться на экскурсию', submit: 'Записаться на экскурсию' },
+    installment: { title: 'Участок в рассрочку', submit: 'Получить консультацию' },
     promotion: { title: 'Участвовать в акции', submit: 'Оставить заявку' }
   };
   const setLeadIntent = (intent) => {
@@ -252,9 +253,11 @@
     if (leadTitle) leadTitle.textContent = leadContent[selectedIntent].title;
     if (leadSubmit) leadSubmit.textContent = leadContent[selectedIntent].submit;
     const intents = leadForm?.querySelector('.lead-intents');
-    if (intents) intents.hidden = selectedIntent === 'promotion';
+    if (intents) intents.hidden = selectedIntent === 'promotion' || selectedIntent === 'installment';
     const intro = leadDialog?.querySelector('.lead-dialog-intro p');
-    if (intro) intro.textContent = selectedIntent === 'promotion'
+    if (intro) intro.textContent = selectedIntent === 'installment'
+      ? 'Оставьте телефон — поможем подобрать участок и расскажем об условиях покупки'
+      : selectedIntent === 'promotion'
       ? 'Оставьте контакты — команда свяжется с вами и расскажет об участии в акции.'
       : 'Оставьте контакты — команда уточнит ваши планы и предложит подходящий следующий шаг.';
   };
