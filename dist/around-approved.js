@@ -21,7 +21,11 @@
   let category = 'rest';
 
   function render() {
-    tabs.forEach(tab => tab.setAttribute('aria-selected', String(tab.dataset.aroundCategory === category)));
+    tabs.forEach(tab => {
+      const selected = tab.dataset.aroundCategory === category;
+      tab.setAttribute('aria-selected', String(selected));
+      tab.tabIndex = selected ? 0 : -1;
+    });
     gallery.classList.remove('is-changing');
     void gallery.offsetWidth;
     gallery.classList.add('is-changing');
@@ -35,7 +39,8 @@
       const image = document.createElement('img');
       image.src = `assets/around/${item.image}`;
       image.alt = item.alt || item.title;
-      image.loading = 'eager';
+      image.loading = 'lazy';
+      image.decoding = 'async';
       photo.append(image);
       const caption = document.createElement('figcaption');
       caption.className = 'around-caption';
@@ -50,6 +55,18 @@
     if (category === tab.dataset.aroundCategory) return;
     category = tab.dataset.aroundCategory;
     render();
+  }));
+  tabs.forEach((tab, index) => tab.addEventListener('keydown', event => {
+    let next;
+    if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
+    if (event.key === 'ArrowLeft') next = (index + tabs.length - 1) % tabs.length;
+    if (event.key === 'Home') next = 0;
+    if (event.key === 'End') next = tabs.length - 1;
+    if (next === undefined) return;
+    event.preventDefault();
+    category = tabs[next].dataset.aroundCategory;
+    render();
+    tabs[next].focus({ preventScroll: true });
   }));
   render();
 })();
