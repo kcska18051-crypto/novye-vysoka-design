@@ -11,7 +11,7 @@
   <script src="map-data.js?v=forest-soft1" defer></script>
   <script src="interactive-map-model.js" defer></script>
   <script src="interactive-map.js" defer></script>
-  <script src="app.js?v=header-glass1" defer></script>
+  <script src="app.js?v=20261016-installment" defer></script>
   <link rel="stylesheet" href="hero-approved.css?v=20261014">
   <link rel="stylesheet" href="features-approved.css?v=20261015">
   <script src="features-approved.js?v=20261015" defer></script>
@@ -300,7 +300,7 @@
             <div class="purchase-term reveal"><dt>Первоначальный взнос</dt><dd>30<span>%</span></dd></div>
             <div class="purchase-term reveal"><dt>Равных ежемесячных платежей</dt><dd>12</dd></div>
           </dl>
-          <a class="purchase-select reveal" href="#plots">Подобрать участок <span aria-hidden="true">→</span></a>
+          <button class="purchase-select reveal" type="button" data-lead-intent="installment">Узнать об условиях рассрочки <span aria-hidden="true">→</span></button>
         </div>
         <div class="purchase-direct reveal">
           <div><h3>Покупка напрямую у собственника</h3><p>Команда «Магазина Земли» сопровождает сделку: от выбора участка и проверки документов до оформления права собственности.</p></div>
@@ -410,6 +410,7 @@
           <legend>Что вас интересует?</legend>
           <label><input type="radio" name="popup-intent" value="selection" checked> <span>Подобрать участок</span></label>
           <label><input type="radio" name="popup-intent" value="tour"> <span>Записаться на экскурсию</span></label>
+          <label hidden><input type="radio" name="popup-intent" value="installment"> <span>Участок в рассрочку</span></label>
           <label hidden><input type="radio" name="popup-intent" value="promotion"> <span>Участвовать в акции</span></label>
         </fieldset>
         <label>Как к вам обращаться<input type="text" name="name" placeholder="Имя" autocomplete="name"></label>
