@@ -28,3 +28,6 @@
               linear-gradient(currentColor,currentColor) center / 1px 10px no-repeat;
 }
 .faq-list details[open] summary::after { transform: translateY(-50%) rotate(45deg); }
+
+.lead-form input[type="text"],
+.lead-form input[type="tel"] { padding-inline: 14px; }
