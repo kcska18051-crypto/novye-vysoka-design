@@ -18,3 +18,13 @@
 .form-success h3 { font-size: clamp(28px, 5vw, 36px); line-height: 1.15; }
 .form-success p { margin-top: 18px; line-height: 1.6; }
 .lead-dialog:has(.is-submitted) .lead-dialog-intro { display: none; }
+
+/* Draw the FAQ plus geometrically, independent of font glyph baselines. */
+.faq-list summary::after {
+  content: "";
+  top: 50%;
+  transform: translateY(-50%);
+  background: linear-gradient(currentColor,currentColor) center / 10px 1px no-repeat,
+              linear-gradient(currentColor,currentColor) center / 1px 10px no-repeat;
+}
+.faq-list details[open] summary::after { transform: translateY(-50%) rotate(45deg); }
