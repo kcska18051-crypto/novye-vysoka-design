@@ -1,7 +1,7 @@
 .site-header,.site-header.is-scrolled{top:18px;left:50%;width:min(1280px,calc(100% - 64px));max-width:1280px;min-height:76px;padding:12px 22px;border:1px solid #fff8df45;border-top-color:#fff8df75;border-radius:23px;background:linear-gradient(125deg,#47513fd4,#2a352cbd);box-shadow:inset 0 1px 0 #fff8e51a,0 12px 36px #10201217;backdrop-filter:blur(24px) saturate(125%);-webkit-backdrop-filter:blur(24px) saturate(125%);gap:22px;color:#faf7ed;transition:background .25s,box-shadow .25s}
 .site-header.is-scrolled{background:linear-gradient(125deg,#47513fe6,#2a352cd9);box-shadow:inset 0 1px #fff8e51a,0 8px 28px #10201220}
 .site-header .brand-logo{width:138px}
-.site-header .brand-project{font-size:7px;letter-spacing:.06em;color:#f0eddf;opacity:.85}
+.site-header .brand-project{font-size:10px;line-height:1.25;letter-spacing:.04em;color:#f0eddf;opacity:1}
 .site-header nav{gap:15px}
 .site-header nav a{font-size:13px;font-weight:500;color:#f8f5eb;white-space:nowrap;line-height:1.4}
 .site-header nav a:after{height:1px;background:#e6ccab;bottom:-7px}
