@@ -7,7 +7,8 @@
 #plots .around-tabs button[aria-selected=true]{background:linear-gradient(145deg,#f9f8f0d9,#d5ddcfb0);color:#263d2c;box-shadow:inset 0 1px #fff,0 5px 15px #29342314;font-weight:600}
 #plots .around-gallery{display:grid;grid-template-columns:1fr 1fr;gap:22px 16px;min-width:0;max-width:1060px;margin-inline:auto}
 #plots .around-gallery.is-changing{animation:around-fade .38s ease both}
-#plots .around-card{display:block;min-width:0}
+#plots .around-card{display:block;min-width:0;margin:0}
+#plots .around-caption{margin-top:14px;color:#28392d;font-size:18px;font-weight:600;line-height:1.35}
 #plots .around-photo{display:block;width:100%;aspect-ratio:1.55;overflow:hidden;border-radius:11px;box-shadow:0 1px 5px #253b2c16;transition:box-shadow .3s}
 #plots .around-photo img{display:block;width:100%;height:100%;object-fit:cover}
 #plots .around-card--river .around-photo img{transform:scale(1.15)}
