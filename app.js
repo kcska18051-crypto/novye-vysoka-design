@@ -246,11 +246,30 @@
       rutube: `https://rutube.ru/play/embed/${videoId}?autoplay=1`,
       kinescope: `https://kinescope.io/embed/${videoId}?autoplay=1`
     };
-    if (!sources[videoProvider]) return;
+    if (!sources[videoProvider] && videoProvider !== 'local') return;
     videoReturnFocus = button;
     if (forestAudio && !forestAudio.paused) forestAudio.pause();
     if (videoTitle) videoTitle.textContent = title || 'Видео о проекте';
     videoDialog.dataset.format = button.classList.contains('reel-card') ? 'vertical' : 'horizontal';
+    if (videoProvider === 'local') {
+      const video = document.createElement('video');
+      video.src = videoId;
+      video.controls = true;
+      video.playsInline = true;
+      video.preload = 'metadata';
+      video.poster = button.querySelector('img')?.src || '';
+      video.setAttribute('aria-label', title || 'Видео о проекте');
+      videoFrame.replaceChildren(video);
+      if (button.dataset.videoDescription) {
+        const description = document.createElement('p');
+        description.className = 'video-local-description';
+        description.textContent = button.dataset.videoDescription;
+        videoFrame.append(description);
+      }
+      videoDialog.showModal();
+      video.play().catch(() => {});
+      return;
+    }
     const iframe = document.createElement('iframe');
     iframe.src = sources[videoProvider];
     iframe.title = title || 'Видео о проекте';
