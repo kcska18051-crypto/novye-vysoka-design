@@ -7,11 +7,12 @@
       { title: 'Магазины', image: 'shop-visualization.webp', alt: 'Визуализация магазина у дороги' },
       { title: 'Остановки транспорта', image: 'stop-degtyaritsy.png' },
       { title: 'Образовательные учреждения', image: 'school-green-v2.webp', alt: 'Художественно обработанное фото образовательного учреждения среди зелени' },
-      { title: 'Дороги и подъезды', image: 'road-edited.webp' }
+      { title: 'Дороги и подъезды', image: 'road-client-natural.webp', position: 'center 70%', alt: 'Реальная лесная дорога. Фотография клиента с ретушью автомобиля.' }
     ],
     rest: [
-      { title: 'Высоковский бор', image: 'forest-edited.webp' },
-      { title: 'Волга и причалы', image: 'river-edited.webp' },
+      { title: 'Высоковский бор', image: 'forest-client-natural.webp', position: 'center 75%', alt: 'Высоковский бор и вода между соснами. Фотография клиента с лёгкой цветокоррекцией.' },
+      { title: 'Причал', image: 'river-edited.webp' },
+      { title: 'Берег Волги', image: 'shore-client-natural.webp', position: 'center 78%', alt: 'Песчаный берег Волги у соснового леса. Фотография клиента с лёгкой цветокоррекцией.' },
       { title: 'Рыбинск', image: 'rybinsk-sunset-v2.webp', alt: 'Художественно обработанное фото Рыбинска на закате' },
       { title: 'Детский лагерь «Высоковский бор»', image: 'camp-edited.webp' }
     ]
@@ -21,6 +22,7 @@
   let category = 'rest';
 
   function render() {
+    gallery.dataset.count = String(groups[category].length);
     tabs.forEach(tab => {
       const selected = tab.dataset.aroundCategory === category;
       tab.setAttribute('aria-selected', String(selected));
@@ -39,6 +41,7 @@
       const image = document.createElement('img');
       image.src = `assets/around/${item.image}`;
       image.alt = item.alt || item.title;
+      if (item.position) image.style.objectPosition = item.position;
       image.loading = 'lazy';
       image.decoding = 'async';
       photo.append(image);
