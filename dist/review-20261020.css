@@ -1,0 +1,14 @@
+#plots #qe-detail{position:fixed;inset:0;margin:auto;width:min(1280px,calc(100% - 48px));max-width:none;max-height:calc(100dvh - 48px);padding:20px 28px 28px;border:1px solid #fff7d999;border-radius:22px;background:#eae6d8;color:#28392d;box-shadow:0 24px 90px #101b1466;overflow:auto;overscroll-behavior:contain}
+#plots #qe-detail::backdrop{background:#122117a6;backdrop-filter:blur(7px)}
+#plots #qe-detail .qe-detail-top{position:sticky;top:-20px;margin-top:0;padding:12px 0 16px;background:#eae6d8;z-index:8}
+#plots #qe-detail .qe-detail-grid{grid-template-columns:minmax(0,1fr) 260px;gap:28px}
+#plots #qe-detail .qe-viewer{height:min(62dvh,650px);min-height:320px}
+#plots #qe-detail .qe-info h3{font-size:34px}
+.hero-preview .hero-options{position:absolute;z-index:4;bottom:42px;left:max(40px,calc((100% - 1260px)/2));display:flex;gap:6px;max-width:calc(100% - 80px);padding:5px;border:1px solid #f3e3c75c;border-radius:28px;background:#27362b88;backdrop-filter:blur(18px)}
+.hero-options button{border:0;border-radius:24px;padding:10px 13px;background:transparent;color:#f3edde;font:inherit;font-size:12px;cursor:pointer;white-space:nowrap}
+.hero-options button[aria-pressed=true]{background:#e9e1cd;color:#293a2b}
+.hero-options button:focus-visible{outline:2px solid #e2b68c;outline-offset:2px}
+.hero-preview .hero-option-image{animation:none!important;transition:opacity .4s ease!important;will-change:opacity;transform:none!important}
+@media(max-width:800px){#plots #qe-detail{width:calc(100% - 20px);max-height:calc(100dvh - 24px);padding:12px 16px 22px;border-radius:17px}#plots #qe-detail .qe-detail-top{top:-12px;padding:10px 0 14px}#plots #qe-detail .qe-detail-grid{grid-template-columns:1fr;gap:20px}#plots #qe-detail .qe-viewer{height:42dvh;min-height:240px}#plots #qe-detail .qe-info{padding-top:0}#plots #qe-detail .qe-info h3{font-size:30px;margin-bottom:16px}}
+@media(max-width:760px){.hero-preview .hero-options{bottom:114px;left:20px;max-width:calc(100% - 40px);gap:2px;padding:4px}.hero-options button{font-size:11px;padding:10px 9px}.hero-preview[data-hero-choice="1"] .hero-image{object-position:53% center}.hero-preview[data-hero-choice="2"] .hero-image{object-position:67% center}}
+@media(prefers-reduced-motion:reduce){.hero-preview .hero-option-image{transition:none!important}}

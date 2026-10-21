@@ -25,9 +25,6 @@
   async function openQuarter(trigger){
     if(busy)return;busy=true;activeTrigger=trigger;
     const id=trigger.dataset.quarter,name=quarters[id];
-    const scene=$('.qe-map-shell');
-    scene.classList.add('is-opening');
-    await new Promise(resolve=>setTimeout(resolve,reduced()?0:420));
     $('#qe-detail-title').textContent=name;
     plan.loading='eager';plan.src=`assets/quarter-overview/${id}-plan.png`;plan.alt=`Исходный генплан квартала «${name}»`;
     viewer.setAttribute('aria-label',`Генплан квартала «${name}». Масштаб: плюс и минус. Перемещение: стрелки или перетаскивание.`);
@@ -38,15 +35,20 @@
     $('.qe-key p:last-child').hidden=id!=='degtyaritsy';
     $('[data-plan-quarter]').dataset.planQuarter=name;
     $('#qe-pdf').href=`assets/quarter-overview/${id}-plan.pdf`;$('#qe-pdf').download=`${name} — генплан.pdf`;
-    overview.hidden=true;detail.hidden=false;root.classList.add('is-detail');
-    root.scrollIntoView({block:'start',behavior:'instant'});scale=1;x=y=0;paint();
-    $('#qe-detail-title').focus({preventScroll:true});scene.classList.remove('is-opening');busy=false;
+    detail.hidden=false;detail.showModal();
+    document.body.style.overflow='hidden';
+    scale=1;x=y=0;paint();
+    $('#qe-detail-title').focus({preventScroll:true});busy=false;
   }
   root.addEventListener('quarter:open',e=>openQuarter(e.detail.trigger));
   $('#qe-open-selected').addEventListener('click',()=>openQuarter($('#qe-open-selected')));
-  $('#qe-back').addEventListener('click',()=>{detail.hidden=true;overview.hidden=false;root.classList.remove('is-detail');root.scrollIntoView({block:'start',behavior:'instant'});pointers.clear();root.dispatchEvent(new CustomEvent('quarter:reset'));$('.qe-map-viewport').focus({preventScroll:true});});
+  const closeQuarter=()=>detail.close();
+  $('#qe-back').addEventListener('click',closeQuarter);
+  detail.addEventListener('close',()=>{detail.hidden=true;document.body.style.overflow='';pointers.clear();gesture=null;$('.qe-map-viewport').focus({preventScroll:true});});
+  detail.addEventListener('click',e=>{if(e.target!==detail)return;const r=detail.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)closeQuarter();});
   const wrap=$('.qe-viewer-wrap');
   function exitFullscreen(){if(document.fullscreenElement)document.exitFullscreen();wrap.classList.remove('qe-expanded');$('#qe-exit-fullscreen').hidden=true;paint();$('#qe-fullscreen').focus();}
+  detail.addEventListener('keydown',e=>{if(e.key==='Escape'&&wrap.classList.contains('qe-expanded')){e.preventDefault();e.stopPropagation();exitFullscreen();}});
   $('#qe-fullscreen').addEventListener('click',async()=>{
     $('#qe-exit-fullscreen').hidden=false;
     try{if(!wrap.requestFullscreen)throw new Error('unsupported');await wrap.requestFullscreen();}catch{wrap.classList.add('qe-expanded');}
