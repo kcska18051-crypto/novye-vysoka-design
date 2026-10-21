@@ -4,10 +4,10 @@
 
   const groups = {
     life: [
-      { title: 'Магазины', image: 'shop-visualization.webp', alt: 'Визуализация магазина у дороги' },
+      { title: 'Магазины', image: 'shop-pyaterochka-client.webp', position: 'center 90%', alt: 'Магазин «Пятёрочка». Реальная фотография клиента с ретушью тени столба на асфальте.' },
       { title: 'Остановки транспорта', image: 'stop-degtyaritsy.png' },
       { title: 'Образовательные учреждения', image: 'school-green-v2.webp', alt: 'Художественно обработанное фото образовательного учреждения среди зелени' },
-      { title: 'Дороги и подъезды', image: 'road-client-natural.webp', position: 'center 70%', alt: 'Реальная лесная дорога. Фотография клиента с ретушью автомобиля.' }
+      { title: 'Дороги и подъезды', image: 'road-pines-client-v2.webp', position: 'center 65%', alt: 'Реальная дорога через сосновый лес на фотографии клиента.' }
     ],
     rest: [
       { title: 'Высоковский бор', image: 'forest-client-natural.webp', position: 'center 75%', alt: 'Высоковский бор и вода между соснами. Фотография клиента с лёгкой цветокоррекцией.' },
