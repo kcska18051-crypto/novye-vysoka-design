@@ -25,7 +25,7 @@
   <script src="transport-approved-data.js?v=20261016-directions" defer></script>
   <script src="transport-approved.js?v=20261015" defer></script>
   <link rel="stylesheet" href="quarters-approved.css?v=20261015">
-  <script src="quarters-approved.js?v=20261016-qa" defer></script>
+  <script src="quarters-approved.js?v=20261020-popup" defer></script>
   <script src="quarters-overview-approved.js?v=20261016-qa" defer></script>
   <link rel="stylesheet" href="around-approved.css?v=20261016-review">
   <script src="around-approved.js?v=20261016-qa" defer></script>
@@ -34,6 +34,8 @@
   <link rel="stylesheet" href="ending-local.css?v=20261015">
   <link rel="stylesheet" href="header-local.css?v=20261016-brand-clean">
   <link rel="stylesheet" href="qa-polish.css?v=20261016-input-padding">
+  <link rel="stylesheet" href="review-20261020.css?v=1">
+  <script src="hero-options.js?v=20261020" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Перейти к содержанию</a>
@@ -79,7 +81,7 @@
       <div class="hero-content reveal">
         <h1 id="hero-title">Знакомые места<br>Новые возможности</h1>
         <p class="hero-lead">Земельные участки рядом с Высоковским бором — бывшей «Чёрной речкой». По дороге к Коприно, недалеко от Волги.</p>
-        <p class="hero-price">от 70 000 ₽/сотка</p>
+        <p class="hero-price">от 45 000 ₽/сотка</p>
         <div class="hero-actions">
           <a class="button button-primary" href="#tour" data-lead-intent="selection">Выбрать участок</a>
           <a class="button button-glass" href="#location">Посмотреть расположение</a>
@@ -90,6 +92,11 @@
         <span class="sound-bird" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="m2 16 4-1c1-4 4-7 8-6V7a3 3 0 0 1 6 0l2 2-3 1c0 6-5 10-11 8l-5 2 2-4Z"/><path d="M8 14c2 1 4 0 5-2M11 19v2m4-3v3"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor" stroke="none"/></svg></span><span class="sound-wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
         <span><strong>Послушать лес</strong></span>
       </button>
+      <div class="hero-options" role="group" aria-label="Варианты главного баннера">
+        <button type="button" data-hero-option="0" aria-pressed="true">1 · Дом в лесу</button>
+        <button type="button" data-hero-option="1" aria-pressed="false">2 · Лес и Волга</button>
+        <button type="button" data-hero-option="2" aria-pressed="false">3 · Участки</button>
+      </div>
       <p class="sound-status" id="sound-status" role="status"></p>
       <audio id="forest-audio" preload="none" loop>
         <source src="assets/forest-reference.mp3" type="audio/mpeg">
@@ -139,7 +146,7 @@
       </div>
 
       <figure class="project-intro-media reveal" aria-label="Проект Новые Высока с высоты птичьего полёта">
-        <img loading="lazy" decoding="async" class="project-intro-aerial" data-src="assets/forest-v2/intro-sunset.webp" alt="Лес, открытые поляны и большая вода в тёплом закатном свете">
+        <img loading="lazy" decoding="async" class="project-intro-aerial" data-src="assets/client-october/intro-real-sunset.webp" alt="Реальная территория проекта: поляны, пересечение подъездных дорог, лес и Волга. Закатная обработка фотографии клиента.">
         <div class="project-intro-shade" aria-hidden="true"></div>
       </figure>
     </section>
@@ -256,11 +263,11 @@
       <div id="qe-overview">
         <div class="qe-map-shell"><div class="qe-map-viewport" tabindex="0" role="region" aria-label="Обзор территории. Масштаб: плюс и минус. Перемещение: стрелки, перетаскивание или жест двумя пальцами."><div class="qe-scene"><img loading="lazy" decoding="async" src="assets/quarter-overview/overview-clean.svg" alt="Визуализация территории Новых Высока" class="qe-landscape" draggable="false"><svg class="qe-regions" viewBox="0 0 1680 1187" aria-label="Кварталы проекта"><g role="button" tabindex="0" data-map-quarter="degtyaritsy" aria-label="Открыть генплан: Дегтярицы"><path d="M371 94 L477 70 L491 117 L711 98 L756 139 L749 184 L729 199 L739 250 L552 270 L533 284 L433 284 L399 221 L386 177 Z"/><text x="555" y="195">Дегтярицы</text></g><g role="button" tabindex="0" data-map-quarter="chernaya" aria-label="Открыть генплан: Чёрная речка"><path d="M434 285 L535 284 L552 305 L539 452 L573 468 L592 479 L590 524 L614 534 L630 550 L607 649 L548 650 L528 697 L516 696 L512 658 L480 677 L479 637 L414 630 L410 607 L431 455 L441 375 Z"/><text x="510" y="530">Чёрная речка</text></g><g role="button" tabindex="0" data-map-quarter="vysoka" aria-label="Открыть генплан: Новые Высока"><path d="M575 444 L781 465 L811 484 L830 490 L850 476 L929 493 L961 524 L1003 593 L981 605 L948 569 L763 537 L731 503 L587 481 L574 480 Z"/><text x="785" y="514">Новые Высока</text></g><g role="button" tabindex="0" data-map-quarter="nikolo" aria-label="Открыть генплан: Николо-Корма"><path d="M1009 584 L1149 501 L1166 498 L1196 549 L1224 596 L1253 637 L1289 679 L1324 720 L1291 740 L1249 747 L1199 776 L1164 790 L1143 790 L1112 752 L1078 711 Z"/><text x="1163" y="657">Николо-Корма</text></g></svg></div></div><div class="qe-quarter-popup" id="qe-quarter-popup" role="region" aria-label="Выбранный квартал" hidden><button class="qe-popup-close" type="button" aria-label="Закрыть информацию о квартале">×</button><h3 id="qe-popup-name"></h3><p id="qe-popup-price" hidden></p><button class="qe-glass" id="qe-open-selected" data-quarter="degtyaritsy">Посмотреть генплан ↗</button></div><div class="qe-map-controls" role="group" aria-label="Масштаб обзорной карты"><button class="qe-glass" id="qe-map-minus" aria-label="Отдалить карту">−</button><button class="qe-glass" id="qe-map-reset" aria-label="Показать всю карту">Весь генплан</button><button class="qe-glass" id="qe-map-plus" aria-label="Приблизить карту">+</button></div></div>
       </div>
-      <div id="qe-detail" hidden>
-        <div class="qe-detail-top"><button type="button" class="qe-glass" id="qe-back">← К общему генплану</button><button class="qe-glass" type="button" id="qe-fullscreen">На весь экран ↗</button></div>
+      <dialog id="qe-detail" aria-labelledby="qe-detail-title" hidden>
+        <div class="qe-detail-top"><button type="button" class="qe-glass" id="qe-back">Закрыть генплан ×</button><button class="qe-glass" type="button" id="qe-fullscreen">На весь экран ↗</button></div>
         <div class="qe-detail-grid"><div class="qe-viewer-wrap"><div class="qe-viewer" tabindex="0" role="region" aria-label="Генплан Дегтяриц. Кнопки плюс и минус меняют масштаб, стрелки перемещают увеличенный план."><img loading="lazy" decoding="async" id="qe-plan" data-src="assets/quarter-overview/degtyaritsy-plan.png" alt="Исходный генплан Дегтяриц с номерами участков, дорогами, масштабом и легендой" draggable="false"></div><button type="button" class="qe-glass qe-exit" id="qe-exit-fullscreen" hidden>Закрыть полный экран ×</button><div class="qe-zoom" role="group" aria-label="Масштаб генплана"><button class="qe-glass" id="qe-minus" aria-label="Уменьшить" type="button">−</button><button class="qe-glass" id="qe-reset" aria-label="Сбросить масштаб" type="button">100%</button><button class="qe-glass" id="qe-plus" aria-label="Увеличить" type="button">+</button></div></div>
         <aside class="qe-info"><h3 tabindex="-1" id="qe-detail-title">Дегтярицы</h3><p class="qe-price">от 70 000 ₽<span>за сотку</span></p><div class="qe-key"><h4>Условные обозначения</h4><p><i class="qe-green" aria-hidden="true"></i>от 70 000 ₽/сотка</p><p><i class="qe-orange" aria-hidden="true"></i>специальная цена</p></div><a id="qe-pdf" class="qe-glass" href="assets/quarter-overview/degtyaritsy-plan.pdf" download>Скачать генплан PDF ↓</a><button type="button" class="button button-primary" data-lead-intent="selection" data-plan-quarter="Дегтярицы">Оставить заявку</button></aside></div>
-      </div>
+      </dialog>
       <div class="around" id="around" data-around aria-labelledby="around-title">
         <div class="around-head">
           <h2 id="around-title">За городом — не значит вдали от всего</h2>
@@ -277,7 +284,7 @@
           <div class="house-promotion-photo"><img src="assets/promotion/modular-house.webp" alt="Модульный дом, участвующий в розыгрыше" loading="lazy"></div>
           <div class="house-promotion-copy">
             <h2 id="promotion-title">Разыгрываем<br>дом среди<br>покупателей</h2>
-            <p>С 30 октября 2025 года по 31 декабря 2026 года покупайте участок в «Новых Высока» и становитесь участником розыгрыша модульного дома.</p>
+            <p>С 30 октября 2025 года по 31 декабря 2027 года покупайте участок в «Новых Высока» и становитесь участником розыгрыша модульного дома.</p>
             <button class="house-promotion-cta" type="button" data-lead-intent="promotion">Участвовать в акции <span aria-hidden="true">→</span></button>
           </div>
         </div>
