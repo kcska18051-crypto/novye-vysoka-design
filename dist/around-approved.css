@@ -5,16 +5,15 @@
 #plots .around-tabs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px}
 #plots .around-tabs button{min-height:48px;border:1px solid #ffffffa0;border-radius:50px;background:linear-gradient(145deg,#ffffff69,#dddacb5c);backdrop-filter:blur(16px);box-shadow:inset 0 1px #fffd,0 5px 15px #29342309;color:#556151;font:inherit;font-size:15px;cursor:pointer;transition:background .25s,color .25s}
 #plots .around-tabs button[aria-selected=true]{background:linear-gradient(145deg,#f9f8f0d9,#d5ddcfb0);color:#263d2c;box-shadow:inset 0 1px #fff,0 5px 15px #29342314;font-weight:600}
-#plots .around-gallery{--around-photo-height:clamp(210px,21vw,270px);display:grid;grid-template-columns:repeat(6,minmax(0,1fr));grid-template-rows:repeat(2,calc(var(--around-photo-height) + 58px));gap:22px 16px;min-width:0;max-width:1060px;margin-inline:auto}
-#plots .around-gallery[data-count="5"] .around-card:nth-child(-n+3){grid-column:span 2}
+#plots .around-gallery{display:grid;grid-template-columns:1fr 1fr;gap:22px 16px;min-width:0;max-width:1060px;margin-inline:auto}
 #plots .around-gallery.is-changing{animation:around-fade .38s ease both}
-#plots .around-card{display:block;min-width:0;margin:0;grid-column:span 3}
-#plots .around-caption{margin-top:10px;min-height:48px;color:#28392d;font-size:17px;font-weight:600;line-height:1.35}
-#plots .around-photo{display:block;width:100%;height:var(--around-photo-height);overflow:hidden;border-radius:11px;box-shadow:0 1px 5px #253b2c16;transition:box-shadow .3s}
+#plots .around-card{display:block;min-width:0;margin:0}
+#plots .around-caption{margin-top:14px;color:#28392d;font-size:18px;font-weight:600;line-height:1.35}
+#plots .around-photo{display:block;width:100%;aspect-ratio:1.55;overflow:hidden;border-radius:11px;box-shadow:0 1px 5px #253b2c16;transition:box-shadow .3s}
 #plots .around-photo img{display:block;width:100%;height:100%;object-fit:cover}
 #plots .around-card--river .around-photo img{transform:scale(1.15)}
 #plots .around button:focus-visible{outline:2px solid #8d603a;outline-offset:4px}
 @keyframes around-fade{from{opacity:.3}to{opacity:1}}
-@media(max-width:800px){#plots .around{margin-top:64px;padding-top:46px}#plots .around-head{display:block;margin-bottom:22px}#plots .around-head h2{margin-bottom:14px}#plots .around-head p{font-size:16px}#plots .around-gallery{--around-photo-height:clamp(230px,65vw,310px);height:calc(var(--around-photo-height) + 71px);display:flex;overflow-x:auto;max-width:100%;gap:12px;scroll-snap-type:x mandatory;overscroll-behavior-inline:contain;scrollbar-width:none;padding:3px 4px 10px;box-sizing:border-box}#plots .around-gallery::-webkit-scrollbar{display:none}#plots .around-card{flex:0 0 74%;scroll-snap-align:start}#plots .around-card--stop img{object-position:90% center}}
+@media(max-width:800px){#plots .around{margin-top:64px;padding-top:46px}#plots .around-head{display:block;margin-bottom:22px}#plots .around-head h2{margin-bottom:14px}#plots .around-head p{font-size:16px}#plots .around-gallery{display:flex;overflow-x:auto;max-width:100%;gap:12px;scroll-snap-type:x mandatory;overscroll-behavior-inline:contain;scrollbar-width:none;padding:3px 4px 10px}#plots .around-gallery::-webkit-scrollbar{display:none}#plots .around-card{flex:0 0 74%;scroll-snap-align:start}#plots .around-photo{aspect-ratio:1.12}#plots .around-card--stop img{object-position:90% center}}
 @media(max-width:500px){#plots .around-tabs{gap:6px}#plots .around-tabs button{font-size:13px;min-height:43px}#plots .around-card{flex-basis:77%}}
 @media(prefers-reduced-motion:reduce){#plots .around-gallery.is-changing{animation:none}#plots .around-card img,#plots .around-tabs button{transition:none}}
