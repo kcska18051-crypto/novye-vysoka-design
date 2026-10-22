@@ -5,7 +5,7 @@
     {src:'assets/forest-v2/hero.webp',alt:'Образ загородного дома среди сосен у воды'},
     {src:'assets/client-october/hero-river-natural-v2.webp',alt:'Панорама леса и Волги на фотографии клиента с лёгкой цветокоррекцией.'},
     {src:'assets/client-october/hero-plots-natural-v2.webp',alt:'Участки, дорога и соседние дома у леса. Фотография клиента с ретушью строительного мусора.'},
-    {src:'assets/client-october/hero-autumn-road-v4.webp',desktop:'assets/client-october/hero-autumn-road-desktop-real.webp',alt:'Осенняя дорога среди сосен с солнечным лучом. Фотография клиента с тёплой цветокоррекцией.'}
+    {src:'assets/client-october/hero-autumn-road-v4.webp',desktop:'assets/client-october/hero-autumn-road-desktop-fast.webp',alt:'Осенняя дорога среди сосен с солнечным лучом. Фотография клиента с тёплой цветокоррекцией.'}
   ];
   const buttons=[...root.querySelectorAll('[data-hero-option]')];
   let current=0,version=0;
