@@ -12,7 +12,7 @@
     rest: [
       { title: 'Высоковский бор', image: 'forest-client-natural.webp', position: 'center 75%', alt: 'Высоковский бор и вода между соснами. Фотография клиента с лёгкой цветокоррекцией.' },
       { title: 'Причал', image: 'river-edited.webp' },
-      { title: 'Берег Волги', image: 'shore-client-natural.webp', position: 'center 78%', alt: 'Песчаный берег Волги у соснового леса. Фотография клиента с лёгкой цветокоррекцией.' },
+      { title: 'Пляж на Волге', image: 'shore-client-natural.webp', position: 'center 78%', alt: 'Песчаный берег Волги у соснового леса. Фотография клиента с лёгкой цветокоррекцией.' },
       { title: 'Рыбинск', image: 'rybinsk-sunset-v2.webp', alt: 'Художественно обработанное фото Рыбинска на закате' },
       { title: 'Детский лагерь «Высоковский бор»', image: 'camp-edited.webp' }
     ]
