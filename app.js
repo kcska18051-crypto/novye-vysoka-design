@@ -256,6 +256,8 @@
       video.src = videoId;
       video.controls = true;
       video.playsInline = true;
+      video.muted = button.dataset.videoMuted === 'true';
+      video.defaultMuted = video.muted;
       video.preload = 'metadata';
       video.poster = button.querySelector('img')?.src || '';
       video.setAttribute('aria-label', title || 'Видео о проекте');
