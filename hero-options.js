@@ -1,36 +1,50 @@
 (() => {
-  const root=document.querySelector('.hero-preview');
-  if(!root)return;
-  const choices=[
-    {src:'assets/forest-v2/hero.webp',alt:'Образ загородного дома среди сосен у воды'},
-    {src:'assets/client-october/hero-river-natural-v2.webp',alt:'Панорама леса и Волги на фотографии клиента с лёгкой цветокоррекцией.'},
-    {src:'assets/client-october/hero-plots-natural-v2.webp',alt:'Участки, дорога и соседние дома у леса. Фотография клиента с ретушью строительного мусора.'},
-    {src:'assets/client-october/hero-autumn-road-v4.webp',desktop:'assets/client-october/hero-autumn-road-desktop-fast.webp',alt:'Осенняя дорога среди сосен с солнечным лучом. Фотография клиента с тёплой цветокоррекцией.'}
+  const root = document.querySelector('.hero-preview');
+  if (!root) return;
+  const choices = [
+    {src:'assets/client-october/hero-beach.webp',mobile:'assets/client-october/hero-beach-mobile.webp',alt:'Песчаный берег, вода и сосновый лес'},
+    {src:'assets/forest-v2/hero.webp',alt:'Образ загородного дома среди сосен у воды'}
   ];
-  const buttons=[...root.querySelectorAll('[data-hero-option]')];
-  let current=0,version=0;
-  let visible=root.querySelector('.hero-image');
-  visible.classList.add('hero-option-image');
-  async function choose(index,force=false){
-    if(index===current&&!force)return;
-    const request=++version;
-    const next=new Image();
-    next.src=choices[index].desktop&&matchMedia('(min-width:761px)').matches?choices[index].desktop:choices[index].src;
-    next.alt=choices[index].alt;
-    next.className='hero-image hero-option-image';
-    next.style.opacity='0';
-    try{await next.decode();}catch{return;}
-    if(request!==version)return;
-    const previous=visible;
-    root.insertBefore(next,root.querySelector('.hero-shade'));
+  const buttons = [...root.querySelectorAll('[data-hero-option]')];
+  const reduced = matchMedia('(prefers-reduced-motion:reduce)');
+  let current = 0, version = 0;
+  let visible = root.querySelector('.hero-picture') || root.querySelector('.hero-image');
+  root.querySelector('.hero-image').classList.add('hero-option-image');
+  async function choose(index) {
+    if (!choices[index]) return;
+    const request = ++version;
+    if (index === current) return;
+    const choice = choices[index];
+    const picture = document.createElement('picture');
+    picture.className = 'hero-picture';
+    if (choice.mobile) {
+      const source = document.createElement('source');
+      source.media = '(max-width: 760px)';
+      source.srcset = choice.mobile;
+      picture.append(source);
+    }
+    const next = new Image();
+    next.alt = choice.alt;
+    next.className = 'hero-image hero-option-image';
+    next.width = 1672;
+    next.height = 941;
+    next.style.opacity = '0';
+    picture.append(next);
+    next.src = choice.src;
+    try { await next.decode(); } catch { return; }
+    if (request !== version) return;
+    const previous = visible;
+    root.insertBefore(picture, root.querySelector('.hero-shade'));
     void next.offsetWidth;
-    next.style.opacity='1';previous.style.opacity='0';
-    visible=next;current=index;root.dataset.heroChoice=String(index);
-    buttons.forEach((b,i)=>b.setAttribute('aria-pressed',String(i===index)));
-    setTimeout(()=>previous.remove(),matchMedia('(prefers-reduced-motion:reduce)').matches?0:450);
+    next.style.opacity = '1';
+    (previous.matches('img') ? previous : previous.querySelector('img')).style.opacity = '0';
+    visible = picture;
+    current = index;
+    root.dataset.heroChoice = String(index);
+    buttons.forEach((button,i) => button.setAttribute('aria-pressed', String(i === index)));
+    setTimeout(() => previous.remove(), reduced.matches ? 0 : 450);
   }
-  buttons.forEach((b,i)=>b.addEventListener('click',()=>choose(i)));
-  matchMedia('(min-width:761px)').addEventListener('change',()=>{if(choices[current].desktop)choose(current,true)});
-  const requested=Number(new URLSearchParams(location.search).get('hero'));
-  if(requested>=1&&requested<=choices.length)choose(requested-1);
+  buttons.forEach((button,index) => button.addEventListener('click', () => choose(index)));
+  const requested = Number(new URLSearchParams(location.search).get('hero'));
+  if (requested >= 1 && requested <= choices.length) choose(requested - 1);
 })();
