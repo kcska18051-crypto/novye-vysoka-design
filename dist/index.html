@@ -34,8 +34,8 @@
   <link rel="stylesheet" href="ending-local.css?v=20261015">
   <link rel="stylesheet" href="header-local.css?v=20261016-brand-clean">
   <link rel="stylesheet" href="qa-polish.css?v=20261016-input-padding">
-  <link rel="stylesheet" href="review-20261020.css?v=20261021-warm-video3">
-  <script src="hero-options.js?v=20261022-fast4" defer></script>
+  <link rel="stylesheet" href="review-20261020.css?v=20261023-beach">
+  <script src="hero-options.js?v=20261023-beach" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Перейти к содержанию</a>
@@ -72,8 +72,8 @@
   </div>
 
   <main id="main">
-    <section class="hero hero-preview" id="top" aria-labelledby="hero-title">
-      <img class="hero-image" src="assets/forest-v2/hero.webp" alt="Образ загородного дома среди сосен у воды" fetchpriority="high">
+    <section class="hero hero-preview" id="top" aria-labelledby="hero-title" data-hero-choice="0">
+      <picture class="hero-picture"><source media="(max-width: 760px)" srcset="assets/client-october/hero-beach-mobile.webp"><img class="hero-image" src="assets/client-october/hero-beach.webp" alt="Песчаный берег, вода и сосновый лес" fetchpriority="high" width="1672" height="941"></picture>
       <div class="hero-shade"></div>
 
 
@@ -93,10 +93,8 @@
         <span><strong>Послушать лес</strong></span>
       </button>
       <div class="hero-options" role="group" aria-label="Варианты главного баннера">
-        <button type="button" data-hero-option="0" aria-pressed="true">1 · Дом в лесу</button>
-        <button type="button" data-hero-option="1" aria-pressed="false">2 · Лес и Волга</button>
-        <button type="button" data-hero-option="2" aria-pressed="false">3 · Участки</button>
-        <button type="button" data-hero-option="3" aria-pressed="false">4 · Осенний лес</button>
+        <button type="button" data-hero-option="0" aria-pressed="true">1 · Пляж и лес</button>
+        <button type="button" data-hero-option="1" aria-pressed="false">2 · Дом в лесу</button>
       </div>
       <p class="sound-status" id="sound-status" role="status"></p>
       <audio id="forest-audio" preload="none" loop>
