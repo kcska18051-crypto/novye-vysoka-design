@@ -25,7 +25,7 @@
   <script src="transport-approved-data.js?v=20261016-directions" defer></script>
   <script src="transport-approved.js?v=20261015" defer></script>
   <link rel="stylesheet" href="quarters-approved.css?v=20261015">
-  <script src="quarters-approved.js?v=20261020-popup" defer></script>
+  <script src="quarters-approved.js?v=20261027-clear" defer></script>
   <script src="quarters-overview-approved.js?v=20261016-qa" defer></script>
   <link rel="stylesheet" href="around-approved.css?v=20261021-local">
   <script src="around-approved.js?v=20261022-beach" defer></script>
@@ -36,6 +36,9 @@
   <link rel="stylesheet" href="qa-polish.css?v=20261016-input-padding">
   <link rel="stylesheet" href="review-20261020.css?v=20261023-beach">
   <link rel="stylesheet" href="hero-light-approved.css?v=20261027">
+<link rel="stylesheet" href="situation-plan.css?v=2">
+<script src="situation-plan.js?v=1" defer></script>
+<style>#plots .qe-project-download,#plots #qe-pdf{display:none!important} #plots .qe-viewer:has(img[src*="chernaya-plan-clear"]){grid-template-rows:minmax(0,1fr);grid-template-columns:minmax(0,1fr)} #plots #qe-plan[src*="chernaya-plan-clear"]{min-height:0;min-width:0}</style>
 </head>
 <body>
   <a class="skip-link" href="#main">Перейти к содержанию</a>
@@ -85,7 +88,7 @@
         <p class="hero-price">от 45 000 ₽/сотка</p>
         <div class="hero-actions">
           <a class="button button-primary" href="#tour" data-lead-intent="selection">Выбрать участок</a>
-          <a class="button button-glass" href="#location">Посмотреть расположение</a>
+          <a class="button button-glass" href="assets/situation-plan-client.png" aria-haspopup="dialog" aria-controls="situation-plan-dialog">Посмотреть расположение</a>
         </div>
       </div>
 
@@ -443,6 +446,11 @@
       <div class="video-dialog-head"><h2 id="video-dialog-title">Видео о проекте</h2><button class="video-dialog-close" type="button" aria-label="Закрыть видео">×</button></div>
       <div class="video-dialog-frame" data-video-frame></div>
     </div>
+  </dialog>
+<dialog class="situation-plan-dialog" id="situation-plan-dialog" aria-labelledby="situation-plan-title">
+    <div class="situation-plan-head"><h2 id="situation-plan-title">Ситуационный план</h2><button type="button" aria-label="Закрыть ситуационный план">×</button></div>
+    <img src="assets/situation-plan-client.png" alt="Ситуационный план проекта «Новые Высока»">
+    <a class="situation-plan-original" href="assets/situation-plan-client.png" target="_blank" rel="noopener">Открыть в полном размере ↗</a>
   </dialog>
 </body>
 </html>

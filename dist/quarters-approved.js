@@ -26,7 +26,7 @@
     if(busy)return;busy=true;activeTrigger=trigger;
     const id=trigger.dataset.quarter,name=quarters[id];
     $('#qe-detail-title').textContent=name;
-    plan.loading='eager';plan.src=`assets/quarter-overview/${id}-plan.png`;plan.alt=`Исходный генплан квартала «${name}»`;
+    plan.loading='eager';plan.src=id==='chernaya'?'assets/quarter-overview/chernaya-plan-clear-oct27.png':`assets/quarter-overview/${id}-plan.png`;plan.alt=`Исходный генплан квартала «${name}»`;
     viewer.setAttribute('aria-label',`Генплан квартала «${name}». Масштаб: плюс и минус. Перемещение: стрелки или перетаскивание.`);
     const price=priceData[id];$('.qe-price').hidden=!price;
     if(price)$('.qe-price').innerHTML=`от ${price.toLocaleString('ru-RU')} ₽<span>за сотку</span>`;
