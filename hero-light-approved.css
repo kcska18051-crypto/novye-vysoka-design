@@ -1,0 +1,36 @@
+/* Local review: photo continuity and compact mobile hero. */
+.hero.hero-preview{background:#e8e4d7;color:#263c2d;height:min(850px,95svh);min-height:700px}
+.hero-preview .hero-picture{display:contents}
+.hero-preview .hero-image{inset:0;width:100%;height:100%;object-position:center;filter:none;animation:none;transform:none}
+.hero.hero-preview .hero-shade{display:block;background:linear-gradient(90deg,#eae8dedb 0%,#eae8deb8 30%,#eae8de63 47%,transparent 67%)}
+.hero-preview .hero-content{padding-top:110px;padding-bottom:90px}
+.hero-preview .hero-content::before{content:none}
+.hero-preview h1{color:#263c2d;max-width:690px;font-size:clamp(48px,4.5vw,66px);line-height:1.09;text-shadow:none}
+.hero-preview .hero-lead{color:#273c30;max-width:525px;font-size:19px;line-height:1.6;text-shadow:none}
+.hero-preview .hero-price{color:#75452c;font-size:35px}
+.hero-preview .button-primary{background:#334c38;border-color:#334c38;color:#fffaf0}
+.hero-preview .button-primary:hover{background:#263c2d}
+.hero-preview .button-glass{background:#f4f0e4a6;border-color:#52634e73;color:#263c2d;backdrop-filter:blur(10px)}
+.hero-preview .button-glass:hover{background:#f5f0e3}
+@media(max-width:1050px) and (min-width:761px){.hero-preview h1{max-width:610px;font-size:54px}}
+@media(max-width:760px){
+ .hero-feature-scene{background:#dfc39f url('assets/client-october/hero-beach-mobile.webp') center top/cover no-repeat;isolation:isolate;position:relative}
+ .hero-feature-scene::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,#ede9dfc9 0%,#ede9dfb3 22%,#ede9df26 43%,#ede9df21 59%,#e9e2d4d9 77%,#e9e2d4ed 100%)}
+ .hero.hero-preview{height:100svh;min-height:0;max-height:none;background:transparent;align-items:flex-start}
+ .hero-preview .hero-image,.hero.hero-preview .hero-shade{display:none}
+ .hero-preview .hero-content{width:calc(100% - 40px);padding:clamp(104px,15svh,126px) 0 85px}
+ .hero-preview h1{font-size:clamp(30px,8.2vw,40px);line-height:1.09;max-width:100%}
+ .hero-preview .hero-lead{font-size:16px;line-height:1.45;max-width:370px;margin-top:18px}
+ .hero-preview .hero-price{font-size:28px;margin:19px 0 21px}
+ .hero-preview .hero-actions{gap:9px}
+ .hero-preview .button{min-height:46px;padding:10px;font-size:15px}
+ .hero-preview .sound-control{bottom:22px;min-height:44px}
+}
+@media(max-width:760px) and (max-height:680px){
+ .hero-preview .hero-content{padding-top:100px}
+ .hero-preview h1{font-size:30px}
+ .hero-preview .hero-lead{font-size:15px;margin-top:12px}
+ .hero-preview .hero-price{margin:14px 0;font-size:26px}
+ .hero-preview .button{min-height:42px}
+ .hero-preview .sound-control{bottom:14px;min-height:40px}
+}

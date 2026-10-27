@@ -35,7 +35,7 @@
   <link rel="stylesheet" href="header-local.css?v=20261016-brand-clean">
   <link rel="stylesheet" href="qa-polish.css?v=20261016-input-padding">
   <link rel="stylesheet" href="review-20261020.css?v=20261023-beach">
-  <script src="hero-options.js?v=20261023-beach" defer></script>
+  <link rel="stylesheet" href="hero-light-approved.css?v=20261027">
 </head>
 <body>
   <a class="skip-link" href="#main">Перейти к содержанию</a>
@@ -72,6 +72,7 @@
   </div>
 
   <main id="main">
+    <div class="hero-feature-scene">
     <section class="hero hero-preview" id="top" aria-labelledby="hero-title" data-hero-choice="0">
       <picture class="hero-picture"><source media="(max-width: 760px)" srcset="assets/client-october/hero-beach-mobile.webp"><img class="hero-image" src="assets/client-october/hero-beach.webp" alt="Песчаный берег, вода и сосновый лес" fetchpriority="high" width="1672" height="941"></picture>
       <div class="hero-shade"></div>
@@ -92,10 +93,6 @@
         <span class="sound-bird" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="m2 16 4-1c1-4 4-7 8-6V7a3 3 0 0 1 6 0l2 2-3 1c0 6-5 10-11 8l-5 2 2-4Z"/><path d="M8 14c2 1 4 0 5-2M11 19v2m4-3v3"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor" stroke="none"/></svg></span><span class="sound-wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
         <span><strong>Послушать лес</strong></span>
       </button>
-      <div class="hero-options" role="group" aria-label="Варианты главного баннера">
-        <button type="button" data-hero-option="0" aria-pressed="true">1 · Пляж и лес</button>
-        <button type="button" data-hero-option="1" aria-pressed="false">2 · Дом в лесу</button>
-      </div>
       <p class="sound-status" id="sound-status" role="status"></p>
       <audio id="forest-audio" preload="none" loop>
         <source src="assets/forest-reference.mp3" type="audio/mpeg">
@@ -136,6 +133,7 @@
         </article>
       </div>
     </section>
+    </div>
 
     <section class="project-intro section" id="about" aria-labelledby="about-title">
       <div class="project-intro-copy reveal">
