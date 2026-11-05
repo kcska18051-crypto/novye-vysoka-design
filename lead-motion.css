@@ -1,0 +1,11 @@
+/* Native dialog transitions retain its focus, Escape and form behaviour. */
+@media(prefers-reduced-motion:no-preference){
+ #lead-dialog{opacity:0;transform:translateY(10px);transition:opacity .28s ease,transform .32s cubic-bezier(.22,.61,.36,1),overlay .32s allow-discrete,display .32s allow-discrete}
+ #lead-dialog[open]{opacity:1;transform:translateY(0)}
+ #lead-dialog::backdrop{background-color:rgba(3,20,15,0);transition:background-color .28s ease,overlay .32s allow-discrete,display .32s allow-discrete}
+ #lead-dialog[open]::backdrop{background-color:rgba(3,20,15,.72)}
+ @starting-style{
+  #lead-dialog[open]{opacity:0;transform:translateY(10px)}
+  #lead-dialog[open]::backdrop{background-color:rgba(3,20,15,0)}
+ }
+}
