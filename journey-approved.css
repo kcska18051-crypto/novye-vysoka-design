@@ -22,3 +22,18 @@
 }
 @supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){#life .journey-tab{background-color:#2c3826}}
 @media(prefers-reduced-motion:reduce){#life .journey-tab,#life .journey-tab-preview{transition:none}#life .journey-tabs{scroll-behavior:auto}}
+
+/* Smoother scene changes; no image zoom or perpetual motion. */
+@media(min-width:761px) and (prefers-reduced-motion:no-preference){
+ #life .journey-panel{transition:flex-grow .7s cubic-bezier(.22,.61,.36,1);animation:none}
+ #life .journey-panel .journey-copy{opacity:0;transform:none;transition:opacity .16s ease}
+ #life .journey-panel.is-active .journey-copy{opacity:1;transition:opacity .3s ease .4s}
+ #life .journey-track[data-direction] .journey-panel.is-active .journey-copy{animation:none;transition:opacity .3s ease .4s;transform:none}
+ #life .journey-panel .journey-rail-label{transition:opacity .2s ease}
+ #life .journey-panel.is-active .journey-rail-label{opacity:0}
+ #life .journey-progress i{transition:transform .7s cubic-bezier(.22,.61,.36,1)}
+}
+@media(max-width:760px) and (prefers-reduced-motion:no-preference){
+ #life .journey-track{scroll-behavior:smooth}
+ #life .journey-tab{transition:background-color .3s ease,border-color .3s ease,color .3s ease}
+}
