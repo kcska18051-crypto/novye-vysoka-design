@@ -41,6 +41,7 @@
 <script src="situation-plan.js?v=1" defer></script>
 <style>#plots .qe-project-download,#plots #qe-pdf{display:none!important} #plots .qe-viewer:has(img[src*="chernaya-plan-20261028"]){grid-template-rows:minmax(0,1fr);grid-template-columns:minmax(0,1fr)} #plots #qe-plan[src*="chernaya-plan-20261028"]{min-height:0;min-width:0}</style>
   <link rel="stylesheet" href="lead-motion.css?v=20261105">
+  <link rel="stylesheet" href="language-switcher.css?v=20261119">
 </head>
 <body>
   <a class="skip-link" href="#main">Перейти к содержанию</a>
@@ -60,7 +61,11 @@
     </nav>
     <a class="header-cta" href="#tour" data-lead-intent="selection">Выбрать участок</a>
     <a class="header-phone" href="tel:+79092801024">+7 (909) 280-10-24</a>
-    <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu"><span data-menu-label>Меню</span><span class="menu-mark" aria-hidden="true"></span></button>
+    <div class="language-switcher" role="group" aria-label="Выбор языка">
+      <a class="language-switch" href="https://kcska18051-crypto.github.io/novye-vysoka-en/" lang="en" hreflang="en" aria-label="English version"><span class="language-label-long">English</span><span class="language-label-short" aria-hidden="true">EN</span></a>
+      <a class="language-switch" href="https://kcska18051-crypto.github.io/novye-vysoka-zh/" lang="zh-CN" hreflang="zh-CN" aria-label="中文版">中文</a>
+    </div>
+    <button class="menu-button" type="button" aria-label="Меню" aria-expanded="false" aria-controls="mobile-menu"><span data-menu-label>Меню</span><span class="menu-mark" aria-hidden="true"></span></button>
   </header>
   <div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Разделы страницы" hidden>
     <a href="#about">О проекте</a>

@@ -1,0 +1,27 @@
+/* Language links share the landing page's translucent, rounded header controls. */
+.site-header,.site-header.is-scrolled{gap:14px}
+.site-header .language-switcher{display:flex;flex:0 0 auto;align-items:center;gap:6px}
+.site-header .language-switch{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;padding:8px 12px;border:1px solid #fff6df59;border-radius:999px;background:#ffffff0c;color:#faf7ed;text-decoration:none;font:500 12px/1.2 var(--sans);white-space:nowrap;transition:background .2s,border-color .2s}
+.site-header .language-switch:hover{background:#fff8df1f;border-color:#e7c39aa6}
+.site-header .language-switch:focus-visible{outline:2px solid #e7c39a;outline-offset:4px;border-radius:999px}
+.language-label-short{display:none}
+@media(max-width:1280px){
+ .site-header>nav{display:none}
+ .site-header .menu-button{display:flex}
+ .site-header .header-cta{margin-left:auto}
+}
+@media(max-width:900px){.site-header .header-phone{display:none}}
+@media(max-width:760px){
+ .site-header,.site-header.is-scrolled{gap:8px;padding-inline:12px}
+ .site-header .language-switcher{margin-left:auto}
+ .site-header .language-switch{padding-inline:8px}
+ .language-label-long{display:none}
+ .language-label-short{display:inline}
+ .site-header .menu-button{width:40px;min-width:40px;padding-inline:8px;margin-left:0}
+ .site-header .menu-button [data-menu-label]{display:none}
+}
+@media(max-width:360px){
+ .site-header .brand-logo{width:120px}
+ .site-header .brand-project{font-size:8px}
+}
+@media(prefers-reduced-motion:reduce){.site-header .language-switch{transition:none}}
